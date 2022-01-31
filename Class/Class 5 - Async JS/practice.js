@@ -136,3 +136,18 @@
 // }
 
 // main();
+
+// setInterval(() => console.log("hey"), 2000);
+
+// var count = 5;
+
+// function timer() {
+//   if (count === 0) {
+//     console.log("Bang Bang! 💣");
+//     return;
+//   }
+//   console.log(count);
+//   count = count - 1;
+// }
+
+// setInterval(() => timer(), 500);
