@@ -1,0 +1,87 @@
+/* formula to calculate specificity = (inline, ids, classes, elements) */
+/* calculate precedence from the left */
+
+button {
+    background-color: red;
+    color: white;
+    padding: 12px 8px;
+}
+/* (0, 0, 0, 1) */
+
+.btn {
+    background-color: blue;
+}
+/* (0, 0, 1, 0) */
+
+#main-button {
+    background-color: green;
+}
+/* (0, 1, 0, 0) */
+
+/* examples */
+
+/* main nav .btn {} -> (0, 0, 1, 2) */
+/* #main-button.btn {} (0, 1, 1, 0) */
+/* main nav #main-button.btn {} (0, 1, 1, 2) */
+/* main nav #main-button.btn:hover {} (0, 1, 2, 2) */
+/* main nav #main-button.btn:hover {} (0, 1, 2, 0) */
+/* main #main-btn.btn.styled-btn {} (0, 1, 2, 1)*/
+
+/* #main-button.btn -> same element */
+/* #main-button .btn -> .btn is a child of #main-button */
+
+/* pseudo classes fail to work if it does not take precedence, as it is included in the formula as classes */
+
+
+ /* Formula to calculate specificity - (inline, ids, classes, elements) - calculate from the left */
+
+/* Specificity practice */
+
+/* <main>
+<div class="div-outer" id="div-outer">
+  Outer Div
+  <div class="div-inner" id="div-inner">Inner Div</div>
+</div>
+</main> */
+
+ * {
+    background-color: black;
+    color: black;
+    /* specificity - (0, 0, 0, 0) */
+}
+
+div {
+    color: white;
+     /* specificity - (0, 0, 0, 1) Hence, white gets applied instead of black */
+}
+
+.div-outer {
+    background-color: cyan;
+    height: 300px;
+    width: 300px;
+    /* specificity - (0, 0, 1, 0) */
+}
+
+#div-outer {
+   background-color: green;
+   /* specificity - (0, 1, 0, 0) Hence, green gets applied instead of cyan */ 
+}
+
+.div-inner {
+   background-color: gold;
+   height: 200px;
+   width: 200px;
+   /* specificity - (0, 0, 1, 0) */ 
+}
+
+.div-outer .div-inner {
+   background-color: red;
+   /* specificity - (0, 0, 2, 0) Hence, red gets applied instead of gold */ 
+}
+
+.div-outer .div-inner#div-inner{
+   background-color: blue;
+   /* specificity - (0, 1, 2, 0) Hence, blue gets applied instead of gold or red */
+}
+
+

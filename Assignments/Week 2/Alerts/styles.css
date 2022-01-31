@@ -1,0 +1,54 @@
+.alert {
+    width: 100%;
+    padding: 15px 30px; 
+    margin: 20px auto;
+    border-radius: 5px;
+}
+
+.primary {
+    background-color: darkblue;
+    color: white;
+}
+
+.success {
+    background-color: green;
+    color: white;
+}
+
+.warning {
+    background-color: #ffa500;
+    color: white;
+}
+
+.danger {
+    background-color: red;
+    color: white;
+}
+
+.outline-primary {
+    background-color: white;
+    border: 1px solid darkblue;
+    color: darkblue;
+}
+
+.outline-success{
+    background-color: white;
+    border: 1px solid green;
+    color: green;
+}
+
+.outline-danger{
+    background-color: white;
+    border: 1px solid red;
+    color: red;
+}
+
+.outline-warning{
+    background-color: white;
+    border: 1px solid #ffa500;
+    color: #ffa500;
+}
+
+.alert span {
+    font-weight: 700;
+}

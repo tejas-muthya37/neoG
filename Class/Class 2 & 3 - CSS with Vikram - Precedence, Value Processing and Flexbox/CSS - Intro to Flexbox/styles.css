@@ -1,0 +1,46 @@
+.container {
+    display: flex;
+    height: 400px;
+    background-color: lightblue;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    /* safe and unsafe properties? */
+}
+
+.child {
+    height: 40px;
+    background-color: yellow;
+    border: 2px solid;
+    padding: 5px;
+    border-radius: 5px;
+    order: 1;
+}
+
+.child:nth-child(4) {
+    order: 0;
+    background-color: lightcoral;
+    /* flex-grow: 1; */
+    /* it uses the maximum available space */
+    
+    /* 
+    how to calculate the width that an element
+    will take once flex-grow is set?
+
+    grow value is the value set to flex-grow property
+    total grow value is the sum of grow values of the all the flex items
+
+    ((grow value/total grow value) * available space) + original width of element
+    here, 1/1 * (parent width - sum of width of all flex items) + width of element
+
+    
+    */
+
+    flex-basis: 20%;
+    /* 20% of the parent's width + padding + border*/
+}
+
+.child:nth-child(2) {
+    order: 2;
+    background-color: orange;
+}

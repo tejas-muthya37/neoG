@@ -1,0 +1,113 @@
+/* section {
+    background-color: purple;
+    width: 500px;
+    font-size: 150%;
+}
+
+p {
+    width: 100px;
+    font-size: 2rem;
+    background-color: red;
+}
+
+.title {
+    width: 10%;
+} */
+
+/* Value processing is done in the below order */
+
+/* Declared value
+(author declarations)
+
+width - 100px and 10%
+font-size for section: 150%
+font-size for p - 2 rem
+
+
+Cascaded Value
+(after resolving conflicts, if multiple declarations)
+
+width - 10% due to precedence
+font-size for section: 150%
+font-size for p - 2 rem
+
+
+Specified Value
+(default value, if no cascaded value)
+
+font-size for root - 16px by default, here 2rem is only specified for p.
+padding - 0px by default
+
+
+Computed value
+(converting relative to absolute)
+
+width - 10% of the parent's width (here, 500px)
+padding - 0px
+font-size for root - 16px
+font-size for section - 150% of parent (16px) - 24px
+font-size for p - 2 rem -> 2 * 24? no. 2 * 16. 32px
+// computed value of font-size for p would be 48px if we used em instead of rem
+
+
+Used value
+(final calculation)
+
+width - 50px
+padding - 0px
+font-size for root - 16px
+font-size for section - 24px
+font-size for p - 32px
+*/
+
+/* rem - with respect to root's computed value, here root's font size
+
+em for font-size - with respect to parent's computed font-size.
+but, em for width/length - x * current element's FONT SIZE
+
+% - with respect to parent's computed value */
+
+section {
+    font-size: 150%;
+    /* 1.5 * 16px (default) = 24px */
+    width: 2em;
+    /* 2 * 24px = 48px */
+}
+
+p { 
+    font-size: 2em;
+    /* 2 * 24px = 48px */
+    font-size: 2rem;
+    /* 2 * 16px = 32px */
+    width: 2em;
+    /* 2 * 32px = 64px */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.item {
+    height: 100px;
+    width: 100px;
+    /* position: relative; -> not required if parent display is flex*/
+    opacity: 0.8;
+}
+
+.item:nth-of-type(1) {
+    background-color: red;
+}
+
+.item:nth-of-type(2) {
+    background-color: blue;
+    margin-top: -10px;
+    z-index: 1;
+}
+
+.item:nth-of-type(3) {
+    background-color: green;
+    margin-top: -10px;
+}
+
+

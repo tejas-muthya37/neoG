@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="styles4.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- <h3>This is a container</h3>
+      <p>This is a paragraph in the container</p>
+      <button>Learn More</button> -->
+
+      <!-- <img
+        src="https://picsum.photos/id/10/200/300"
+        srcset="
+          https://picsum.photos/id/237/200/300 1x,
+          https://picsum.photos/id/1/200/300   2x
+        "
+      /> -->
+
+      <!-- NO CSS applied for the below example -->
+
+      <!-- <picture>
+        <source
+          srcset="https://picsum.photos/300/400"
+          media="(max-width: 400px)"
+        />
+        <source
+          srcset="https://picsum.photos/400/500"
+          media="(max-width: 500px)"
+        />
+        <img srcset="https://picsum.photos/500/600" />
+      </picture> -->
+
+      <!-- <img
+        srcset="img1.jpg 200w, img2.jpg 900w"
+        sizes="(min-width: 1000px)
+      1000px, 200px"
+      /> -->
+
+      <!-- the above code does not work perfectly. below one is the solution. -->
+
+      <picture>
+        <source srcset="img2.jpg" media="(min-width: 1000px)" />
+        <img src="img1.jpg" />
+      </picture>
+    </div>
+  </body>
+</html>

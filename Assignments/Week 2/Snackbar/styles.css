@@ -1,0 +1,34 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.snackbar {
+    display: flex;
+    background-color: #282828;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    color: white;
+    width: 400px;
+    margin: 100px auto;
+    border-radius: 5px;
+}
+
+.snackbar > span {
+    color: #CF9FFF;
+    padding: 5px;
+    background-color: #301934;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.snackbar > button {
+    background-color: #282828;
+    border: none;
+    color: white;
+    cursor: pointer;
+}

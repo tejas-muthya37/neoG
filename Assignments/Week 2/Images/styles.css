@@ -1,0 +1,14 @@
+.image {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10%;
+}
+
+.image.circle {
+    border-radius: 100%;
+}
+
+.image.resizable {
+    width: 60%;
+    height: 60%;
+}

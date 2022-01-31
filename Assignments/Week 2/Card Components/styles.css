@@ -1,0 +1,214 @@
+/* BASIC SETUP */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* ELEMENT STYLING */
+
+.card img {
+    width: 100%;
+}
+
+.card a {
+    color: blueviolet;
+    font-size: 0.95rem;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+.card p {
+    font-size: 0.9rem;
+    color: grey;
+    letter-spacing: 0.3px;
+    padding: 15px;
+}
+
+.card i {
+    font-size: 1.25rem;
+    color: black;
+}
+
+.card footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.4rem;
+    padding: 15px;
+}
+
+/* HOVER EFFECTS */
+
+.hover:hover {
+    background-color: #F0F0F0;
+}
+
+.card a:hover {
+    background-color: #F0EFFF;
+}
+
+
+/* STYLES COMMON TO ALL CARDS */
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 23rem;
+    border-radius: 7px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 100px auto;
+}
+
+
+.card .text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+    border-radius: inherit;
+}
+
+.card .text > h3 {
+    padding-bottom: 0.4rem;
+    font-size: 1.2rem;
+    letter-spacing: 0.8px;
+    font-weight: 500;
+}
+
+.card .text > h4 {
+    color: grey;
+    font-weight: 200;
+    font-size: 0.9rem;
+}
+
+
+.card i:nth-of-type(2), i:nth-of-type(3) {
+    -webkit-text-stroke: 1px white;
+}
+
+/* STYLING FOR SPECIFIC SCENARIOS */
+
+.card .img-top-lg {
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+.card .text-top {
+    padding-top: 1.25rem;
+}
+
+.badge-card .badge-with-text {
+    position: relative;
+    display: grid;
+}
+
+.dismiss-card .dismiss-icon-with-text {
+    position: relative;
+    display: grid;
+}
+
+.badge-with-text > * {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.dismiss-icon-with-text > * {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.badge {
+    font-size: 0.8rem;
+    background-color: green;
+    height: max-content;
+    text-align: center;
+    padding: 5px;
+    color: whitesmoke;
+    margin-top: 1.25rem;
+    cursor: pointer;
+    width: 85px;
+    justify-self: flex-end;
+}
+
+.dismiss {
+    height: max-content;
+    font-size: 2rem;
+    text-align: center;
+    margin-right: 1rem;
+    cursor: pointer;
+    justify-self: end;
+}
+
+.dismiss-card {
+    display: flex;
+    flex-direction: column;
+    width: 23rem;
+    margin: 100px;
+    border-radius: 7px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    opacity: 1;
+    transition: opacity 0.1s ease-out;
+}
+
+.dismissed { 
+    opacity: 0;
+}
+
+/* ICONS AND ANCHOR TAGS */
+
+.hidden {
+    visibility: hidden;
+}
+
+.card .visible {
+    margin-right: 10px;
+}
+
+/* STYLING FOR HORIZONTAL CARD */
+
+.card-horizontal {
+    width: 23rem;
+    height: max-content;
+}
+
+.card-top {
+    display: flex;
+    padding: 0;
+}
+
+.card .img-horizontal {
+    width: 30%;
+    height: 100px;
+    border-top-left-radius: 5px;
+}
+
+.card .text-horizontal {
+    width: 100%;
+}
+
+.text-overlay .overlapping-media {
+    display: grid;
+    position: relative;
+}
+
+.overlapping-media img, .overlapping-media .text {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.overlapping-media .text {
+    align-self: flex-end;
+}
+
+.overlapping-media > .text > h3, .overlapping-media > .text > h4 {
+    color: white;
+}

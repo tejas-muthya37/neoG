@@ -1,0 +1,14 @@
+/* hints for overlapping exercise
+
+content, background {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+tag {
+    grid-area: 1/-1;
+    align-self: start;
+    for it to be at the top
+    justify-self: end;
+    for it to be at the right end
+} */

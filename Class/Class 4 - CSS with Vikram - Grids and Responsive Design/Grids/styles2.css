@@ -1,0 +1,62 @@
+.container {
+    display: grid;
+    height: 100vh;
+    grid-gap: 20px;
+    /* difference between this and gap? */
+    color: white;
+    grid-template-columns: 200px 1fr;
+
+    grid-template-areas:
+    "header header"
+    "aside main"
+    "aside main"
+    "aside main"
+    "footer footer";
+
+    /* "header .... header"
+    "aside .... main"
+    "aside .... main"
+    "aside .... main"
+    "footer .... footer" */
+
+    /* the dots = empty column */
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        grid-template-columns: 1fr;
+
+        grid-template-areas:
+        "header"
+        "aside"
+        "main"
+        "footer"
+    }
+}
+
+container > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+}
+
+header {
+    background-color: blue;
+    grid-area: header;
+}
+
+aside {
+    background-color: hotpink;
+    grid-area: aside;
+}
+
+main {
+    background-color: darkred;
+    grid-area: main;
+}
+
+footer {
+    background-color: salmon;
+    grid-area: footer;
+}

@@ -1,0 +1,183 @@
+/* Challenge 1 */
+
+/* body {
+    margin-left: 0;
+    color: white;
+}
+
+nav { 
+    background-color: 	#8A2BE2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+}
+
+ul {
+    display: flex;
+    width: 300px;
+    list-style-type: none;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dp {
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    background-color: wheat;
+} */
+
+/* 
+
+What has Vikram done? 
+
+Parent element is a header inside which there are 2 children, h1 for Awesome Store and a div for the rest
+
+The div has a nav element and an anchor tag.
+
+The div has margin-left: auto
+
+*/
+
+/* Challenge 2 */
+
+/* body {
+    background-color: silver;
+}
+
+.parent {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.child {
+    
+    height: 200px;
+    background-color: white;
+}
+
+.child:nth-of-type(1) {
+    width: 250px;
+}
+
+.child:nth-of-type(2) {
+    flex-grow: 1;
+} */
+
+/* What has Vikram done? 
+
+flex-basis of 250px instead of fixed width */
+
+/* Challenge 3 */
+
+/* body {
+    background-color: silver;
+}
+
+header {
+    display: flex;
+    gap: 10px;
+    height: 50px;
+    background-color: white;
+    align-items: center;
+    background-color: white;
+    padding: 0 10px;
+    border-radius: 5px;
+}
+
+header > * {
+    border-radius: 20px;
+    height: 30px;
+}
+
+header button {
+    flex-basis: 70px;
+    border: none;
+    background-color: darkblue;
+    color: white;
+}
+
+header input {
+    flex-grow: 1;
+    border: 1px solid silver;
+    padding-left: 10px;
+} */
+
+/* What has Vikram done? 
+CSS is the same, HTML - form used.
+ */
+
+ /* Challenge 4 */
+
+ /* body {
+     background-color: silver;
+     font-family:Arial, Helvetica, sans-serif;
+     font-size: 14px;
+ }
+
+ hr{
+     border: none;
+     height: 1px;
+     background-color: silver;
+ }
+
+ .card {
+     width: 350px;
+     background-color: white;
+     padding: 10px;
+     border-radius: 10px;
+ }
+
+ .card > * {
+     display: flex;
+ }
+
+ .content {
+     padding: 5px 0;
+ }
+
+ .title-bar {
+    justify-content: space-between;
+ }
+
+ .buttons {
+     gap: 10px;
+     justify-content: flex-end;
+ }
+
+ button {
+     border: none;
+     background-color: darkcyan;
+     color: white;
+     border-radius: 5px;
+     height: 25px;
+     width: 40px;
+ } */
+
+ /* What has Vikram done? 
+ margin-left: auto for X and buttons.
+ */
+
+
+.flex-container {
+    display: flex;
+    height: 400px;
+    width: 600px;
+    background-color: black;
+}
+
+.flex-items {
+    height: 400px;
+}
+
+.flex-items:nth-of-type(1) {
+    background-color: greenyellow;
+    flex-basis: 500px;
+}
+
+.flex-items:nth-of-type(2) {
+    background-color: red;
+    width: 200px;
+}

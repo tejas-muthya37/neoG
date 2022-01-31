@@ -1,0 +1,76 @@
+body {
+    padding: 10px;
+}
+
+.container {
+    display: grid;
+    gap: 20px;
+    /* grid-auto-flow: row; */
+    /* by default, this is set to row.
+        rows are created. we have to create columns by using grid-template-columns*/
+
+    /* if this is set to column, 
+        then we will have to create rows by using grid-template-rows */
+
+    /* grid-template-columns: 200px 200px 200px;  */
+    /* grid-template-columns: repeat(3, 200px); */
+
+    /* grid-template-columns: repeat(3, 1fr); */
+    grid-template-columns: [col] repeat(3, 1fr);
+
+    grid-auto-columns: 50px;
+
+    /* this property is only applicable for implicitly created grids */
+
+    /* grid-template-columns: [col-1] 100px [col-2] 100px [col-3] 100px [col-3-end]; */
+
+    /* go to dev tools and click on grid next to your grid element name to see cell numbers or grid names. */
+    /* 1fr = 1 fraction. so, each column is equal in size*/
+    /* width of each column */
+    
+    /* grid-template-rows: repeat(2, 1fr); */
+    
+    /* it won't take up the half of the viewport, it takes half of the entire content.
+        if the container is given a height, then it will take up half of that*/
+    /* height of each row */
+
+    /* this is called explicit grid.
+        when both rows and columns are declared*/
+}
+
+.child {
+    background-color: black;
+    color: white;
+    border: 1px solid;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.child:nth-child(3) {
+    background-color: red;
+    grid-column-start: 3;
+    grid-column-end: 4;
+
+    /* which column should the element start and end */
+
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    /* which row should the element start and end */
+
+    grid-column: 3 / 4; 
+    /* 3/-1 will take it to the end */
+    /* 4/5 will create a gap in the 3rd column and place it from 4 - 5 */
+    /* 3/span 2 will start from 3 and span it to the next 2 columns */
+    grid-row: 2 / 3;
+
+    /* short-hand property */
+
+    grid-area: 1 / 3 / 2 / 4;
+
+    /* short-hand property - row-start col-start row-end col-end */
+}
+
+/* avoid using span and auto for naming grids, since they are keywords. */

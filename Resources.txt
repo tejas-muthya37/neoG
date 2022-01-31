@@ -1,0 +1,94 @@
+__________________________________________________________________________________________________________________________________________________________________________________________
+	
+	Font Awesome
+
+	<script src="https://kit.fontawesome.com/6bba1b5d71.js" crossorigin="anonymous"></script>
+
+	Google Fonts
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+    	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet"/>
+
+	font-family: 'Roboto', sans-serif;
+__________________________________________________________________________________________________________________________________________________________________________________________
+
+	Staying committed to the #151daysofcode challenge! 💪🏼
+
+	Day 17 :  Badges
+
+	- Built different kinds of badges for my component library.
+__________________________________________________________________________________________________________________________________________________________________________________________
+
+	Blog topics
+
+	- CSS Box Model 
+	- Compiler vs Transpiler
+	- JavaScript - Compiled or Interpreted?
+	- Temporal Dead Zone
+	- What does Babel do?
+	- Nullish Coalescing
+	- History of JavaScript ( Great story )	
+	- Multithreading vs Async
+	- Web Workers
+__________________________________________________________________________________________________________________________________________________________________________________________
+	
+	Resources :-
+
+	- JS Async - https://youtu.be/8aGhZQkoFbQ
+	
+	- Functional Programming - https://eloquentjavascript.net/05_higher_order.html
+	
+	- Arrow Functions - https://javascript.info/arrow-functions-basics
+
+	- Destructuring - https://javascript.info/destructuring-assignment
+
+	- var, let and const - https://javascript.info/variables
+
+	- Rest parameters and Spread syntax - https://javascript.info/rest-parameters-spread
+
+	- Template Literals - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+
+	- Modules - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
+
+	- Shorthand object and computed property names - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#computed_property_names
+	
+	- Temporal Dead Zone - https://stackoverflow.com/questions/33198849/what-is-the-temporal-dead-zone
+	
+	- Import and Export - https://javascript.info/import-export
+
+	- ES6 Handbook - https://devdojo.com/shreya/es6-handbook
+
+	- ESLint Rules - https://eslint.org/docs/rules/
+
+	- CSS Positioning - https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Positioning
+
+	- CSS Box Shadows - https://getcssscan.com/css-box-shadow-examples
+
+	- CSS Flexbox - https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox
+
+	- CSS Complete Guide to Flexbox -  https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+	- CSS Grid - https://css-tricks.com/getting-started-css-grid/
+	
+	- CSS Grid Layering - https://codesandbox.io/s/nice-gauss-dl4tx?file=/index.html
+
+	- CSS Responsive Design - https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design
+	
+	- CSS Responsive Web Design by Udacity - https://www.udacity.com/course/responsive-web-design-fundamentals--ud893
+
+	- CSS Flex vs Grid - https://css-tricks.com/quick-whats-the-difference-between-flexbox-and-grid/
+
+	- Responsive Web Design by Udacity - https://www.udacity.com/course/responsive-web-design-fundamentals--ud893
+
+	- Organising your CSS - https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Organizing
+
+	- CSS In Depth - https://web.dev/learn/css/
+
+	- How To Come Up With A Brand Name - https://www.tungstenbranding.com/how-to-come-up-with-brand-name/
+
+	- Introduction to Callbacks - https://javascript.info/callbacks
+
+	- Modern Asynchronous JavaScript with Async/Await - https://nodejs.dev/learn/modern-asynchronous-javascript-with-async-and-await
+
+	- Promises - https://javascript.info/promise-basics

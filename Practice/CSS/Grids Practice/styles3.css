@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card {
+    background-color: #966F33;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 325px;
+    padding: 10px;
+    color: white;
+    margin: 100px auto;
+    border-radius: 1rem;
+}
+
+.background, .content, .tag {
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+
+.tag {
+    align-self: flex-start;
+    justify-self: right;
+    background-color: green;
+    border-radius: 2px;
+    margin: 5px;
+    padding: 3px 8px;
+}
+
+.content {
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: flex-end;
+    margin: 1rem auto;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+}
+

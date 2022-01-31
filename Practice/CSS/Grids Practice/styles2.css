@@ -1,0 +1,42 @@
+.container {
+    display: grid;
+    grid-template-areas: 
+    "header header"
+    "aside main"
+    "aside main"
+    "aside main"
+    "footer footer";
+    grid-template-columns: 150px 1fr;
+    grid-template-rows: repeat(5, 1fr);
+    height: 100vh;
+}
+
+.container > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header { 
+    background-color: rebeccapurple;
+    color: white;
+    grid-area: header;
+}
+
+aside { 
+    background-color: red;
+    color: white;
+    grid-area: aside;
+}
+
+main { 
+    background-color: green;
+    color: white;
+    grid-area: main;
+}
+
+footer { 
+    background-color: brown;
+    color: white;
+    grid-area: footer;
+}

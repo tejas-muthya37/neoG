@@ -1,0 +1,88 @@
+.btn {
+    padding: 12px 0;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 5px;
+    width: 150px;
+}
+
+.btn-primary {
+    background-color: darkblue;
+}
+
+.btn-primary:hover {
+    background-color: #00006D;
+}
+
+.btn-link {
+    background-color: #6495ED;
+    color: whitesmoke;
+}
+
+.btn-link:hover {
+    background-color: #5081D9;
+}
+
+.btn-link a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn-icon {
+    background-color: green;
+    color: white;
+}
+
+.btn-icon:hover {
+    background-color: #006200;
+}
+
+.btn-icon i {
+    margin-right: 10px;
+}
+
+.btn-primary {
+    background-color: darkblue;
+    color: white;
+}
+
+.btn-floating-action {
+    border: none;
+    font-size: 1.7rem;
+    background-color: black;
+    color: white;
+    border-radius: 100%;
+    height: 45px;
+    width: 45px;
+    cursor: pointer;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.btn-outline {
+    background-color: whitesmoke;
+}
+
+.btn.btn-outline:hover {
+    color: whitesmoke;
+}
+
+.btn-primary.btn-outline {
+    border: 1px solid darkblue;
+    color: darkblue;
+}
+
+.btn-link.btn-outline {
+    border: 1px solid #6495ED;
+    color: #6495ED;
+}
+
+.btn-link.btn-outline:hover {
+    color: whitesmoke;
+}
+
+.btn-icon.btn-outline {
+    border: 1px solid green;
+    color: green;
+}

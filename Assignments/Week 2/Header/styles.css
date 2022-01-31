@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: yellow;
+}
+
+.header-component {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    padding: 10px 30px;
+    margin: 100px 100px;
+    flex-wrap: wrap;
+    width: 60%;
+}
+
+.header-component i {
+    cursor: pointer;
+}
+
+.print-icon {
+    -webkit-text-stroke: 1px darkblue;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-left i {
+    margin-right: 30px;
+}
+
+.header-right i {
+    margin-left: 30px;
+}
+
+/* COLLAPSED NAVBAR */
+
+.collapsed {
+    width: max-content;
+    border-bottom-right-radius: 30px;
+}
+
+.collapsed .header-left i {
+    margin-left: 0;
+}
+
+.collapsed .header-right i {
+    margin: 0;
+}
+
+.prominent .header-left, .prominent .header-right {
+    height: 120px;
+    align-items: flex-start;
+    padding-top: 20px;
+}
+
+.prominent h3 {
+    margin-top: auto;
+    padding-bottom: 10px;
+}
+
+.prominent-dense .header-left, .prominent-dense .header-right {
+    height: 100px;
+    align-items: flex-start;
+    padding-top: 20px;
+}
+
+.prominent-dense h3 {
+    margin-top: auto;
+    padding-bottom: 10px;
+}
+
+.header-dense {
+    padding: 5px 30px;
+}

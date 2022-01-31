@@ -1,0 +1,19 @@
+.container {
+    display: grid;
+    grid-gap: 20px;
+
+    /* grid-template-columns: repeat(auto-fit, 100px); */
+
+    /* width to be 100px, fit as many as possible. */
+
+    /* grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); */
+
+    /* min-width should be 100px, max should be 1fr. */
+
+    /* look up differences between auto-fill and auto-fit */
+}
+
+.container > * {
+    background-color: purple;
+    min-height: 200px;
+}

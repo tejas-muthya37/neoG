@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link href="styles.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/6bba1b5d71.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="chip-container-parent">
+      <span class="header">Favorite Fruits</span>
+      <div class="chip-container">
+        <div class="chip">
+          <span>Apple</span>
+          <button onclick="remove(event)">
+            <i class="fas fa-times-circle"></i>
+          </button>
+        </div>
+        <input id="enter-chip" type="text" placeholder="New fruit..." />
+      </div>
+    </div>
+  </body>
+  <script src="app.js" type="text/javascript"></script>
+</html>
