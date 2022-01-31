@@ -114,25 +114,25 @@
 //   });
 // }
 
-async function main() {
-  console.time("main");
-  function sleep(seconds) {
-    const ms = seconds * 1000;
+// async function main() {
+//   console.time("main");
+//   function sleep(seconds) {
+//     const ms = seconds * 1000;
 
-    return new Promise((resolve) => {
-      setTimeout(() => resolve(`Slept for ${ms} milliseconds`), ms);
-    });
-  }
+//     return new Promise((resolve) => {
+//       setTimeout(() => resolve(`Slept for ${ms} milliseconds`), ms);
+//     });
+//   }
 
-  const [time1, time2, time3] = await Promise.all([
-    sleep(1),
-    sleep(2),
-    sleep(3),
-  ]);
+//   const [time1, time2, time3] = await Promise.all([
+//     sleep(1),
+//     sleep(2),
+//     sleep(3),
+//   ]);
 
-  console.log(time1, time2, time3); // 1000, 2000 and 3000.
+//   console.log(time1, time2, time3); // 1000, 2000 and 3000.
 
-  console.timeEnd("main"); // amount of time for which main runs, around 3000 and not (1000 + 2000 + 3000)
-}
+//   console.timeEnd("main"); // amount of time for which main runs, around 3000 and not (1000 + 2000 + 3000)
+// }
 
-main();
+// main();
