@@ -15,9 +15,9 @@ ________________________________________________________________________________
 
 	Staying committed to the #151daysofcode challenge! 💪🏼
 
-	Day 17 :  Badges
+	Day 18 :  Headers
 
-	- Built different kinds of badges for my component library.
+	- Built different kinds of headers for the component library.
 __________________________________________________________________________________________________________________________________________________________________________________________
 
 	Blog topics
