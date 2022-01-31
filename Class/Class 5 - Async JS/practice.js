@@ -151,3 +151,7 @@
 // }
 
 // setInterval(() => timer(), 500);
+
+// React HW 1 - https://codesandbox.io/s/practical-ives-bbcr2?file=/src/App.js:90-235
+
+// React HW 2 - https://codesandbox.io/s/funny-sanne-r63j2?file=/src/App.js
