@@ -92,3 +92,10 @@ ________________________________________________________________________________
 	- Modern Asynchronous JavaScript with Async/Await - https://nodejs.dev/learn/modern-asynchronous-javascript-with-async-and-await
 
 	- Promises - https://javascript.info/promise-basics
+
+__________________________________________________________________________________________________________________________________________________________________________________________
+
+	Pointers :-
+
+	const btnText = document.querySelector(<some query>);
+	btnText.innerText = "demo" // won't work.
