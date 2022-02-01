@@ -1,52 +1,60 @@
+:root {
+    --primary-color: darkblue;
+    --success-color: green;
+    --warning-color: #ff8c00;
+    --danger-color: red;
+}
+
 .alert {
-    width: 100%;
+    width: 60%;
     padding: 15px 30px; 
-    margin: 20px auto;
+    margin: 40px auto;
     border-radius: 5px;
+    font-family: 'Nunito', sans-serif;
 }
 
 .primary {
-    background-color: darkblue;
-    color: white;
+    background-color: var(--primary-color);
+    color: whitesmoke;
 }
 
 .success {
-    background-color: green;
-    color: white;
+    background-color:  var(--success-color);
+    color: whitesmoke;
 }
 
 .warning {
-    background-color: #ffa500;
-    color: white;
+    background-color:  var(--warning-color);
+    color: whitesmoke;
 }
 
 .danger {
-    background-color: red;
-    color: white;
+    background-color: var(--danger-color);
+    color: whitesmoke;
 }
 
 .outline-primary {
-    background-color: white;
-    border: 1px solid darkblue;
-    color: darkblue;
+    background-color: whitesmoke;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
 }
 
 .outline-success{
-    background-color: white;
-    border: 1px solid green;
-    color: green;
+    background-color: whitesmoke;
+    border: 1px solid  var(--success-color);
+    color: var(--success-color);
 }
 
 .outline-danger{
-    background-color: white;
-    border: 1px solid red;
-    color: red;
+    background-color: whitesmoke;
+    border: 1px solid var(--danger-color);
+    color: var(--danger-color);
 }
 
 .outline-warning{
-    background-color: white;
-    border: 1px solid #ffa500;
-    color: #ffa500;
+    background-color: whitesmoke;
+    border: 1px solid var(--warning-color);
+    color: var(--warning-color);
 }
 
 .alert span {
