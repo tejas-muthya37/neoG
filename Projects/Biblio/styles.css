@@ -59,7 +59,7 @@ body {
 }
 
 .nav-items input {
-    height: 2.8rem;
+    height: 2.5rem;
     border-radius: 2px;
     padding: 0 10px;
     border: none;
@@ -70,7 +70,7 @@ body {
 .nav-items button {
     background-color: var(--heading-color);
     border: none;
-    height: 2.8rem;
+    height: 2.5rem;
     border-radius: 2px;
     color: whitesmoke;
     font-size: 1.1rem;
@@ -207,10 +207,16 @@ body {
     margin-top: 15vh;
     display: flex;
     padding: 0 2rem;
+    opacity: 1;
+    transition: 0.3s opacity ease-out;
+}
+
+.nav-open-opacity {
+    opacity: 0.3;
 }
 
 .filter-section {
-    width: 10rem;
+    min-width: 10rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -243,7 +249,87 @@ body {
     padding-bottom: 1px;
 }
 
-
 .filter-header {
     margin-bottom: 1rem;
+}
+
+.landing-page-content {
+    padding: 0 4rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card-e-commerce {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 6rem;
+}
+
+.card-e-commerce .item-image {
+    width: 10rem;
+}
+
+.item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.item-author {
+    font-size: 0.8rem;
+    color: var(--secondary-color)
+}
+
+.item-price {
+    font-size: 1.2rem;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.button-group button {
+    height: 40px;
+    border: none;
+    color: whitesmoke;
+    font-size: 1rem;
+    border-radius: 2px;
+}
+
+.btn-wishlist {
+    background-color: var(--heading-color);
+}
+
+.btn-cart {
+    background-color: var(--body-bg);
+}
+
+@media screen and (max-width: 1200px) {
+    .landing-page-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .landing-page-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .landing-page-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 4rem;
+    }
+
+    .landing-page-content {
+        padding: 0;
+    }
 }
