@@ -6,7 +6,7 @@
     --near-black: #282828;
 }
 
-* { 
+* {
     font-family: 'Rubik', sans-serif;
     margin: 0;
     padding: 0;
@@ -30,7 +30,7 @@ body {
     text-decoration: none;
 }
 
-.landing-card > * {
+.landing-card>* {
     margin: auto;
 }
 
@@ -39,7 +39,7 @@ body {
     text-align: center;
     font-size: 1.75rem;
     letter-spacing: 1px;
-    font-weight: 400;
+    font-weight: 600;
 }
 
 .landing-inputs {

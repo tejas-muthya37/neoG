@@ -1,0 +1,49 @@
+.card-e-commerce {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 6rem;
+}
+
+.card-e-commerce .item-image {
+    width: 10rem;
+}
+
+.item-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.item-author {
+    font-size: 0.8rem;
+    color: var(--secondary-color)
+}
+
+.item-price {
+    font-size: 1.2rem;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.button-group button {
+    height: 40px;
+    border: none;
+    color: whitesmoke;
+    font-size: 1rem;
+    border-radius: 2px;
+}
+
+.btn-wishlist {
+    background-color: var(--heading-color);
+}
+
+.btn-cart {
+    background-color: var(--body-bg);
+}

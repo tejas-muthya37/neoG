@@ -1,7 +1,7 @@
 /* GENERIC BODY STYLING */
 :root {
-    --body-bg: #CBC3E3;
-    --body-color: #0a0a0a;
+    --body-bg: #0a0a0a;
+    --body-color: whitesmoke;
     --code-example-bg: #282c34;
 }
 
