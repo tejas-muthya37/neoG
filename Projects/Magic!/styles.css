@@ -2,6 +2,7 @@
 
 :root {
     --body-bg: #FFFF00;
+    --body-color: #0a0a0a;
 }
 
 * {
@@ -37,7 +38,7 @@ body {
     margin-left: auto;
 }
 
-.header-navbar > ul {
+.header-navbar>ul {
     display: flex;
     gap: 2rem;
     font-weight: bold;
@@ -57,7 +58,7 @@ body {
 .welcome-container a {
     text-decoration: none;
     position: relative;
-    color: black;
+    color: var(--body-color);
 }
 
 .welcome-section {
@@ -83,15 +84,16 @@ body {
     padding: 15px 0;
     font-size: 1.3rem;
     border-radius: 5px;
-    background-color: black;
+    background-color: var(--body-color);
     color: white;
     margin: 20px 10px;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .welcome-section i {
     color: white;
-    background-color: black;
+    background-color: var(--body-color);
     margin-right: 15px;
 }
 
@@ -123,8 +125,8 @@ body {
     .welcome-section i {
         margin-right: 5px;
     }
-  
-    .header-navbar > ul {
+
+    .header-navbar>ul {
         display: flex;
         gap: 1rem;
         font-weight: bold;
