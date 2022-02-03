@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Biblio | Books Delivered</title>
-    <link href="wishlist.css" rel="stylesheet" />
+    <link href="cart.css" rel="stylesheet" />
     <link href="../Navbar/navbar.css" rel="stylesheet" />
     <link href="../Card/card.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -63,10 +63,10 @@
         <div class="line3"></div>
       </div>
     </nav>
-    <h1 class="wishlist-title">My Wishlist</h1>
-    <div class="landing-page-container wishlist">
-      <div class="landing-page-content wishlist">
-        <div class="card-e-commerce">
+    <h1 class="cart-title">My Cart</h1>
+    <div class="landing-page-container cart">
+      <div class="landing-page-content cart">
+        <div class="card-e-commerce cart-card">
           <img class="item-image" src="../Media/thriller-book-1.jpg" alt="" />
           <div class="item-content">
             <p class="item-title">
@@ -78,13 +78,13 @@
               ₹ <span class="item-price">499</span>
             </p>
             <div class="button-group">
-              <button class="btn-cart">Add To Cart</button>
-              <button class="btn-wishlist">Remove From Wishlist</button>
+              <button class="btn-cart">Remove From Cart</button>
+              <button class="btn-wishlist">Add To Wishlist</button>
             </div>
           </div>
         </div>
 
-        <div class="card-e-commerce">
+        <div class="card-e-commerce cart-card">
           <img class="item-image" src="../Media/thriller-book-1.jpg" alt="" />
           <div class="item-content">
             <p class="item-title">
@@ -96,13 +96,13 @@
               ₹ <span class="item-price">499</span>
             </p>
             <div class="button-group">
-              <button class="btn-cart">Add To Cart</button>
-              <button class="btn-wishlist">Remove From Wishlist</button>
+              <button class="btn-cart">Remove From Cart</button>
+              <button class="btn-wishlist">Add To Wishlist</button>
             </div>
           </div>
         </div>
 
-        <div class="card-e-commerce">
+        <div class="card-e-commerce cart-card">
           <img class="item-image" src="../Media/thriller-book-1.jpg" alt="" />
           <div class="item-content">
             <p class="item-title">
@@ -114,13 +114,13 @@
               ₹ <span class="item-price">499</span>
             </p>
             <div class="button-group">
-              <button class="btn-cart">Add To Cart</button>
-              <button class="btn-wishlist">Remove From Wishlist</button>
+              <button class="btn-cart">Remove From Cart</button>
+              <button class="btn-wishlist">Add To Wishlist</button>
             </div>
           </div>
         </div>
 
-        <div class="card-e-commerce">
+        <div class="card-e-commerce cart-card">
           <img class="item-image" src="../Media/thriller-book-1.jpg" alt="" />
           <div class="item-content">
             <p class="item-title">
@@ -132,11 +132,29 @@
               ₹ <span class="item-price">499</span>
             </p>
             <div class="button-group">
-              <button class="btn-cart">Add To Cart</button>
-              <button class="btn-wishlist">Remove From Wishlist</button>
+              <button class="btn-cart">Remove From Cart</button>
+              <button class="btn-wishlist">Add To Wishlist</button>
             </div>
           </div>
         </div>
+      </div>
+      <div class="order-details">
+        <h3>Order Details</h3>
+        <div class="pricing-details">
+          <div class="price-display">
+            <p class="price-title">Cart Total</p>
+            <p class="price-value-string"><span>₹</span class="price-value">4999</p>
+          </div>
+          <div class="shipping-cost-display">
+            <p class="shipping-cost-title">Shipping Cost</p>
+            <p class="shipping-cost-value-string">₹<span class="shipping-cost-value">199</span></p>
+          </div>
+        </div>
+        <div class="total-price">
+          <p class="total-price-display">Grand Total</p>
+          <p class="total-price-value-string">₹<span class="total-price-value">5198</span></p>
+        </div>
+        <button class="btn-checkout">Place Order</button>
       </div>
     </div>
     <script

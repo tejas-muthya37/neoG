@@ -29,11 +29,6 @@ body {
     padding: 0 2rem;
 }
 
-.landing-page-container.wishlist>* {
-    opacity: 1;
-    transition: opacity 0.3s ease-out;
-}
-
 .landing-page-content.wishlist {
     padding: 0 4rem;
     width: 100%;
