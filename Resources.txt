@@ -16,9 +16,11 @@ ________________________________________________________________________________
 
 	Staying committed to the #151daysofcode challenge! 💪🏼
 
-	Day 19 :  Alerts
+	Day 20 :  Promises and Async-Await
 
-	- Built different alerts for the component library.
+	- Built a mock server to work with Promises and Async-Await.
+	- Practiced the concept of Promise chaining.
+	- Practiced error handling in Async-Await calls.
 __________________________________________________________________________________________________________________________________________________________________________________________
 
 	Blog topics

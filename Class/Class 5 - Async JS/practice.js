@@ -29,69 +29,69 @@
 
 // printAfterDelay("hello", 2000);
 
-// function fakeFetch(msg, shouldReject) {
-//   return new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//       if (shouldReject) {
-//         reject(`error from server: ${msg}`);
-//       }
-//       resolve(`from server: ${msg}`);
-//     }, 3000);
-//   });
-// }
+function fakeFetch(msg, shouldReject) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (shouldReject) {
+        reject(`error from server: ${msg}`);
+      }
+      resolve(`from server: ${msg}`);
+    }, 3000);
+  });
+}
 
-// fakeFetch("Tejas")
-//   .then((data) => console.log(data))
-//   .catch((err) => console.log(err));
+fakeFetch("Tejas")
+  .then((data) => console.log(data))
+  .catch((err) => console.log(err));
 
-// function serverResponseLength(message) {
-//   fakeFetch(message)
-//     .then((data) => data.length)
-//     .then((length) => console.log(length));
-// }
+function serverResponseLength(message) {
+  fakeFetch(message)
+    .then((data) => data.length)
+    .then((length) => console.log(length));
+}
 
-// serverResponseLength("Tejas");
+serverResponseLength("Tejas");
 
-// function syncCallsToServer(message1, message2) {
-//   fakeFetch(message1).then((data1) =>
-//     fakeFetch(message2).then((data2) => console.log({ data1, data2 }))
-//   );
-// }
+function syncCallsToServer(message1, message2) {
+  fakeFetch(message1).then((data1) =>
+    fakeFetch(message2).then((data2) => console.log({ data1, data2 }))
+  );
+}
 
-// syncCallsToServer("Message1", "Message2");
+syncCallsToServer("Message1", "Message2");
 
 // ASYNC AND AWAIT
 
-// async function syncCallsToServer(message1, message2) {
-//   const data1 = await fakeFetch(message1);
-//   const data2 = await fakeFetch(message2);
-//   console.log(data1, data2);
-// }
+async function syncCallsToServer(message1, message2) {
+  const data1 = await fakeFetch(message1);
+  const data2 = await fakeFetch(message2);
+  console.log(data1, data2);
+}
 
-// syncCallsToServer("hey", "there");
+syncCallsToServer("hey", "there");
 
-// async function printMessage(message) {
-//   try {
-//     const messageToPrint = await fakeFetch(message, true);
-//     console.log(messageToPrint);
-//   } catch (err) {
-//     console.log(err);
-//   }
-// }
+async function printMessage(message) {
+  try {
+    const messageToPrint = await fakeFetch(message, true);
+    console.log(messageToPrint);
+  } catch (err) {
+    console.log(err);
+  }
+}
 
-// printMessage("Tejas");
+printMessage("Tejas");
 
-// async function getServerResponseLength(message) {
-//   try {
-//     const messageToPrint = await fakeFetch(message, true);
-//     const length = messageToPrint.length;
-//     console.log(length);
-//   } catch (err) {
-//     console.log(err);
-//   }
-// }
+async function getServerResponseLength(message) {
+  try {
+    const messageToPrint = await fakeFetch(message, true);
+    const length = messageToPrint.length;
+    console.log(length);
+  } catch (err) {
+    console.log(err);
+  }
+}
 
-// getServerResponseLength("Tejas");
+getServerResponseLength("Tejas");
 
 // function fakeFetch(message, shouldBeRejected) {
 //   return new Promise((resolve, reject) => {
