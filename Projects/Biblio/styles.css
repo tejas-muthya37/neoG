@@ -23,7 +23,6 @@ body {
     display: flex;
     padding: 0 2rem;
     opacity: 1;
-    transition: 0.3s opacity ease-out;
 }
 
 .filter-section {

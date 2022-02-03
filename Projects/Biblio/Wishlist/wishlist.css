@@ -27,8 +27,11 @@ body {
     margin-top: 11vh;
     display: flex;
     padding: 0 2rem;
+}
+
+.landing-page-container.wishlist>* {
     opacity: 1;
-    transition: 0.3s opacity ease-out;
+    transition: opacity 0.3s ease-out;
 }
 
 .landing-page-content.wishlist {
