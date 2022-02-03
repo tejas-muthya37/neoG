@@ -38,6 +38,7 @@
     color: whitesmoke;
     font-size: 1rem;
     border-radius: 2px;
+    cursor: pointer;
 }
 
 .btn-wishlist {
