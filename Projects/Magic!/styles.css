@@ -3,6 +3,8 @@
 :root {
     --body-bg: #0a0a0a;
     --body-color: whitesmoke;
+    --body-font: 'Nunito', sans-serif;
+    --header-font: 'Gochi Hand', cursive;
 }
 
 * {
@@ -29,7 +31,7 @@ body {
 }
 
 .header-logo {
-    font-family: 'Gochi Hand', cursive;
+    font-family: var(--header-font);
     font-size: 2rem;
     font-weight: bold;
 }

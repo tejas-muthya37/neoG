@@ -1,6 +1,11 @@
+:root {
+    --body-font: 'Nunito', sans-serif;
+}
+
 .image {
     width: 150px;
     height: 150px;
+    font-family: var(--body-font);
 }
 
 .image.circle {

@@ -1,6 +1,7 @@
 :root {
     --hover-bg: #F0F0F0;
     --anchor-hover-bg: #F0EFFF;
+    --body-font: 'Nunito', sans-serif;
 }
 
 /* FOR CARDS WITH SHADOWS */
@@ -80,6 +81,7 @@
     color: var(--body-bg);
     opacity: 1;
     transition: opacity 0.1s ease-out;
+    font-family: var(--body-font);
 }
 
 

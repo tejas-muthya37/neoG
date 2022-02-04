@@ -1,7 +1,12 @@
+:root {
+    --body-font: 'Nunito', sans-serif;
+}
+
 .login-inputs {
     display: flex;
     flex-direction: column;
     width: 250px;
+    font-family: var(--body-font);
 }
 
 .login-inputs>div {
@@ -42,6 +47,7 @@
     flex-wrap: wrap;
     padding: 20px 0;
     font-size: 1rem;
+    font-family: var(--body-font);
 }
 
 .radio-input-group div,

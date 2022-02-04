@@ -4,6 +4,8 @@
     --online-bg: green;
     --offline-bg: grey;
     --busy-bg: red;
+    --body-font: 'Nunito', sans-serif;
+
 }
 
 /* CLASS TO ADD WHEN A BUTTON IS CLICKED TO TOGGLE VISIBILITY OF THE BADGE */
@@ -15,6 +17,7 @@
 .badge {
     position: relative;
     width: max-content;
+    font-family: var(--body-font);
 }
 
 /* STYLING THE DIFFERENT KINDS OF BADGES */
