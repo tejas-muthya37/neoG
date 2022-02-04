@@ -22,6 +22,8 @@ body {
 .cart-title {
     margin-top: 20vh;
     text-align: center;
+    letter-spacing: 5px;
+    word-spacing: 10px;
 }
 
 
@@ -142,5 +144,10 @@ body {
 
     .landing-page-content.cart {
         padding: 5rem 0 0 0;
+    }
+
+    .cart-title {
+        letter-spacing: 2px;
+        word-spacing: 4px;
     }
 }
