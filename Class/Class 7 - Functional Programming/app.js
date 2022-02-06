@@ -161,13 +161,20 @@ const square = (num) => num * num;
 const decrement = (num) => num - 1;
 const cube = (num) => num * num * num;
 
-const compose = (...rest) => {
-  return function (num) {
-    return rest.reduce((accumulator, currentElement) => {
-      accumulator = currentElement(accumulator);
-      return accumulator;
-    }, num);
-  };
+// const compose = (...rest) => {
+//   return function (num) {
+//     return rest.reduce(reducer, num);
+//   };
+// };
+
+const compose =
+  (...rest) =>
+  (num) =>
+    rest.reduce(reducer, num);
+
+const reducer = (accumulator, currentElement) => {
+  accumulator = currentElement(accumulator);
+  return accumulator;
 };
 
 const incrementAndSquare = compose(increment, square);
