@@ -1,0 +1,70 @@
+:root {
+    --card-bg: #FFFF00;
+    --body-bg: #800080;
+    --near-black: #0a0a0a;
+    --near-white: whitesmoke;
+    --title-font: 'Sacramento', cursive;
+    --body-font: 'Nunito', sans-serif;
+}
+
+body {
+    background-color: var(--body-bg);
+    color: var(--near-white);
+    font-family: var(--body-font);
+}
+
+.quiz-title {
+    text-align: center;
+    font-size: 2.25rem;
+    margin: 4rem 0;
+}
+
+.quiz-page-container,
+.question-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quiz-page-container {
+    gap: 6rem;
+}
+
+.question-container {
+    width: 25rem;
+    font-size: 1.1rem;
+}
+
+.container-top {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.question-content {
+    align-self: flex-start;
+    margin-bottom: 2rem;
+}
+
+.container-options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.container-option {
+    width: 25rem;
+    text-align: center;
+    padding: 0.8rem 0;
+    border: 1px solid var(--near-white);
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.option-correct {
+    background-color: green;
+}
+
+div.option-wrong:nth-of-type(3) {
+    background-color: red;
+}
