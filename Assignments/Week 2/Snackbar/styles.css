@@ -18,7 +18,7 @@
     border-radius: 5px;
 }
 
-.snackbar > span {
+.snackbar>span {
     color: #CF9FFF;
     padding: 5px;
     background-color: #301934;
@@ -26,7 +26,7 @@
     cursor: pointer;
 }
 
-.snackbar > button {
+.snackbar>button {
     background-color: #282828;
     border: none;
     color: white;

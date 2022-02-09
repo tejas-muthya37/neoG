@@ -9,27 +9,28 @@ body {
     background-color: whitesmoke;
 }
 
-.nav-items ul {
+/* .nav-items ul {
     list-style-type: none;
-    margin-top: 20px;
+    padding-top: 0.6rem;
 }
 
 .nav-items li {
-    margin-bottom: 5px;
-    height: 40px;
+    margin-bottom: 0.25rem;
+    height: 2rem;
     display: flex;
     align-items: center;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
-.drawer-container header {
-    padding-left: 5px;
-    letter-spacing: 0.8px;
+.drawer-container header h3 {
+    letter-spacing: 0.08rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid silver;
 }
 
-.nav-items i {
-    margin-left: 0.6rem;
-    margin-right: 2.8rem;
+.drawer-container header h3,
+.drawer-container ul {
+    padding: 1rem;
 }
 
 .nav-items a {
@@ -38,17 +39,47 @@ body {
 }
 
 .drawer-container {
-    width: 300px;
-    padding: 10px;
-    margin: 100px auto;
+    width: 15rem;
+    margin: 6rem auto;
     background-color: white;
 }
 
-.drawer-container, .nav-items li {
-    border-radius: 5px;
+.drawer-container label {
+    margin-left: 0.75rem;
 }
 
 .nested-nav-item {
-    padding-left: 4rem;
+    padding-left: 2rem;
 }
 
+.drawer-container.stacked li {
+    padding-left: 1rem;
+    border-bottom: 1px solid silver;
+    height: 2.5rem;
+    margin-bottom: 0;
+}
+
+.drawer-container.stacked li:nth-of-type(3) {
+    border-bottom: none;
+}
+
+.drawer-container.stacked ul {
+    padding: 0;
+}
+
+.drawer-container.stacked ul li i {
+    margin-right: 0.5rem;
+} */
+
+.text-utilities.heading {
+    padding: 0.5rem;
+}
+
+.text-utilities.centered {
+    text-align: center;
+    margin: auto;
+}
+
+.text-utilities.grey {
+    color: silver;
+}
