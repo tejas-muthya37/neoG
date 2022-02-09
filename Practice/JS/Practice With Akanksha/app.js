@@ -38,5 +38,65 @@
 
 //
 
-let a = [..."apple"];
-console.log(a); // ["a", "p", "p", "l", "e"]
+// let a = [..."apple"];
+// console.log(a); // ["a", "p", "p", "l", "e"]
+
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// const convert = (arr) => {
+//   return arr.map((num) => {
+//     if (num % 2 === 0) return num + 1;
+//     return num;
+//   });
+// };
+
+// let newArr = convert(arr);
+
+// console.log(newArr);
+
+// const arr = [
+//   {
+//     name: "Jay",
+//     age: 60,
+//   },
+//   {
+//     name: "Gloria",
+//     age: 36,
+//   },
+//   {
+//     name: "Manny",
+//     age: 16,
+//   },
+//   {
+//     name: "Joe",
+//     age: 9,
+//   },
+// ];
+
+// let sumOfAges = arr.reduce((accumulator, element) => {
+//   accumulator += element.age;
+//   return accumulator;
+// }, 0);
+
+// console.log(sumOfAges);
+
+const family = [
+  {
+    name: "Tanay",
+    haveCycle: true,
+  },
+  {
+    name: "Akanksha",
+    haveCycle: false,
+  },
+  {
+    name: "Tanvi",
+    haveCycle: true,
+  },
+  {
+    name: "Kanak",
+    haveCycle: false,
+  },
+];
+
+let familyArr = family.reduce((accumulator, currentElement))

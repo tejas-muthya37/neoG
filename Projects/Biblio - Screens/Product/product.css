@@ -63,6 +63,16 @@ body {
     margin-bottom: 1rem;
 }
 
+.price-filter p {
+    display: flex;
+    justify-content: space-between;
+}
+
+.price-filter span {
+    display: flex;
+    font-size: 0.8rem;
+}
+
 .landing-page-content {
     padding: 0 4rem;
     width: 100%;
