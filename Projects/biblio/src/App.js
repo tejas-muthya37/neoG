@@ -1,7 +1,10 @@
 import "./App.css";
+import Navbar from "./Navbar/Navbar";
 // import Authenticate from "./Authenticate/Authenticate";
-// import Card from "./Card/Card";
-// import thrillerBookOne from "./Media/thriller-book-1.jpg";
+import Cart from "./Cart/Cart";
+import Wishlist from "./Wishlist/Wishlist";
+import Products from "./Products/Products";
+import Categories from "./Categories/Categories";
 
 function App() {
   return (
@@ -23,7 +26,14 @@ function App() {
         bookPrice={499}
         actionOne="Add To Cart"
         actionTwo="Add To Wishlist"
+        cartPage={true}
+        bookQuantity={1}
       /> */}
+      <Navbar />
+      {/* <Cart /> */}
+      {/* <Wishlist /> */}
+      {/* <Products /> */}
+      <Categories />
     </div>
   );
 }

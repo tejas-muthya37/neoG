@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;600&display=swap');
 
+
+:root {
+  --body-bg: #012652;
+  --heading-color: #0D94FB;
+  --secondary-color: #888888;
+  --tertiary-color: #BEBEBE;
+  --near-black: #282828;
+  --number-font: 'Nunito', sans-serif;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,12 +19,4 @@
 .App,
 .App button {
   font-family: 'Rubik', sans-serif;
-}
-
-:root {
-  --body-bg: #012652;
-  --heading-color: #0D94FB;
-  --secondary-color: #888888;
-  --tertiary-color: #BEBEBE;
-  --near-black: #282828;
 }

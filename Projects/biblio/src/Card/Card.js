@@ -14,9 +14,18 @@ function Card(props) {
             </span>
           </p>
 
-          <p className="item-price-string">
-            ₹ <span className="item-price">{props.bookPrice}</span>
-          </p>
+          <div className="price-with-quantity">
+            <p className="item-price-string">
+              ₹ <span className="item-price">{props.bookPrice}</span>
+            </p>
+            {props.cartPage && (
+              <div className="quantity-group">
+                <button className="btn-decrement">-</button>
+                <span className="quantity-value">{props.bookQuantity}</span>
+                <button className="btn-increment">+</button>
+              </div>
+            )}
+          </div>
           <div className="button-group">
             <button className="btn-action-one">{props.actionOne}</button>
             <button className="btn-action-two">{props.actionTwo}</button>

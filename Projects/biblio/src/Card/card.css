@@ -57,3 +57,32 @@
 .btn-action-one {
     background-color: var(--body-bg);
 }
+
+.price-with-quantity {
+    display: flex;
+    justify-content: center;
+    gap: 39%;
+    width: 80%;
+    margin-top: 0.5rem;
+}
+
+.price-with-quantity button {
+    background-color: var(--heading-color);
+    color: whitesmoke;
+    border: none;
+    font-size: 1.2rem;
+    width: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.quantity-group span {
+    font-size: 1.2rem;
+    padding: 0 5px;
+    font-family: var(--number-font);
+}
+
+.quantity-group {
+    border-radius: 2px;
+}
