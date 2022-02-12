@@ -80,23 +80,196 @@
 
 // console.log(sumOfAges);
 
-const family = [
-  {
-    name: "Tanay",
-    haveCycle: true,
-  },
-  {
-    name: "Akanksha",
-    haveCycle: false,
-  },
-  {
-    name: "Tanvi",
-    haveCycle: true,
-  },
-  {
-    name: "Kanak",
-    haveCycle: false,
-  },
+// const family = [
+//   {
+//     name: "Tanay",
+//     haveCycle: true,
+//   },
+//   {
+//     name: "Akanksha",
+//     haveCycle: false,
+//   },
+//   {
+//     name: "Tanvi",
+//     haveCycle: true,
+//   },
+//   {
+//     name: "Kanak",
+//     haveCycle: false,
+//   },
+// ];
+
+// let familyArr = family.reduce((accumulator, currentElement) => {
+//   currentElement.haveCycle && accumulator.push(currentElement.name);
+//   return accumulator;
+// }, []);
+
+// console.log(familyArr);
+
+// const arr = [1, 2, 3, 58, 5, 6, 24, 8, 15, 4];
+
+// const newArr = arr.reduce((accumulator, currentValue) => {
+//   currentValue % 2 === 0 && currentValue <= 8 && accumulator.push(currentValue);
+//   return accumulator;
+// }, []);
+
+// console.log(newArr);
+
+// const arr = ["eat", "sleep", "repeat", "code"];
+
+// const newArr = arr.reduce((accumulator, currentElement) => {
+//   currentElement.length > 5 && accumulator.push(currentElement);
+//   return accumulator;
+// }, []);
+
+// console.log(newArr);
+
+// const arr = [1, 2, 3, 58, 5, 6, 62, 8, 70];
+
+// const newArr = arr.reduce((accumulator, currentElement) => {
+//   currentElement > 50 && (accumulator += currentElement);
+//   return accumulator;
+// }, 0);
+
+// console.log(newArr);
+
+// const arr = [1, 2, 3, 7, 5, 6, 8, 9];
+
+// const newArr = arr.reduce((accumulator, currentElement) => {
+//   currentElement % 2 === 0 && (accumulator = accumulator * currentElement);
+//   return accumulator;
+// }, 1);
+
+// console.log(newArr);
+
+// const arr = [
+//   {
+//     name: "Apple",
+//   },
+//   {
+//     name: "Mango",
+//   },
+//   {
+//     name: "Potato",
+//   },
+//   {
+//     name: "Guava",
+//   },
+//   {
+//     name: "Capsicum",
+//   },
+// ];
+
+// const newArr = arr.reduce((accumulator, currentElement) => {
+//   if (currentElement.name.length > 5) {
+//     accumulator.push({
+//       ...currentElement,
+//       type: "vegetable",
+//     });
+//   } else {
+//     accumulator.push({
+//       ...currentElement,
+//       type: "fruit",
+//     });
+//   }
+//   return accumulator;
+// }, []);
+
+// console.log(newArr);
+
+// const inventory = [
+//   { name: "fans", quantity: 3 },
+//   { name: "chimneys", quantity: 0 },
+//   { name: "bulbs", quantity: 5 },
+//   { name: "stove", quantity: 1 },
+// ];
+
+// const newInventoryFilter = inventory.filter((item) => item.quantity < 2);
+// console.log(newInventoryFilter);
+
+// const newInventoryReduce = inventory.reduce((accumulator, currentElement) => {
+//   accumulator += currentElement.quantity;
+//   return accumulator;
+// }, 0);
+// console.log(newInventoryReduce);
+
+// const zeroQuantity = inventory.find((item) => item.quantity === 0);
+
+// console.log(zeroQuantity);
+
+// const arr = ["Violet", "Indigo", "Blue", "Green", "Yellow", "Orange", "Red"];
+
+// const newStr = arr.reduce((accumulator, currentElement) => {
+//   if (arr.indexOf(currentElement) === 0) accumulator += `${currentElement}`;
+//   else accumulator += `-${currentElement}`;
+//   return accumulator;
+// }, "");
+
+// console.log(newStr);
+
+// const ip = 24345687;
+// const ipArray = ip.toString().split("");
+
+// for (i = 0; i < ipArray.length; i++) {
+//   if (ipArray[i] % 2 === 0 && ipArray[i + 1] % 2 === 0) {
+//     ipArray[i] = `${ipArray[i]}-`;
+//   }
+// }
+
+// console.log(ipArray.join(""));
+
+// const ipStr = "neogrammer";
+// const newStr = ipStr
+//   .split("")
+//   .map((character) => character.toUpperCase())
+//   .join("");
+
+// console.log(newStr);
+
+// const vowels = ["a", "e", "i", "o", "u"];
+
+// const convertVowels = (str) => {
+//   return str
+//     .split("")
+//     .map((character) => {
+//       if (vowels.includes(character)) return character.toUpperCase();
+//       else return character;
+//     })
+//     .join("");
+// };
+
+// console.log(convertVowels("neoG"));
+
+// const input = [
+//   ["a", "b", "c"],
+//   ["c", "d", "e"],
+//   ["e", "d", "f"],
+// ];
+
+// const op = [];
+
+// for (var ip of input) {
+//   op.push(...ip);
+// }
+
+// console.log(op);
+
+const input = [
+  ["a", "b", "c"],
+  ["c", "d", "e"],
+  ["e", "d", "f"],
 ];
 
-let familyArr = family.reduce((accumulator, currentElement))
+const op = [];
+
+for (var ip of input) {
+  op.push(...ip);
+}
+
+const reducedOp = op.reduce((accumulator, currentElement) => {
+  if (accumulator[currentElement]) accumulator[currentElement] += 1;
+  else accumulator[currentElement] = 1;
+  return accumulator;
+}, {});
+
+console.log(reducedOp);
