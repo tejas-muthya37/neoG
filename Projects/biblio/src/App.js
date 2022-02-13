@@ -32,8 +32,8 @@ function App() {
       <Navbar />
       {/* <Cart /> */}
       {/* <Wishlist /> */}
-      {/* <Products /> */}
-      <Categories />
+      <Products />
+      {/* <Categories /> */}
     </div>
   );
 }
