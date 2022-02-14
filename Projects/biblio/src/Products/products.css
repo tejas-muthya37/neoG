@@ -15,7 +15,7 @@
 
 .filter-section input[type="radio"],
 .filter-section input[type="checkbox"] {
-    margin-right: 5px;
+    margin-right: 0.5rem;
 }
 
 .filter-section>div {
@@ -52,6 +52,11 @@
 .price-filter span {
     display: flex;
     font-size: 0.8rem;
+}
+
+.input-filter div {
+    display: flex;
+    align-items: center;
 }
 
 .landing-page-content {

@@ -21,7 +21,7 @@ function Products() {
               <span>449</span>
             </p>
           </div>
-          <div className="category-filter">
+          <div className="category-filter input-filter">
             <h3 className="filter-header">Category</h3>
             <div>
               <input
@@ -59,7 +59,7 @@ function Products() {
               <label htmlFor="romance-category">Romance</label>
             </div>
           </div>
-          <div className="rating-filter">
+          <div className="rating-filter input-filter">
             <h3 className="filter-header">Rating</h3>
             <div>
               <input type="radio" id="radio-1" name="rating-input" />
@@ -76,7 +76,7 @@ function Products() {
               <label htmlFor="radio-3">2 Stars & above</label>
             </div>
           </div>
-          <div className="sort-filter">
+          <div className="sort-filter input-filter">
             <h3 className="filter-header">Sort by</h3>
             <div>
               <input type="radio" id="radio-5" name="sort-input" />
