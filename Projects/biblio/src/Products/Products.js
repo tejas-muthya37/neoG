@@ -1,15 +1,71 @@
 import "./products.css";
 import thrillerBookOne from "./../Media/thriller-book-1.jpg";
 import Card from "../Card/Card";
+import { useState } from "react";
 
 function Products() {
+  const [categoryFilters, setCategoryFilters] = useState(false);
+  const [thrillerCategory, setThrillerCategory] = useState(true);
+  const [romanceCategory, setRomanceCategory] = useState(true);
+  const [dramaCategory, setDramaCategory] = useState(true);
+  const [scifiCategory, setScifiCategory] = useState(true);
+  const [ratingFilters, setRatingFilters] = useState(false);
+  const [rating4AndAbove, setRating4AndAbove] = useState(true);
+  const [rating3AndAbove, setRating3AndAbove] = useState(true);
+  const [rating2AndAbove, setRating2AndAbove] = useState(true);
+
+  const applyCategoryFilters = (event) => {
+    if (categoryFilters === false) {
+      setCategoryFilters(true);
+      setThrillerCategory(false);
+      setRomanceCategory(false);
+      setDramaCategory(false);
+      setScifiCategory(false);
+    }
+    if (event.target.id === "thriller-category") {
+      if (event.target.checked) setThrillerCategory(true);
+      else setThrillerCategory(false);
+    } else if (event.target.id === "romance-category") {
+      if (event.target.checked) setRomanceCategory(true);
+      else setRomanceCategory(false);
+    } else if (event.target.id === "drama-category") {
+      if (event.target.checked) setDramaCategory(true);
+      else setDramaCategory(false);
+    } else if (event.target.id === "scifi-category") {
+      if (event.target.checked) setScifiCategory(true);
+      else setScifiCategory(false);
+    }
+  };
+
+  const applyRatingFilters = (event) => {
+    if (ratingFilters === false) {
+      setRatingFilters(true);
+    }
+    setRating2AndAbove(false);
+    setRating3AndAbove(false);
+    setRating4AndAbove(false);
+    if (event.target.id === "rating-4-stars-and-above") {
+      setRating4AndAbove(true);
+    }
+    if (event.target.id === "rating-3-stars-and-above") {
+      setRating3AndAbove(true);
+    }
+    if (event.target.id === "rating-2-stars-and-above") {
+      setRating2AndAbove(true);
+    }
+  };
+
+  const clearFilters = () => {
+    window.location.reload();
+  };
+
   return (
     <div className="Products">
       <div className="landing-page-container">
         <div className="filter-section">
           <div className="filter-section-title">
             <h3>Filters</h3>
-            <p>Clear</p>
+            <p onClick={clearFilters}>Clear</p>
           </div>
           <div className="price-filter">
             <h3 className="filter-header">Price</h3>
@@ -28,6 +84,7 @@ function Products() {
                 id="thriller-category"
                 className="category-checkbox"
                 type="checkbox"
+                onClick={applyCategoryFilters}
               />
               <label htmlFor="thriller-category">Thrillers</label>
             </div>
@@ -37,6 +94,7 @@ function Products() {
                 id="drama-category"
                 className="category-checkbox"
                 type="checkbox"
+                onClick={applyCategoryFilters}
               />
               <label htmlFor="drama-category">Drama</label>
             </div>
@@ -46,6 +104,7 @@ function Products() {
                 id="scifi-category"
                 className="category-checkbox"
                 type="checkbox"
+                onClick={applyCategoryFilters}
               />
               <label htmlFor="scifi-category">Sci-Fi</label>
             </div>
@@ -55,6 +114,7 @@ function Products() {
                 id="romance-category"
                 className="category-checkbox"
                 type="checkbox"
+                onClick={applyCategoryFilters}
               />
               <label htmlFor="romance-category">Romance</label>
             </div>
@@ -62,17 +122,32 @@ function Products() {
           <div className="rating-filter input-filter">
             <h3 className="filter-header">Rating</h3>
             <div>
-              <input type="radio" id="radio-1" name="rating-input" />
+              <input
+                type="radio"
+                id="rating-4-stars-and-above"
+                name="rating-input"
+                onClick={applyRatingFilters}
+              />
               <label htmlFor="radio-1">4 Stars & above</label>
             </div>
 
             <div>
-              <input type="radio" id="radio-2" name="rating-input" />
+              <input
+                type="radio"
+                id="rating-3-stars-and-above"
+                name="rating-input"
+                onClick={applyRatingFilters}
+              />
               <label htmlFor="radio-2">3 Stars & above</label>
             </div>
 
             <div>
-              <input type="radio" id="radio-3" name="rating-input" />
+              <input
+                type="radio"
+                id="rating-2-stars-and-above"
+                name="rating-input"
+                onClick={applyRatingFilters}
+              />
               <label htmlFor="radio-3">2 Stars & above</label>
             </div>
           </div>
@@ -90,16 +165,57 @@ function Products() {
           </div>
         </div>
         <div className="landing-page-content">
-          <Card
-            bookCover={thrillerBookOne}
-            bookTitle="Murder On The Orient Express"
-            bookAuthor="Agatha Christie"
-            bookPrice={499}
-            actionOne="Add To Cart"
-            actionTwo="Remove From Wishlist"
-            cartPage={true}
-            bookQuantity={1}
-          />
+          {thrillerCategory === true && rating4AndAbove === true && (
+            <Card
+              bookCover={thrillerBookOne}
+              bookTitle="Murder On The Orient Express"
+              bookAuthor="Agatha Christie"
+              bookPrice={199}
+              actionOne="Add To Cart"
+              actionTwo="Remove From Wishlist"
+              cartPage={true}
+              bookQuantity={1}
+            />
+          )}
+
+          {romanceCategory === true && rating3AndAbove === true && (
+            <Card
+              bookCover={thrillerBookOne}
+              bookTitle="Murder On The Orient Express"
+              bookAuthor="Agatha Christie"
+              bookPrice={299}
+              actionOne="Add To Cart"
+              actionTwo="Remove From Wishlist"
+              cartPage={true}
+              bookQuantity={1}
+            />
+          )}
+
+          {dramaCategory === true && rating2AndAbove === true && (
+            <Card
+              bookCover={thrillerBookOne}
+              bookTitle="Murder On The Orient Express"
+              bookAuthor="Agatha Christie"
+              bookPrice={399}
+              actionOne="Add To Cart"
+              actionTwo="Remove From Wishlist"
+              cartPage={true}
+              bookQuantity={1}
+            />
+          )}
+
+          {scifiCategory === true && (
+            <Card
+              bookCover={thrillerBookOne}
+              bookTitle="Murder On The Orient Express"
+              bookAuthor="Agatha Christie"
+              bookPrice={499}
+              actionOne="Add To Cart"
+              actionTwo="Remove From Wishlist"
+              cartPage={true}
+              bookQuantity={1}
+            />
+          )}
         </div>
       </div>
     </div>
