@@ -1,6 +1,17 @@
 import "./card.css";
+import { useState } from "react";
 
 function Card(props) {
+  const [cartItemQuantity, setCartItemQuantity] = useState(1);
+
+  const updateCartItemQuantity = (event) => {
+    if (event.target.innerText === "+")
+      setCartItemQuantity(cartItemQuantity + 1);
+    else if (event.target.innerText === "-") {
+      if (cartItemQuantity > 1) setCartItemQuantity(cartItemQuantity - 1);
+    }
+  };
+
   return (
     <div className="Card">
       <div className="card-e-commerce">
@@ -20,9 +31,19 @@ function Card(props) {
             </p>
             {props.cartPage && (
               <div className="quantity-group">
-                <button className="btn-decrement">-</button>
-                <span className="quantity-value">{props.bookQuantity}</span>
-                <button className="btn-increment">+</button>
+                <button
+                  onClick={(event) => updateCartItemQuantity(event)}
+                  className="btn-decrement"
+                >
+                  -
+                </button>
+                <span className="quantity-value">{cartItemQuantity}</span>
+                <button
+                  onClick={(event) => updateCartItemQuantity(event)}
+                  className="btn-increment"
+                >
+                  +
+                </button>
               </div>
             )}
           </div>

@@ -16,7 +16,6 @@ function Cart(props) {
             actionOne="Add To Cart"
             actionTwo="Add To Wishlist"
             cartPage={true}
-            bookQuantity={1}
           />
         </div>
         <div className="order-details">
