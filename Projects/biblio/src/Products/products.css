@@ -34,6 +34,7 @@
 .filter-section-title p {
     border-bottom: 1px solid;
     padding-bottom: 1px;
+    cursor: pointer;
 }
 
 .filter-section-title h3 {

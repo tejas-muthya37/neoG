@@ -16,6 +16,17 @@ function Cart(props) {
             actionOne="Add To Cart"
             actionTwo="Add To Wishlist"
             cartPage={true}
+            addToCartAction={addToCart}
+          />
+          <Card
+            bookCover={thrillerBookOne}
+            bookTitle="Murder On The Orient Express"
+            bookAuthor="Agatha Christie"
+            bookPrice={499}
+            actionOne="Add To Cart"
+            actionTwo="Add To Wishlist"
+            cartPage={true}
+            addToCartAction={addToCart}
           />
         </div>
         <div className="order-details">

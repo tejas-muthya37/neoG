@@ -172,9 +172,7 @@ function Products() {
               bookAuthor="Agatha Christie"
               bookPrice={199}
               actionOne="Add To Cart"
-              actionTwo="Remove From Wishlist"
-              cartPage={true}
-              bookQuantity={1}
+              actionTwo="Add To Wishlist"
             />
           )}
 
@@ -185,9 +183,7 @@ function Products() {
               bookAuthor="Agatha Christie"
               bookPrice={299}
               actionOne="Add To Cart"
-              actionTwo="Remove From Wishlist"
-              cartPage={true}
-              bookQuantity={1}
+              actionTwo="Add To Wishlist"
             />
           )}
 
@@ -198,9 +194,7 @@ function Products() {
               bookAuthor="Agatha Christie"
               bookPrice={399}
               actionOne="Add To Cart"
-              actionTwo="Remove From Wishlist"
-              cartPage={true}
-              bookQuantity={1}
+              actionTwo="Add To Wishlist"
             />
           )}
 
@@ -211,9 +205,7 @@ function Products() {
               bookAuthor="Agatha Christie"
               bookPrice={499}
               actionOne="Add To Cart"
-              actionTwo="Remove From Wishlist"
-              cartPage={true}
-              bookQuantity={1}
+              actionTwo="Add To Wishlist"
             />
           )}
         </div>

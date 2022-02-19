@@ -61,7 +61,7 @@
 .price-with-quantity {
     display: flex;
     justify-content: center;
-    gap: 39%;
+    gap: 35%;
     width: 80%;
     margin-top: 0.5rem;
 }
