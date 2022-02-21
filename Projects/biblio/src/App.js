@@ -5,6 +5,7 @@ import Cart from "./Cart/Cart";
 // import Wishlist from "./Wishlist/Wishlist";
 import Products from "./Products/Products";
 // import Categories from "./Categories/Categories";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
   return (
