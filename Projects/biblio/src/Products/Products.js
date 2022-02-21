@@ -14,6 +14,58 @@ function Products() {
   const [rating3AndAbove, setRating3AndAbove] = useState(true);
   const [rating2AndAbove, setRating2AndAbove] = useState(true);
 
+  const productsArray = [
+    {
+      bookCover: thrillerBookOne,
+      bookTitle: "Murder On The Orient Express",
+      bookAuthor: "Agatha Christie",
+      bookPrice: 199,
+      actionOne: "Add To Cart",
+      actionTwo: "Add To Wishlist",
+      bookCategory: thrillerCategory,
+      bookRating: rating4AndAbove,
+    },
+    {
+      bookCover: thrillerBookOne,
+      bookTitle: "Murder On The Orient Express",
+      bookAuthor: "Agatha Christie",
+      bookPrice: 299,
+      actionOne: "Add To Cart",
+      actionTwo: "Add To Wishlist",
+      bookCategory: romanceCategory,
+      bookRating: rating3AndAbove,
+    },
+    {
+      bookCover: thrillerBookOne,
+      bookTitle: "Murder On The Orient Express",
+      bookAuthor: "Agatha Christie",
+      bookPrice: 399,
+      actionOne: "Add To Cart",
+      actionTwo: "Add To Wishlist",
+      bookCategory: dramaCategory,
+      bookRating: rating2AndAbove,
+    },
+    {
+      bookCover: thrillerBookOne,
+      bookTitle: "Murder On The Orient Express",
+      bookAuthor: "Agatha Christie",
+      bookPrice: 499,
+      actionOne: "Add To Cart",
+      actionTwo: "Add To Wishlist",
+      bookCategory: scifiCategory,
+      bookRating: rating4AndAbove,
+    },
+  ];
+
+  const [cartArray, setCartArray] = useState([]);
+
+  const [cartLength, setCartLength] = useState(0);
+
+  const addToCart = (product) => {
+    setCartArray([...cartArray, product]);
+    setCartLength(cartLength + 1);
+  };
+
   const applyCategoryFilters = (event) => {
     if (categoryFilters === false) {
       setCategoryFilters(true);
@@ -165,49 +217,24 @@ function Products() {
           </div>
         </div>
         <div className="landing-page-content">
-          {thrillerCategory === true && rating4AndAbove === true && (
-            <Card
-              bookCover={thrillerBookOne}
-              bookTitle="Murder On The Orient Express"
-              bookAuthor="Agatha Christie"
-              bookPrice={199}
-              actionOne="Add To Cart"
-              actionTwo="Add To Wishlist"
-            />
-          )}
-
-          {romanceCategory === true && rating3AndAbove === true && (
-            <Card
-              bookCover={thrillerBookOne}
-              bookTitle="Murder On The Orient Express"
-              bookAuthor="Agatha Christie"
-              bookPrice={299}
-              actionOne="Add To Cart"
-              actionTwo="Add To Wishlist"
-            />
-          )}
-
-          {dramaCategory === true && rating2AndAbove === true && (
-            <Card
-              bookCover={thrillerBookOne}
-              bookTitle="Murder On The Orient Express"
-              bookAuthor="Agatha Christie"
-              bookPrice={399}
-              actionOne="Add To Cart"
-              actionTwo="Add To Wishlist"
-            />
-          )}
-
-          {scifiCategory === true && (
-            <Card
-              bookCover={thrillerBookOne}
-              bookTitle="Murder On The Orient Express"
-              bookAuthor="Agatha Christie"
-              bookPrice={499}
-              actionOne="Add To Cart"
-              actionTwo="Add To Wishlist"
-            />
-          )}
+          {productsArray.map((product, index) => {
+            return (
+              product.bookCategory &&
+              product.bookRating && (
+                <Card
+                  key={index}
+                  bookCover={product.bookCover}
+                  bookTitle={product.bookTitle}
+                  bookAuthor={product.bookAuthor}
+                  bookPrice={product.bookPrice}
+                  actionOne={product.actionOne}
+                  actionTwo={product.actionTwo}
+                  addToCart={() => addToCart(product)}
+                  bookQuantity={1}
+                />
+              )
+            );
+          })}
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import "./App.css";
 import Navbar from "./Navbar/Navbar";
 // import Authenticate from "./Authenticate/Authenticate";
-// import Cart from "./Cart/Cart";
+import Cart from "./Cart/Cart";
 // import Wishlist from "./Wishlist/Wishlist";
 import Products from "./Products/Products";
 // import Categories from "./Categories/Categories";
