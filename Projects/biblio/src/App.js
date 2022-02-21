@@ -2,25 +2,39 @@ import "./App.css";
 import Navbar from "./Navbar/Navbar";
 // import Authenticate from "./Authenticate/Authenticate";
 import Cart from "./Cart/Cart";
-// import Wishlist from "./Wishlist/Wishlist";
-import Products from "./Products/Products";
-// import Categories from "./Categories/Categories";
-import { BrowserRouter as Router } from "react-router-dom";
+import Wishlist from "./Wishlist/Wishlist";
+// import Products from "./Products/Products";
+import Categories from "./Categories/Categories";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      {/* <Authenticate
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Wishlist />} />
+          <Route path="/cart" element={<Cart />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
+
+/* <Authenticate
         cardTitle="Login"
         checkboxLabel="Remember Me"
         alternate="Create A New Account"
-      /> */}
-      {/* <Authenticate
+      /> */
+
+/* <Authenticate
         cardTitle="Sign Up"
         checkboxLabel="I accept the terms & conditions"
         alternate="Login With Existing Account"
-      /> */}
-      {/* <Card
+      /> */
+
+/* <Card
         bookCover={thrillerBookOne}
         bookTitle="Murder On The Orient Express"
         bookAuthor="Agatha Christie"
@@ -29,14 +43,4 @@ function App() {
         actionTwo="Add To Wishlist"
         cartPage={true}
         bookQuantity={1}
-      /> */}
-      <Navbar />
-      {/* <Cart /> */}
-      {/* <Wishlist /> */}
-      <Products />
-      {/* <Categories /> */}
-    </div>
-  );
-}
-
-export default App;
+      /> */
