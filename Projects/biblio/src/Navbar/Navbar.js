@@ -1,7 +1,7 @@
 import "./navbar.css";
 
-// import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-// import FavoriteIcon from "@mui/icons-material/Favorite";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 function Navbar() {
   function handleClick() {
@@ -44,7 +44,7 @@ function Navbar() {
             <div className="nav-cart">
               <div>
                 <a href="/">
-                  <i className="fas fa-heart fa-lg"></i>
+                  <FavoriteIcon />
                 </a>
               </div>
               <span className="nav-count">2</span>
@@ -63,7 +63,7 @@ function Navbar() {
             <div className="nav-wishlist">
               <div>
                 <a href="/">
-                  <i className="fas fa-shopping-cart fa-lg"></i>
+                  <ShoppingCartIcon />
                 </a>
               </div>
               <span className="nav-count">2</span>

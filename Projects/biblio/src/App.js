@@ -5,16 +5,28 @@ import Cart from "./Cart/Cart";
 import Wishlist from "./Wishlist/Wishlist";
 // import Products from "./Products/Products";
 import Categories from "./Categories/Categories";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Routes>
-          <Route path="/" element={<Wishlist />} />
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
+        <Switch>
+          <Route exact path="/">
+            <Navbar />
+            <Categories />
+          </Route>
+
+          <Route exact path="/cart">
+            <Navbar />
+            <Cart />
+          </Route>
+
+          <Route exact path="/wishlist">
+            <Navbar />
+            <Wishlist />
+          </Route>
+        </Switch>
       </div>
     </Router>
   );

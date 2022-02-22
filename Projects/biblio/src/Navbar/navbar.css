@@ -81,11 +81,17 @@
     color: whitesmoke;
     cursor: pointer;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-cart-mobile,
 .nav-wishlist-mobile {
     display: none;
+}
+
+.nav-count {
+    margin-bottom: 0.125rem;
 }
 
 .nav-items li:nth-child(1) {
