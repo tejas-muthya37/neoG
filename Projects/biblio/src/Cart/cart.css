@@ -1,8 +1,10 @@
 .cart-title {
-    margin-top: 20vh;
+    margin: 20vh auto 0 auto;
     text-align: center;
     letter-spacing: 5px;
     word-spacing: 10px;
+    font-size: 1.75rem;
+    width: max-content;
 }
 
 .landing-page-container.cart {
@@ -89,6 +91,13 @@
     }
 }
 
+@media screen and (max-width: 548px) {
+    .cart-title {
+        font-size: 1.5rem;
+    }
+}
+
+
 @media screen and (max-width: 500px) {
     .order-details {
         width: 250px;
@@ -101,5 +110,11 @@
     .cart-title {
         letter-spacing: 2px;
         word-spacing: 4px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .cart-title {
+        font-size: 1.3rem;
     }
 }

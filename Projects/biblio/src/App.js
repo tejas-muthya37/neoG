@@ -3,7 +3,7 @@ import Navbar from "./Navbar/Navbar";
 // import Authenticate from "./Authenticate/Authenticate";
 import Cart from "./Cart/Cart";
 import Wishlist from "./Wishlist/Wishlist";
-// import Products from "./Products/Products";
+import Products from "./Products/Products";
 import Categories from "./Categories/Categories";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -25,6 +25,11 @@ function App() {
           <Route exact path="/wishlist">
             <Navbar />
             <Wishlist />
+          </Route>
+
+          <Route exact path="/products">
+            <Navbar />
+            <Products />
           </Route>
         </Switch>
       </div>

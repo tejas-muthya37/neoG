@@ -1,7 +1,22 @@
 import "./products.css";
-import thrillerBookOne from "./../Media/thriller-book-1.jpg";
 import Card from "../Card/Card";
 import { useState } from "react";
+import thrillerBookOne from "./../Media/thriller-book-1.jpg";
+import thrillerBookTwo from "./../Media/thriller-book-2.jpg";
+import thrillerBookThree from "./../Media/thriller-book-3.jpg";
+import thrillerBookFour from "./../Media/thriller-book-4.jpg";
+import romanceBookOne from "./../Media/romance-book-1.jpg";
+import romanceBookTwo from "./../Media/romance-book-2.jpg";
+import romanceBookThree from "./../Media/romance-book-3.jpg";
+import romanceBookFour from "./../Media/romance-book-4.jpg";
+import dramaBookOne from "./../Media/drama-book-1.jpg";
+import dramaBookTwo from "./../Media/drama-book-2.jpg";
+import dramaBookThree from "./../Media/drama-book-3.jpg";
+import dramaBookFour from "./../Media/drama-book-4.jpg";
+import scifiBookOne from "./../Media/scifi-book-1.jpg";
+import scifiBookTwo from "./../Media/scifi-book-2.jpg";
+import scifiBookThree from "./../Media/scifi-book-3.jpg";
+import scifiBookFour from "./../Media/scifi-book-4.jpg";
 
 function Products() {
   const [categoryFilters, setCategoryFilters] = useState(false);
@@ -14,49 +29,6 @@ function Products() {
   const [rating3AndAbove, setRating3AndAbove] = useState(true);
   const [rating2AndAbove, setRating2AndAbove] = useState(true);
 
-  const productsArray = [
-    {
-      bookCover: thrillerBookOne,
-      bookTitle: "Murder On The Orient Express",
-      bookAuthor: "Agatha Christie",
-      bookPrice: 199,
-      actionOne: "Add To Cart",
-      actionTwo: "Add To Wishlist",
-      bookCategory: thrillerCategory,
-      bookRating: rating4AndAbove,
-    },
-    {
-      bookCover: thrillerBookOne,
-      bookTitle: "Murder On The Orient Express",
-      bookAuthor: "Agatha Christie",
-      bookPrice: 299,
-      actionOne: "Add To Cart",
-      actionTwo: "Add To Wishlist",
-      bookCategory: romanceCategory,
-      bookRating: rating3AndAbove,
-    },
-    {
-      bookCover: thrillerBookOne,
-      bookTitle: "Murder On The Orient Express",
-      bookAuthor: "Agatha Christie",
-      bookPrice: 399,
-      actionOne: "Add To Cart",
-      actionTwo: "Add To Wishlist",
-      bookCategory: dramaCategory,
-      bookRating: rating2AndAbove,
-    },
-    {
-      bookCover: thrillerBookOne,
-      bookTitle: "Murder On The Orient Express",
-      bookAuthor: "Agatha Christie",
-      bookPrice: 499,
-      actionOne: "Add To Cart",
-      actionTwo: "Add To Wishlist",
-      bookCategory: scifiCategory,
-      bookRating: rating4AndAbove,
-    },
-  ];
-
   const [cartArray, setCartArray] = useState([]);
 
   const [cartLength, setCartLength] = useState(0);
@@ -65,6 +37,169 @@ function Products() {
     setCartArray([...cartArray, product]);
     setCartLength(cartLength + 1);
   };
+
+  const productsArray = [
+    {
+      bookCover: thrillerBookOne,
+      bookTitle: "Murder On The Orient Express",
+      bookAuthor: "Agatha Christie",
+      bookPrice: 399,
+      actionOne: "Add To Cart",
+      actionTwo: "Add To Wishlist",
+      bookCategory: thrillerCategory,
+      bookRating: rating4AndAbove,
+    },
+    {
+      bookCover: thrillerBookTwo,
+      bookTitle: "400 Days",
+      bookAuthor: "Chetan Bhagat",
+      bookPrice: 249,
+      actionOne: "Add To Cart",
+      actionTwo: "Add To Wishlist",
+      bookCategory: thrillerCategory,
+      bookRating: rating3AndAbove,
+    },
+    {
+      bookCover: thrillerBookThree,
+      bookTitle: "The Murder of Roger Ackroyd",
+      bookAuthor: "Agatha Christie",
+      bookPrice: 449,
+      actionOne: "Add To Cart",
+      actionTwo: "Add To Wishlist",
+      bookCategory: thrillerCategory,
+      bookRating: rating2AndAbove,
+    },
+    {
+      bookCover: thrillerBookFour,
+      bookTitle: "One Arranged Murder",
+      bookAuthor: "Chetan Bhagat",
+      bookPrice: 299,
+      actionOne: "Add To Cart",
+      actionTwo: "Add To Wishlist",
+      bookCategory: thrillerCategory,
+      bookRating: rating4AndAbove,
+    },
+    {
+      bookCover: dramaBookOne,
+      bookTitle: "The Legend of Suheldev",
+      bookAuthor: "Amish Tripathi",
+      bookPrice: 349,
+      actionOne: "Add To Cart",
+      actionTwo: "Add To Wishlist",
+      bookCategory: dramaCategory,
+      bookRating: rating4AndAbove,
+    },
+    {
+      bookCover: dramaBookTwo,
+      bookTitle: "Five Point Someone",
+      bookAuthor: "Chetan Bhagat",
+      bookPrice: 199,
+      actionOne: "Add To Cart",
+      actionTwo: "Add To Wishlist",
+      bookCategory: dramaCategory,
+      bookRating: rating3AndAbove,
+    },
+    {
+      bookCover: dramaBookThree,
+      bookTitle: "The 3 Mistakes Of My Life",
+      bookAuthor: "Chetan Bhagat",
+      bookPrice: 299,
+      actionOne: "Add To Cart",
+      actionTwo: "Add To Wishlist",
+      bookCategory: dramaCategory,
+      bookRating: rating2AndAbove,
+    },
+    {
+      bookCover: dramaBookFour,
+      bookTitle: "The White Tiger",
+      bookAuthor: "Aravind Adiga",
+      bookPrice: 249,
+      actionOne: "Add To Cart",
+      actionTwo: "Add To Wishlist",
+      bookCategory: dramaCategory,
+      bookRating: rating4AndAbove,
+    },
+    {
+      bookCover: scifiBookOne,
+      bookTitle: "Foundation And Empire",
+      bookAuthor: "Isaac Asimov",
+      bookPrice: 399,
+      actionOne: "Add To Cart",
+      actionTwo: "Add To Wishlist",
+      bookCategory: scifiCategory,
+      bookRating: rating4AndAbove,
+    },
+    {
+      bookCover: scifiBookTwo,
+      bookTitle: "Beyond Infinity",
+      bookAuthor: "Akash Siddharth",
+      bookPrice: 349,
+      actionOne: "Add To Cart",
+      actionTwo: "Add To Wishlist",
+      bookCategory: scifiCategory,
+      bookRating: rating3AndAbove,
+    },
+    {
+      bookCover: scifiBookThree,
+      bookTitle: "Artemis",
+      bookAuthor: "Andy Weir",
+      bookPrice: 249,
+      actionOne: "Add To Cart",
+      actionTwo: "Add To Wishlist",
+      bookCategory: scifiCategory,
+      bookRating: rating2AndAbove,
+    },
+    {
+      bookCover: scifiBookFour,
+      bookTitle: "Dark Matter",
+      bookAuthor: "Blake Crouch",
+      bookPrice: 299,
+      actionOne: "Add To Cart",
+      actionTwo: "Add To Wishlist",
+      bookCategory: scifiCategory,
+      bookRating: rating4AndAbove,
+    },
+    {
+      bookCover: romanceBookOne,
+      bookTitle: "Half Girlfriend",
+      bookAuthor: "Chetan Bhagat",
+      bookPrice: 399,
+      actionOne: "Add To Cart",
+      actionTwo: "Add To Wishlist",
+      bookCategory: romanceCategory,
+      bookRating: rating4AndAbove,
+    },
+    {
+      bookCover: romanceBookTwo,
+      bookTitle: "2 States",
+      bookAuthor: "Chetan Bhagat",
+      bookPrice: 449,
+      actionOne: "Add To Cart",
+      actionTwo: "Add To Wishlist",
+      bookCategory: romanceCategory,
+      bookRating: rating3AndAbove,
+    },
+    {
+      bookCover: romanceBookThree,
+      bookTitle: "Revolution 2020",
+      bookAuthor: "Chetan Bhagat",
+      bookPrice: 499,
+      actionOne: "Add To Cart",
+      actionTwo: "Add To Wishlist",
+      bookCategory: romanceCategory,
+      bookRating: rating2AndAbove,
+    },
+    {
+      bookCover: romanceBookFour,
+      bookTitle: "One Indian Girl",
+      bookAuthor: "Chetan Bhagat",
+      bookPrice: 199,
+      actionOne: "Add To Cart",
+      actionTwo: "Add To Wishlist",
+      bookCategory: romanceCategory,
+      bookRating: rating4AndAbove,
+    },
+  ];
 
   const applyCategoryFilters = (event) => {
     if (categoryFilters === false) {
@@ -101,9 +236,12 @@ function Products() {
     }
     if (event.target.id === "rating-3-stars-and-above") {
       setRating3AndAbove(true);
+      setRating4AndAbove(true);
     }
     if (event.target.id === "rating-2-stars-and-above") {
       setRating2AndAbove(true);
+      setRating3AndAbove(true);
+      setRating4AndAbove(true);
     }
   };
 

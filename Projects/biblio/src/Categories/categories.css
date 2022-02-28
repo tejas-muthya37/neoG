@@ -1,5 +1,6 @@
 .landing-page-container.categories {
-    margin-top: 20vh;
+    margin: 20vh auto 0 auto;
+    width: max-content;
     padding: 0;
     opacity: 1;
     display: flex;
@@ -18,7 +19,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 11vh;
+    margin-top: 8vh;
 }
 
 .landing-page-content.categories img {

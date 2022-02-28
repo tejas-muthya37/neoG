@@ -1,6 +1,6 @@
 import "./cart.css";
 import Card from "./../Card/Card";
-// import thrillerBookOne from "./../Media/thriller-book-1.jpg";
+import thrillerBookOne from "./../Media/thriller-book-1.jpg";
 
 function Cart(props) {
   return (
@@ -8,26 +8,14 @@ function Cart(props) {
       <h1 className="cart-title">MY CART</h1>
       <div className="landing-page-container cart">
         <div className="landing-page-content cart">
-          {/* <Card
-            bookCover={thrillerBookOne}
-            bookTitle="Murder On The Orient Express"
-            bookAuthor="Agatha Christie"
-            bookPrice={499}
-            actionOne="Add To Cart"
-            actionTwo="Add To Wishlist"
-            cartPage={true}
-            addToCartAction={addToCart}
-          />
           <Card
             bookCover={thrillerBookOne}
             bookTitle="Murder On The Orient Express"
             bookAuthor="Agatha Christie"
             bookPrice={499}
             actionOne="Add To Cart"
-            actionTwo="Add To Wishlist"
-            cartPage={true}
-            addToCartAction={addToCart}
-          /> */}
+            actionTwo="Remove From Wishlist"
+          />
         </div>
         <div className="order-details">
           <h3>Order Details</h3>

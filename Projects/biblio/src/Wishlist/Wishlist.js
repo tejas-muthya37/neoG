@@ -33,6 +33,15 @@ function Wishlist() {
           actionOne="Add To Cart"
           actionTwo="Remove From Wishlist"
         />
+
+        <Card
+          bookCover={thrillerBookOne}
+          bookTitle="Murder On The Orient Express"
+          bookAuthor="Agatha Christie"
+          bookPrice={499}
+          actionOne="Add To Cart"
+          actionTwo="Remove From Wishlist"
+        />
       </div>
     </div>
   );
