@@ -94,9 +94,24 @@ ________________________________________________________________________________
 
 	- Modern Asynchronous JavaScript with Async/Await - https://nodejs.dev/learn/modern-asynchronous-javascript-with-async-and-await
 
-	- Promises - https://javascript.info/promise-basics
+	- All about Async - https://javascript.info/async
+
+	- Async Await Error Handling - https://itnext.io/error-handling-with-async-await-in-js-26c3f20bc06a
 
 	- React Docs - https://reactjs.org/docs/getting-started.html
+
+	- How Web Works - https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/How_the_Web_works
+			        https://www.freecodecamp.org/news/how-the-web-works-a-primer-for-newcomers-to-web-development-or-anyone-really-b4584e63585c/
+
+	- Functional Programming  - https://eloquentjavascript.net/1st_edition/chapter6.html
+
+	- Deep Cloning and Shallow Cloning of Objects - https://www.digitalocean.com/community/tutorials/js-deep-cloning-javascript-objects#introduction
+
+	- Thinking in React - https://beta.reactjs.org/learn/thinking-in-react
+
+	- React useState - https://beta.reactjs.org/apis/usestate
+			    https://betterprogramming.pub/you-dont-know-usestate-until-you-ve-used-functional-updates-5da52117620f
+			    https://medium.com/ableneo/react-setstate-does-not-immediately-update-the-state-84dbd26f67d5
 
 __________________________________________________________________________________________________________________________________________________________________________________________
 
