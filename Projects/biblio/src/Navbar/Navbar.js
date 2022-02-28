@@ -2,6 +2,7 @@ import "./navbar.css";
 
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   function handleClick() {
@@ -25,7 +26,7 @@ function Navbar() {
     <div className="Navbar">
       <nav className="navbar">
         <div className="logo">
-          <a href="/">biblio</a>
+          <Link to="/">biblio</Link>
         </div>
 
         <div className="nav-items">
@@ -33,9 +34,27 @@ function Navbar() {
             <button>Login</button>
           </li>
           <li>
+            <div className="nav-wishlist-mobile">
+              <div>
+                <Link to="/wishlist">My Wishlist</Link>
+              </div>
+              <span>
+                (<span className="nav-count">2</span>)
+              </span>
+            </div>
+            <div className="nav-wishlist">
+              <div>
+                <Link to="/wishlist">
+                  <FavoriteIcon />
+                </Link>
+              </div>
+              <span className="nav-count">2</span>
+            </div>
+          </li>
+          <li>
             <div className="nav-cart-mobile">
               <div>
-                <a href="/">My Cart</a>
+                <Link to="/cart">My Cart</Link>
               </div>
               <span>
                 (<span className="nav-count">2</span>)
@@ -44,26 +63,9 @@ function Navbar() {
             <div className="nav-cart">
               <div>
                 <a href="/">
-                  <FavoriteIcon />
-                </a>
-              </div>
-              <span className="nav-count">2</span>
-            </div>
-          </li>
-
-          <li>
-            <div className="nav-wishlist-mobile">
-              <div>
-                <a href="/">My Wishlist</a>
-              </div>
-              <span>
-                (<span className="nav-count">2</span>)
-              </span>
-            </div>
-            <div className="nav-wishlist">
-              <div>
-                <a href="/">
-                  <ShoppingCartIcon />
+                  <Link to="/cart">
+                    <ShoppingCartIcon />
+                  </Link>
                 </a>
               </div>
               <span className="nav-count">2</span>

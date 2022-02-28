@@ -1,6 +1,6 @@
 import "./products.css";
 import Card from "../Card/Card";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import thrillerBookOne from "./../Media/thriller-book-1.jpg";
 import thrillerBookTwo from "./../Media/thriller-book-2.jpg";
 import thrillerBookThree from "./../Media/thriller-book-3.jpg";
@@ -30,16 +30,24 @@ function Products() {
   const [rating2AndAbove, setRating2AndAbove] = useState(true);
 
   const [cartArray, setCartArray] = useState([]);
-
-  const [cartLength, setCartLength] = useState(0);
+  const [wishlistArray, setWishlistArray] = useState([]);
 
   const addToCart = (product) => {
     setCartArray([...cartArray, product]);
-    setCartLength(cartLength + 1);
   };
+
+  const addToWishlist = (product) => {
+    setWishlistArray([...wishlistArray, product]);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("CART_ARRAY", JSON.stringify(cartArray));
+    localStorage.setItem("WISHLIST_ARRAY", JSON.stringify(wishlistArray));
+  }, [cartArray, wishlistArray]);
 
   const productsArray = [
     {
+      id: 1,
       bookCover: thrillerBookOne,
       bookTitle: "Murder On The Orient Express",
       bookAuthor: "Agatha Christie",
@@ -48,8 +56,10 @@ function Products() {
       actionTwo: "Add To Wishlist",
       bookCategory: thrillerCategory,
       bookRating: rating4AndAbove,
+      bookQuantity: 1,
     },
     {
+      id: 2,
       bookCover: thrillerBookTwo,
       bookTitle: "400 Days",
       bookAuthor: "Chetan Bhagat",
@@ -58,8 +68,10 @@ function Products() {
       actionTwo: "Add To Wishlist",
       bookCategory: thrillerCategory,
       bookRating: rating3AndAbove,
+      bookQuantity: 1,
     },
     {
+      id: 3,
       bookCover: thrillerBookThree,
       bookTitle: "The Murder of Roger Ackroyd",
       bookAuthor: "Agatha Christie",
@@ -68,8 +80,10 @@ function Products() {
       actionTwo: "Add To Wishlist",
       bookCategory: thrillerCategory,
       bookRating: rating2AndAbove,
+      bookQuantity: 1,
     },
     {
+      id: 4,
       bookCover: thrillerBookFour,
       bookTitle: "One Arranged Murder",
       bookAuthor: "Chetan Bhagat",
@@ -78,8 +92,10 @@ function Products() {
       actionTwo: "Add To Wishlist",
       bookCategory: thrillerCategory,
       bookRating: rating4AndAbove,
+      bookQuantity: 1,
     },
     {
+      id: 5,
       bookCover: dramaBookOne,
       bookTitle: "The Legend of Suheldev",
       bookAuthor: "Amish Tripathi",
@@ -88,8 +104,10 @@ function Products() {
       actionTwo: "Add To Wishlist",
       bookCategory: dramaCategory,
       bookRating: rating4AndAbove,
+      bookQuantity: 1,
     },
     {
+      id: 6,
       bookCover: dramaBookTwo,
       bookTitle: "Five Point Someone",
       bookAuthor: "Chetan Bhagat",
@@ -98,8 +116,10 @@ function Products() {
       actionTwo: "Add To Wishlist",
       bookCategory: dramaCategory,
       bookRating: rating3AndAbove,
+      bookQuantity: 1,
     },
     {
+      id: 7,
       bookCover: dramaBookThree,
       bookTitle: "The 3 Mistakes Of My Life",
       bookAuthor: "Chetan Bhagat",
@@ -108,8 +128,10 @@ function Products() {
       actionTwo: "Add To Wishlist",
       bookCategory: dramaCategory,
       bookRating: rating2AndAbove,
+      bookQuantity: 1,
     },
     {
+      id: 8,
       bookCover: dramaBookFour,
       bookTitle: "The White Tiger",
       bookAuthor: "Aravind Adiga",
@@ -118,8 +140,10 @@ function Products() {
       actionTwo: "Add To Wishlist",
       bookCategory: dramaCategory,
       bookRating: rating4AndAbove,
+      bookQuantity: 1,
     },
     {
+      id: 9,
       bookCover: scifiBookOne,
       bookTitle: "Foundation And Empire",
       bookAuthor: "Isaac Asimov",
@@ -128,8 +152,10 @@ function Products() {
       actionTwo: "Add To Wishlist",
       bookCategory: scifiCategory,
       bookRating: rating4AndAbove,
+      bookQuantity: 1,
     },
     {
+      id: 10,
       bookCover: scifiBookTwo,
       bookTitle: "Beyond Infinity",
       bookAuthor: "Akash Siddharth",
@@ -138,8 +164,10 @@ function Products() {
       actionTwo: "Add To Wishlist",
       bookCategory: scifiCategory,
       bookRating: rating3AndAbove,
+      bookQuantity: 1,
     },
     {
+      id: 11,
       bookCover: scifiBookThree,
       bookTitle: "Artemis",
       bookAuthor: "Andy Weir",
@@ -148,8 +176,10 @@ function Products() {
       actionTwo: "Add To Wishlist",
       bookCategory: scifiCategory,
       bookRating: rating2AndAbove,
+      bookQuantity: 1,
     },
     {
+      id: 12,
       bookCover: scifiBookFour,
       bookTitle: "Dark Matter",
       bookAuthor: "Blake Crouch",
@@ -158,8 +188,10 @@ function Products() {
       actionTwo: "Add To Wishlist",
       bookCategory: scifiCategory,
       bookRating: rating4AndAbove,
+      bookQuantity: 1,
     },
     {
+      id: 13,
       bookCover: romanceBookOne,
       bookTitle: "Half Girlfriend",
       bookAuthor: "Chetan Bhagat",
@@ -168,8 +200,10 @@ function Products() {
       actionTwo: "Add To Wishlist",
       bookCategory: romanceCategory,
       bookRating: rating4AndAbove,
+      bookQuantity: 1,
     },
     {
+      id: 14,
       bookCover: romanceBookTwo,
       bookTitle: "2 States",
       bookAuthor: "Chetan Bhagat",
@@ -178,8 +212,10 @@ function Products() {
       actionTwo: "Add To Wishlist",
       bookCategory: romanceCategory,
       bookRating: rating3AndAbove,
+      bookQuantity: 1,
     },
     {
+      id: 15,
       bookCover: romanceBookThree,
       bookTitle: "Revolution 2020",
       bookAuthor: "Chetan Bhagat",
@@ -188,8 +224,10 @@ function Products() {
       actionTwo: "Add To Wishlist",
       bookCategory: romanceCategory,
       bookRating: rating2AndAbove,
+      bookQuantity: 1,
     },
     {
+      id: 16,
       bookCover: romanceBookFour,
       bookTitle: "One Indian Girl",
       bookAuthor: "Chetan Bhagat",
@@ -198,6 +236,7 @@ function Products() {
       actionTwo: "Add To Wishlist",
       bookCategory: romanceCategory,
       bookRating: rating4AndAbove,
+      bookQuantity: 1,
     },
   ];
 
@@ -367,7 +406,8 @@ function Products() {
                   bookPrice={product.bookPrice}
                   actionOne={product.actionOne}
                   actionTwo={product.actionTwo}
-                  addToCart={() => addToCart(product)}
+                  actionOneFunction={() => addToCart(product)}
+                  actionTwoFunction={() => addToWishlist(product)}
                   bookQuantity={1}
                 />
               )

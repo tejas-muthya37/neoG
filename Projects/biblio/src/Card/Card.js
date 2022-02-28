@@ -48,10 +48,18 @@ function Card(props) {
             )}
           </div>
           <div className="button-group">
-            <button onClick={props.addToCart} className="btn-action-one">
+            <button
+              onClick={props.actionOneFunction}
+              className="btn-action-one"
+            >
               {props.actionOne}
             </button>
-            <button className="btn-action-two">{props.actionTwo}</button>
+            <button
+              onClick={props.actionTwoFunction}
+              className="btn-action-two"
+            >
+              {props.actionTwo}
+            </button>
           </div>
         </div>
       </div>
