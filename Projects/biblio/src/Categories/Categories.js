@@ -9,33 +9,35 @@ function Categories() {
   return (
     <div className="Categories">
       <div className="landing-page-container categories">
-        <h3>PICK YOUR CATEGORY</h3>
         <div className="landing-page-content categories">
-          <Link to="/products">
-            <div className="category-card">
+          <Link to="/books/thrillers">
+            <div id="thriller-category" className="category-card">
               <img src={category1} alt="" />
               <p>Thriller</p>
             </div>
           </Link>
-          <Link to="/products">
-            <div className="category-card">
+          <Link to="/books/drama">
+            <div id="drama-category" className="category-card">
               <img src={category2} alt="" />
               <p>Drama</p>
             </div>
           </Link>
-          <Link to="/products">
-            <div className="category-card">
+          <Link to="/books/sci-fi">
+            <div id="scifi-category" className="category-card">
               <img src={category3} alt="" />
               <p>Sci-Fi</p>
             </div>
           </Link>
-          <Link to="/products">
-            <div className="category-card">
+          <Link to="/books/romance">
+            <div id="romance-category" className="category-card">
               <img src={category4} alt="" />
               <p>Romance</p>
             </div>
           </Link>
         </div>
+        <Link to="/books">
+          <button>Browse All Categories</button>
+        </Link>
       </div>
     </div>
   );

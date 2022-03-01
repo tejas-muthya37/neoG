@@ -1,10 +1,12 @@
 import "./navbar.css";
-
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Link } from "react-router-dom";
+import { useProducts } from "./../products-context";
 
 function Navbar() {
+  const { cartArray, wishlistArray } = useProducts();
+
   function handleClick() {
     const burger = document.querySelector(".burger");
     const nav = document.querySelector(".nav-items");
@@ -39,7 +41,7 @@ function Navbar() {
                 <Link to="/wishlist">My Wishlist</Link>
               </div>
               <span>
-                (<span className="nav-count">2</span>)
+                (<span className="nav-count">{wishlistArray.length}</span>)
               </span>
             </div>
             <div className="nav-wishlist">
@@ -48,7 +50,7 @@ function Navbar() {
                   <FavoriteIcon />
                 </Link>
               </div>
-              <span className="nav-count">2</span>
+              <span className="nav-count">{wishlistArray.length}</span>
             </div>
           </li>
           <li>
@@ -57,18 +59,16 @@ function Navbar() {
                 <Link to="/cart">My Cart</Link>
               </div>
               <span>
-                (<span className="nav-count">2</span>)
+                (<span className="nav-count">{cartArray.length}</span>)
               </span>
             </div>
             <div className="nav-cart">
               <div>
-                <a href="/">
-                  <Link to="/cart">
-                    <ShoppingCartIcon />
-                  </Link>
-                </a>
+                <Link to="/cart">
+                  <ShoppingCartIcon />
+                </Link>
               </div>
-              <span className="nav-count">2</span>
+              <span className="nav-count">{cartArray.length}</span>
             </div>
           </li>
           <li>

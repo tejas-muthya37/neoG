@@ -1,40 +1,62 @@
 import "./cart.css";
 import Card from "./../Card/Card";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useProducts } from "./../products-context";
 
-function Cart(props) {
-  var storedCartArray = JSON.parse(localStorage.getItem("CART_ARRAY"));
-  if (storedCartArray === undefined) storedCartArray = [];
-
-  const [cartArray, setCartArray] = useState(storedCartArray);
+function Cart() {
+  const { cartArray, setCartArray, wishlistArray, setWishlistArray } =
+    useProducts();
 
   const removeFromCart = (id) => {
     setCartArray(cartArray.filter((cartItem) => cartItem.id !== id));
   };
-
-  var storedWishlistArray = JSON.parse(localStorage.getItem("WISHLIST_ARRAY"));
-  if (storedWishlistArray === undefined) storedWishlistArray = [];
-
-  const [wishlistArray, setWishlistArray] = useState(storedWishlistArray);
 
   const moveToWishlist = (product) => {
     setWishlistArray([...wishlistArray, product]);
     removeFromCart(product.id);
   };
 
+  const incrementCartItemQuantity = (id) => {
+    cartArray.map((cartItem, index) => {
+      if (cartItem.id === id) {
+        setCartArray([
+          ...cartArray.slice(0, index),
+          { ...cartArray[index], bookQuantity: cartItem.bookQuantity + 1 },
+          ...cartArray.slice(index + 1),
+        ]);
+      }
+      return true;
+    });
+  };
+
+  const decrementCartItemQuantity = (id) => {
+    cartArray.map((cartItem, index) => {
+      if (cartItem.id === id) {
+        setCartArray([
+          ...cartArray.slice(0, index),
+          {
+            ...cartArray[index],
+            bookQuantity:
+              cartItem.bookQuantity > 1 ? cartItem.bookQuantity - 1 : 1,
+          },
+          ...cartArray.slice(index + 1),
+        ]);
+      }
+      return true;
+    });
+  };
+
   const cartTotal = cartArray.reduce((accumulator, currentValue) => {
-    accumulator += currentValue.bookPrice;
+    accumulator += currentValue.bookPrice * currentValue.bookQuantity;
     return accumulator;
   }, 0);
 
-  var shippingTotal;
-  if (cartArray.length < 3) {
-    shippingTotal = 50;
-  } else if (cartArray.length < 6) {
-    shippingTotal = 100;
-  } else {
-    shippingTotal = 150;
-  }
+  const cartQuantity = cartArray.reduce((accumulator, currentValue) => {
+    accumulator += currentValue.bookQuantity;
+    return accumulator;
+  }, 0);
+
+  var shippingTotal = 25 + cartQuantity * 25;
 
   useEffect(() => {
     localStorage.setItem("CART_ARRAY", JSON.stringify(cartArray));
@@ -54,10 +76,17 @@ function Cart(props) {
                 bookTitle={product.bookTitle}
                 bookAuthor={product.bookAuthor}
                 bookPrice={product.bookPrice}
+                bookQuantity={product.bookQuantity}
                 actionOne="Move To Wishlist"
                 actionTwo="Remove From Cart"
                 actionOneFunction={() => moveToWishlist(product)}
                 actionTwoFunction={() => removeFromCart(product.id)}
+                incrementCartItemQuantity={() =>
+                  incrementCartItemQuantity(product.id)
+                }
+                decrementCartItemQuantity={() =>
+                  decrementCartItemQuantity(product.id)
+                }
                 cartPage={true}
               />
             );

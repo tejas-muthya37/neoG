@@ -17,6 +17,31 @@ function App() {
             <Categories />
           </Route>
 
+          <Route exact path="/books">
+            <Navbar />
+            <Products productPage={true} />
+          </Route>
+
+          <Route exact path="/books/thrillers">
+            <Navbar />
+            <Products thrillerPage={true} />
+          </Route>
+
+          <Route exact path="/books/drama">
+            <Navbar />
+            <Products dramaPage={true} />
+          </Route>
+
+          <Route exact path="/books/sci-fi">
+            <Navbar />
+            <Products scifiPage={true} />
+          </Route>
+
+          <Route exact path="/books/romance">
+            <Navbar />
+            <Products romancePage={true} />
+          </Route>
+
           <Route exact path="/cart">
             <Navbar />
             <Cart />
@@ -25,11 +50,6 @@ function App() {
           <Route exact path="/wishlist">
             <Navbar />
             <Wishlist />
-          </Route>
-
-          <Route exact path="/products">
-            <Navbar />
-            <Products />
           </Route>
         </Switch>
       </div>

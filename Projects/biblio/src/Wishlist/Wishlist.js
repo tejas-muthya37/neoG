@@ -1,22 +1,17 @@
 import "./wishlist.css";
 import Card from "../Card/Card";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useProducts } from "./../products-context";
 
 function Wishlist() {
-  var storedCartArray = JSON.parse(localStorage.getItem("CART_ARRAY"));
-  if (storedCartArray === undefined) storedCartArray = [];
-
-  const [cartArray, setCartArray] = useState(storedCartArray);
+  const { cartArray, setCartArray, wishlistArray, setWishlistArray } =
+    useProducts();
 
   const moveToCart = (product) => {
     setCartArray([...cartArray, product]);
     removeFromWishlist(product.id);
   };
-
-  var storedWishlistArray = JSON.parse(localStorage.getItem("WISHLIST_ARRAY"));
-  if (storedWishlistArray === undefined) storedWishlistArray = [];
-
-  const [wishlistArray, setWishlistArray] = useState(storedWishlistArray);
+  useProducts();
 
   const removeFromWishlist = (id) => {
     setWishlistArray(
