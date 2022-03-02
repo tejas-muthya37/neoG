@@ -1,21 +1,52 @@
 import "./cart.css";
 import Card from "./../Card/Card";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useProducts } from "./../products-context";
 import Empty from "../Empty/Empty";
 import emptyCart from "./../Media/empty-cart.png";
 
 function Cart() {
+  const [toastVisibility, setToastVisibility] = useState("hidden");
+  const [toastText, setToastText] = useState("");
+  const [toastColor, setToastColor] = useState({
+    color: "",
+    backgroundColor: "",
+  });
+
   const { cartArray, setCartArray, wishlistArray, setWishlistArray } =
     useProducts();
 
   const removeFromCart = (id) => {
     setCartArray(cartArray.filter((cartItem) => cartItem.id !== id));
+    setToastVisibility("visible");
+    setToastText("Removed From Cart ☓");
+    setToastColor({
+      color: "whitesmoke",
+      backgroundColor: "red",
+    });
+    setTimeout(() => setToastVisibility("hidden"), 2000);
   };
 
   const moveToWishlist = (product) => {
-    setWishlistArray([...wishlistArray, product]);
-    removeFromCart(product.id);
+    var wishlistFlag = false;
+    wishlistArray.map((wishlistItem) => {
+      if (wishlistItem.id === product.id) {
+        wishlistFlag = true;
+        return true;
+      }
+      return true;
+    });
+    if (wishlistFlag === false) {
+      setWishlistArray([...wishlistArray, product]);
+    }
+    setToastVisibility("visible");
+    setToastText("Moved To Wishlist ✔");
+    setToastColor({
+      color: "white",
+      backgroundColor: "green",
+    });
+    setTimeout(() => setToastVisibility("hidden"), 2000);
+    setCartArray(cartArray.filter((cartItem) => cartItem.id !== product.id));
   };
 
   const incrementCartItemQuantity = (id) => {
@@ -67,6 +98,16 @@ function Cart() {
 
   return (
     <div className="Cart">
+      <p
+        style={{
+          visibility: toastVisibility,
+          backgroundColor: toastColor.backgroundColor,
+          color: toastColor.color,
+        }}
+        className="products-message-toast"
+      >
+        {toastText}
+      </p>
       {cartArray.length === 0 && (
         <Empty emptyTitle="cart" emptyImage={emptyCart} />
       )}

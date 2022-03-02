@@ -38,7 +38,7 @@ function Navbar() {
           <li>
             <div className="nav-wishlist-mobile">
               <div>
-                <Link to="/wishlist">My Wishlist</Link>
+                <a href="/wishlist">My Wishlist</a>
               </div>
               <span>
                 (<span className="nav-count">{wishlistArray.length}</span>)
@@ -56,7 +56,7 @@ function Navbar() {
           <li>
             <div className="nav-cart-mobile">
               <div>
-                <Link to="/cart">My Cart</Link>
+                <a href="/cart">My Cart</a>
               </div>
               <span>
                 (<span className="nav-count">{cartArray.length}</span>)

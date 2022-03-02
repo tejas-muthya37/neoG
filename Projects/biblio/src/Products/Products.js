@@ -39,6 +39,12 @@ function Products(props) {
   const [sortFilters, setSortFilters] = useState(false);
   const [lowToHigh, setLowToHigh] = useState(false);
   const [highToLow, setHighToLow] = useState(false);
+  const [toastVisibility, setToastVisibility] = useState("hidden");
+  const [toastText, setToastText] = useState("");
+  const [toastColor, setToastColor] = useState({
+    color: "",
+    backgroundColor: "",
+  });
 
   const productsArray = [
     {
@@ -284,6 +290,13 @@ function Products(props) {
       return true;
     });
     if (productFlag === false) setCartArray([...cartArray, product]);
+    setToastVisibility("visible");
+    setToastText("Added To Cart ✔");
+    setToastColor({
+      color: "whitesmoke",
+      backgroundColor: "green",
+    });
+    setTimeout(() => setToastVisibility("hidden"), 2000);
   };
 
   const addToWishlist = (product) => {
@@ -295,7 +308,16 @@ function Products(props) {
       }
       return true;
     });
-    if (wishlistFlag === false) setWishlistArray([...wishlistArray, product]);
+    if (wishlistFlag === false) {
+      setWishlistArray([...wishlistArray, product]);
+    }
+    setToastVisibility("visible");
+    setToastText("Added To Wishlist ✔");
+    setToastColor({
+      color: "white",
+      backgroundColor: "green",
+    });
+    setTimeout(() => setToastVisibility("hidden"), 2000);
   };
 
   useEffect(() => {
@@ -403,6 +425,16 @@ function Products(props) {
 
   return (
     <div className="Products">
+      <p
+        style={{
+          visibility: toastVisibility,
+          backgroundColor: toastColor.backgroundColor,
+          color: toastColor.color,
+        }}
+        className="products-message-toast"
+      >
+        {toastText}
+      </p>
       <div className="landing-page-container">
         <div className="filter-section">
           <div className="filter-section-title">

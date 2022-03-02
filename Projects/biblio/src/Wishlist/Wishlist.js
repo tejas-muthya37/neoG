@@ -1,24 +1,57 @@
 import "./wishlist.css";
 import Card from "../Card/Card";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useProducts } from "./../products-context";
 import Empty from "../Empty/Empty";
 import emptyCart from "./../Media/empty-cart.png";
 
 function Wishlist() {
+  const [toastVisibility, setToastVisibility] = useState("hidden");
+  const [toastText, setToastText] = useState("");
+  const [toastColor, setToastColor] = useState({
+    color: "",
+    backgroundColor: "",
+  });
   const { cartArray, setCartArray, wishlistArray, setWishlistArray } =
     useProducts();
 
   const moveToCart = (product) => {
-    setCartArray([...cartArray, product]);
-    removeFromWishlist(product.id);
+    var productFlag = false;
+    cartArray.map((cartItem, index) => {
+      if (cartItem.id === product.id) {
+        productFlag = true;
+        setCartArray([
+          ...cartArray.slice(0, index),
+          { ...cartArray[index], bookQuantity: cartItem.bookQuantity + 1 },
+          ...cartArray.slice(index + 1),
+        ]);
+      }
+      return true;
+    });
+    if (productFlag === false) setCartArray([...cartArray, product]);
+    setToastVisibility("visible");
+    setToastText("Moved To Cart ✔");
+    setToastColor({
+      color: "whitesmoke",
+      backgroundColor: "green",
+    });
+    setTimeout(() => setToastVisibility("hidden"), 2000);
+    setWishlistArray(
+      wishlistArray.filter((wishlistItem) => wishlistItem.id !== product.id)
+    );
   };
-  useProducts();
 
   const removeFromWishlist = (id) => {
     setWishlistArray(
       wishlistArray.filter((wishlistItem) => wishlistItem.id !== id)
     );
+    setToastVisibility("visible");
+    setToastText("Removed From Wishlist ☓");
+    setToastColor({
+      color: "whitesmoke",
+      backgroundColor: "red",
+    });
+    setTimeout(() => setToastVisibility("hidden"), 2000);
   };
 
   useEffect(() => {
@@ -28,6 +61,16 @@ function Wishlist() {
 
   return (
     <div className="Wishlist">
+      <p
+        style={{
+          visibility: toastVisibility,
+          backgroundColor: toastColor.backgroundColor,
+          color: toastColor.color,
+        }}
+        className="products-message-toast"
+      >
+        {toastText}
+      </p>
       {wishlistArray.length === 0 && (
         <Empty emptyTitle="wishlist" emptyImage={emptyCart} />
       )}
