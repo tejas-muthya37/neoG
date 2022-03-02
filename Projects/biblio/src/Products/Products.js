@@ -348,11 +348,11 @@ function Products(props) {
   const applyPriceFilters = (event) => {
     if (priceFilters === false) {
       setPriceFilters(true);
-      setPriceBelow150(false);
-      setPriceBelow250(false);
-      setPriceBelow350(false);
-      setPriceBelow450(false);
     }
+    setPriceBelow150(false);
+    setPriceBelow250(false);
+    setPriceBelow350(false);
+    setPriceBelow450(false);
     if (event.target.value === "150") {
       setPriceBelow150(true);
       setPriceBelow250(false);
