@@ -2,6 +2,8 @@ import "./wishlist.css";
 import Card from "../Card/Card";
 import { useEffect } from "react";
 import { useProducts } from "./../products-context";
+import Empty from "../Empty/Empty";
+import emptyCart from "./../Media/empty-cart.png";
 
 function Wishlist() {
   const { cartArray, setCartArray, wishlistArray, setWishlistArray } =
@@ -26,26 +28,33 @@ function Wishlist() {
 
   return (
     <div className="Wishlist">
-      <h1 className="wishlist-title">MY WISHLIST</h1>
-      <div className="landing-page-container wishlist">
-        {wishlistArray.map((product, index) => {
-          return (
-            <Card
-              key={index}
-              bookCover={product.bookCover}
-              bookTitle={product.bookTitle}
-              bookAuthor={product.bookAuthor}
-              bookPrice={product.bookPrice}
-              actionOne="Move To Cart"
-              actionTwo="Remove From Wishlist"
-              actionOneFunction={() => moveToCart(product)}
-              actionTwoFunction={() => {
-                removeFromWishlist(product.id);
-              }}
-            />
-          );
-        })}
-      </div>
+      {wishlistArray.length === 0 && (
+        <Empty emptyTitle="wishlist" emptyImage={emptyCart} />
+      )}
+      {wishlistArray.length > 0 && (
+        <h1 className="wishlist-title">MY WISHLIST</h1>
+      )}
+      {wishlistArray.length > 0 && (
+        <div className="landing-page-container wishlist">
+          {wishlistArray.map((product, index) => {
+            return (
+              <Card
+                key={index}
+                bookCover={product.bookCover}
+                bookTitle={product.bookTitle}
+                bookAuthor={product.bookAuthor}
+                bookPrice={product.bookPrice}
+                actionOne="Move To Cart"
+                actionTwo="Remove From Wishlist"
+                actionOneFunction={() => moveToCart(product)}
+                actionTwoFunction={() => {
+                  removeFromWishlist(product.id);
+                }}
+              />
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }
