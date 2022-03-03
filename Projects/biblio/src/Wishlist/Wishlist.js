@@ -32,7 +32,7 @@ function Wishlist() {
     setToastVisibility("visible");
     setToastText("Moved To Cart ✔");
     setToastColor({
-      color: "whitesmoke",
+      color: "white",
       backgroundColor: "green",
     });
     setTimeout(() => setToastVisibility("hidden"), 2000);
@@ -46,9 +46,9 @@ function Wishlist() {
       wishlistArray.filter((wishlistItem) => wishlistItem.id !== id)
     );
     setToastVisibility("visible");
-    setToastText("Removed From Wishlist ☓");
+    setToastText("Removed From Wishlist ✔");
     setToastColor({
-      color: "whitesmoke",
+      color: "white",
       backgroundColor: "red",
     });
     setTimeout(() => setToastVisibility("hidden"), 2000);
@@ -67,7 +67,7 @@ function Wishlist() {
           backgroundColor: toastColor.backgroundColor,
           color: toastColor.color,
         }}
-        className="products-message-toast"
+        className="message-toast"
       >
         {toastText}
       </p>

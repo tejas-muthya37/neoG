@@ -2,24 +2,7 @@ import "./products.css";
 import Card from "../Card/Card";
 import { useEffect, useState } from "react";
 import { useProducts } from "./../products-context";
-import {
-  thrillerBookOne,
-  thrillerBookTwo,
-  thrillerBookThree,
-  thrillerBookFour,
-  romanceBookOne,
-  romanceBookTwo,
-  romanceBookThree,
-  romanceBookFour,
-  dramaBookOne,
-  dramaBookTwo,
-  dramaBookThree,
-  dramaBookFour,
-  scifiBookOne,
-  scifiBookTwo,
-  scifiBookThree,
-  scifiBookFour,
-} from "./../images.js";
+import productsArray from "../productsArray";
 
 function Products(props) {
   const [ratingFilters, setRatingFilters] = useState(false);
@@ -46,232 +29,36 @@ function Products(props) {
     backgroundColor: "",
   });
 
-  const productsArray = [
-    {
-      id: 1,
-      bookCover: thrillerBookOne,
-      bookTitle: "Murder On The Orient Express",
-      bookAuthor: "Agatha Christie",
-      bookPrice: 149,
-      priceFlag: priceBelow150,
-      actionOne: "Add To Cart",
-      actionTwo: "Add To Wishlist",
-      categoryFlag: thrillerCategory,
-      bookCategory: "Thriller",
-      bookRating: rating4AndAbove,
-      bookQuantity: 1,
-    },
-    {
-      id: 2,
-      bookCover: thrillerBookTwo,
-      bookTitle: "400 Days",
-      bookAuthor: "Chetan Bhagat",
-      bookPrice: 249,
-      priceFlag: priceBelow250,
-      actionOne: "Add To Cart",
-      actionTwo: "Add To Wishlist",
-      categoryFlag: thrillerCategory,
-      bookCategory: "Thriller",
-      bookRating: rating3AndAbove,
-      bookQuantity: 1,
-    },
-    {
-      id: 3,
-      bookCover: thrillerBookThree,
-      bookTitle: "The Murder of Roger Ackroyd",
-      bookAuthor: "Agatha Christie",
-      bookPrice: 449,
-      priceFlag: priceBelow450,
-      actionOne: "Add To Cart",
-      actionTwo: "Add To Wishlist",
-      categoryFlag: thrillerCategory,
-      bookCategory: "Thriller",
-      bookRating: rating2AndAbove,
-      bookQuantity: 1,
-    },
-    {
-      id: 4,
-      bookCover: thrillerBookFour,
-      bookTitle: "One Arranged Murder",
-      bookAuthor: "Chetan Bhagat",
-      bookPrice: 299,
-      priceFlag: priceBelow350,
-      actionOne: "Add To Cart",
-      actionTwo: "Add To Wishlist",
-      categoryFlag: thrillerCategory,
-      bookCategory: "Thriller",
-      bookRating: rating4AndAbove,
-      bookQuantity: 1,
-    },
-    {
-      id: 5,
-      bookCover: dramaBookOne,
-      bookTitle: "The Legend of Suheldev",
-      bookAuthor: "Amish Tripathi",
-      bookPrice: 449,
-      priceFlag: priceBelow450,
-      actionOne: "Add To Cart",
-      actionTwo: "Add To Wishlist",
-      categoryFlag: dramaCategory,
-      bookCategory: "Drama",
-      bookRating: rating4AndAbove,
-      bookQuantity: 1,
-    },
-    {
-      id: 6,
-      bookCover: dramaBookTwo,
-      bookTitle: "Five Point Someone",
-      bookAuthor: "Chetan Bhagat",
-      bookPrice: 149,
-      priceFlag: priceBelow150,
-      actionOne: "Add To Cart",
-      actionTwo: "Add To Wishlist",
-      categoryFlag: dramaCategory,
-      bookCategory: "Drama",
-      bookRating: rating3AndAbove,
-      bookQuantity: 1,
-    },
-    {
-      id: 7,
-      bookCover: dramaBookThree,
-      bookTitle: "The 3 Mistakes Of My Life",
-      bookAuthor: "Chetan Bhagat",
-      bookPrice: 299,
-      priceFlag: priceBelow350,
-      actionOne: "Add To Cart",
-      actionTwo: "Add To Wishlist",
-      categoryFlag: dramaCategory,
-      bookCategory: "Drama",
-      bookRating: rating2AndAbove,
-      bookQuantity: 1,
-    },
-    {
-      id: 8,
-      bookCover: dramaBookFour,
-      bookTitle: "The White Tiger",
-      bookAuthor: "Aravind Adiga",
-      bookPrice: 249,
-      priceFlag: priceBelow250,
-      actionOne: "Add To Cart",
-      actionTwo: "Add To Wishlist",
-      categoryFlag: dramaCategory,
-      bookCategory: "Drama",
-      bookRating: rating4AndAbove,
-      bookQuantity: 1,
-    },
-    {
-      id: 9,
-      bookCover: scifiBookOne,
-      bookTitle: "Foundation And Empire",
-      bookAuthor: "Isaac Asimov",
-      bookPrice: 199,
-      priceFlag: priceBelow250,
-      actionOne: "Add To Cart",
-      actionTwo: "Add To Wishlist",
-      categoryFlag: scifiCategory,
-      bookCategory: "Scifi",
-      bookRating: rating4AndAbove,
-      bookQuantity: 1,
-    },
-    {
-      id: 10,
-      bookCover: scifiBookTwo,
-      bookTitle: "Beyond Infinity",
-      bookAuthor: "Akash Siddharth",
-      bookPrice: 149,
-      priceFlag: priceBelow150,
-      actionOne: "Add To Cart",
-      actionTwo: "Add To Wishlist",
-      categoryFlag: scifiCategory,
-      bookCategory: "Scifi",
-      bookRating: rating3AndAbove,
-      bookQuantity: 1,
-    },
-    {
-      id: 11,
-      bookCover: scifiBookThree,
-      bookTitle: "Artemis",
-      bookAuthor: "Andy Weir",
-      bookPrice: 449,
-      priceFlag: priceBelow450,
-      actionOne: "Add To Cart",
-      actionTwo: "Add To Wishlist",
-      categoryFlag: scifiCategory,
-      bookCategory: "Scifi",
-      bookRating: rating2AndAbove,
-      bookQuantity: 1,
-    },
-    {
-      id: 12,
-      bookCover: scifiBookFour,
-      bookTitle: "Dark Matter",
-      bookAuthor: "Blake Crouch",
-      bookPrice: 299,
-      priceFlag: priceBelow350,
-      actionOne: "Add To Cart",
-      actionTwo: "Add To Wishlist",
-      categoryFlag: scifiCategory,
-      bookCategory: "Scifi",
-      bookRating: rating4AndAbove,
-      bookQuantity: 1,
-    },
-    {
-      id: 13,
-      bookCover: romanceBookOne,
-      bookTitle: "Half Girlfriend",
-      bookAuthor: "Chetan Bhagat",
-      bookPrice: 349,
-      priceFlag: priceBelow350,
-      actionOne: "Add To Cart",
-      actionTwo: "Add To Wishlist",
-      categoryFlag: romanceCategory,
-      bookCategory: "Romance",
-      bookRating: rating4AndAbove,
-      bookQuantity: 1,
-    },
-    {
-      id: 14,
-      bookCover: romanceBookTwo,
-      bookTitle: "2 States",
-      bookAuthor: "Chetan Bhagat",
-      bookPrice: 149,
-      priceFlag: priceBelow150,
-      actionOne: "Add To Cart",
-      actionTwo: "Add To Wishlist",
-      categoryFlag: romanceCategory,
-      bookCategory: "Romance",
-      bookRating: rating3AndAbove,
-      bookQuantity: 1,
-    },
-    {
-      id: 15,
-      bookCover: romanceBookThree,
-      bookTitle: "Revolution 2020",
-      bookAuthor: "Chetan Bhagat",
-      bookPrice: 449,
-      priceFlag: priceBelow450,
-      actionOne: "Add To Cart",
-      actionTwo: "Add To Wishlist",
-      categoryFlag: romanceCategory,
-      bookCategory: "Romance",
-      bookRating: rating2AndAbove,
-      bookQuantity: 1,
-    },
-    {
-      id: 16,
-      bookCover: romanceBookFour,
-      bookTitle: "One Indian Girl",
-      bookAuthor: "Chetan Bhagat",
-      bookPrice: 199,
-      priceFlag: priceBelow250,
-      actionOne: "Add To Cart",
-      actionTwo: "Add To Wishlist",
-      categoryFlag: romanceCategory,
-      bookCategory: "Romance",
-      bookRating: rating4AndAbove,
-      bookQuantity: 1,
-    },
-  ];
+  productsArray.map((product) => {
+    if (product.bookCategory === "Thriller") {
+      product.categoryFlag = thrillerCategory;
+    } else if (product.bookCategory === "Drama") {
+      product.categoryFlag = dramaCategory;
+    } else if (product.bookCategory === "Scifi") {
+      product.categoryFlag = scifiCategory;
+    } else if (product.bookCategory === "Romance") {
+      product.categoryFlag = romanceCategory;
+    }
+
+    if (product.bookRating === "4") {
+      product.ratingFlag = rating4AndAbove;
+    } else if (product.bookRating === "3") {
+      product.ratingFlag = rating3AndAbove;
+    } else if (product.bookRating === "2") {
+      product.ratingFlag = rating2AndAbove;
+    }
+
+    if (product.bookPrice < 150) {
+      product.priceFlag = priceBelow150;
+    } else if (product.bookPrice < 250) {
+      product.priceFlag = priceBelow250;
+    } else if (product.bookPrice < 350) {
+      product.priceFlag = priceBelow350;
+    } else if (product.bookPrice < 450) {
+      product.priceFlag = priceBelow450;
+    }
+    return true;
+  });
 
   const { cartArray, setCartArray, wishlistArray, setWishlistArray } =
     useProducts();
@@ -325,6 +112,28 @@ function Products(props) {
     localStorage.setItem("WISHLIST_ARRAY", JSON.stringify(wishlistArray));
   }, [cartArray, wishlistArray]);
 
+  useEffect(() => {
+    if (
+      categoryFilters &&
+      thrillerCategory === false &&
+      dramaCategory === false &&
+      scifiCategory === false &&
+      romanceCategory === false
+    ) {
+      setThrillerCategory(true);
+      setDramaCategory(true);
+      setScifiCategory(true);
+      setRomanceCategory(true);
+      setCategoryFilters(false);
+    }
+  }, [
+    categoryFilters,
+    thrillerCategory,
+    dramaCategory,
+    scifiCategory,
+    romanceCategory,
+  ]);
+
   const applyCategoryFilters = (event) => {
     if (categoryFilters === false) {
       setCategoryFilters(true);
@@ -377,19 +186,13 @@ function Products(props) {
     setPriceBelow450(false);
     if (event.target.value === "150") {
       setPriceBelow150(true);
-      setPriceBelow250(false);
-      setPriceBelow350(false);
-      setPriceBelow450(false);
     } else if (event.target.value === "250") {
       setPriceBelow150(true);
       setPriceBelow250(true);
-      setPriceBelow350(false);
-      setPriceBelow450(false);
     } else if (event.target.value === "350") {
       setPriceBelow150(true);
       setPriceBelow250(true);
       setPriceBelow350(true);
-      setPriceBelow450(false);
     } else if (event.target.value === "450") {
       setPriceBelow150(true);
       setPriceBelow250(true);
@@ -431,7 +234,7 @@ function Products(props) {
           backgroundColor: toastColor.backgroundColor,
           color: toastColor.color,
         }}
-        className="products-message-toast"
+        className="message-toast"
       >
         {toastText}
       </p>
@@ -554,7 +357,7 @@ function Products(props) {
             productsArray.map((product, index) => {
               return (
                 product.categoryFlag &&
-                product.bookRating &&
+                product.ratingFlag &&
                 product.priceFlag && (
                   <Card
                     key={index}
@@ -577,7 +380,7 @@ function Products(props) {
             lowToHighArray.map((product, index) => {
               return (
                 product.categoryFlag &&
-                product.bookRating &&
+                product.ratingFlag &&
                 product.priceFlag && (
                   <Card
                     key={index}
@@ -600,7 +403,7 @@ function Products(props) {
             highToLowArray.map((product, index) => {
               return (
                 product.categoryFlag &&
-                product.bookRating &&
+                product.ratingFlag &&
                 product.priceFlag && (
                   <Card
                     key={index}
@@ -623,7 +426,7 @@ function Products(props) {
               .filter((book) => book.bookCategory === "Thriller")
               .map((product, index) => {
                 return (
-                  product.bookRating &&
+                  product.ratingFlag &&
                   product.priceFlag && (
                     <Card
                       key={index}
@@ -647,7 +450,7 @@ function Products(props) {
               .filter((book) => book.bookCategory === "Thriller")
               .map((product, index) => {
                 return (
-                  product.bookRating &&
+                  product.ratingFlag &&
                   product.priceFlag && (
                     <Card
                       key={index}
@@ -671,7 +474,7 @@ function Products(props) {
               .filter((book) => book.bookCategory === "Thriller")
               .map((product, index) => {
                 return (
-                  product.bookRating &&
+                  product.ratingFlag &&
                   product.priceFlag && (
                     <Card
                       key={index}
@@ -694,7 +497,7 @@ function Products(props) {
               .filter((book) => book.bookCategory === "Drama")
               .map((product, index) => {
                 return (
-                  product.bookRating &&
+                  product.ratingFlag &&
                   product.priceFlag && (
                     <Card
                       key={index}
@@ -718,7 +521,7 @@ function Products(props) {
               .filter((book) => book.bookCategory === "Drama")
               .map((product, index) => {
                 return (
-                  product.bookRating &&
+                  product.ratingFlag &&
                   product.priceFlag && (
                     <Card
                       key={index}
@@ -742,7 +545,7 @@ function Products(props) {
               .filter((book) => book.bookCategory === "Drama")
               .map((product, index) => {
                 return (
-                  product.bookRating &&
+                  product.ratingFlag &&
                   product.priceFlag && (
                     <Card
                       key={index}
@@ -765,7 +568,7 @@ function Products(props) {
               .filter((book) => book.bookCategory === "Romance")
               .map((product, index) => {
                 return (
-                  product.bookRating &&
+                  product.ratingFlag &&
                   product.priceFlag && (
                     <Card
                       key={index}
@@ -789,7 +592,7 @@ function Products(props) {
               .filter((book) => book.bookCategory === "Romance")
               .map((product, index) => {
                 return (
-                  product.bookRating &&
+                  product.ratingFlag &&
                   product.priceFlag && (
                     <Card
                       key={index}
@@ -813,7 +616,7 @@ function Products(props) {
               .filter((book) => book.bookCategory === "Romance")
               .map((product, index) => {
                 return (
-                  product.bookRating &&
+                  product.ratingFlag &&
                   product.priceFlag && (
                     <Card
                       key={index}
@@ -836,7 +639,7 @@ function Products(props) {
               .filter((book) => book.bookCategory === "Scifi")
               .map((product, index) => {
                 return (
-                  product.bookRating &&
+                  product.ratingFlag &&
                   product.priceFlag && (
                     <Card
                       key={index}
@@ -860,7 +663,7 @@ function Products(props) {
               .filter((book) => book.bookCategory === "Scifi")
               .map((product, index) => {
                 return (
-                  product.bookRating &&
+                  product.ratingFlag &&
                   product.priceFlag && (
                     <Card
                       key={index}
@@ -884,7 +687,7 @@ function Products(props) {
               .filter((book) => book.bookCategory === "Scifi")
               .map((product, index) => {
                 return (
-                  product.bookRating &&
+                  product.ratingFlag &&
                   product.priceFlag && (
                     <Card
                       key={index}

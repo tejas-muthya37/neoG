@@ -24,6 +24,15 @@ function Checkout() {
 
   const [editedAddressId, setEditedAddressId] = useState("");
 
+  const [toastVisibility, setToastVisibility] = useState("hidden");
+  const [toastText, setToastText] = useState("");
+  const [toastColor, setToastColor] = useState({
+    color: "",
+    backgroundColor: "",
+  });
+
+  const emailPattern = /\S+@\S+\.\S+/;
+
   const editAddress = (id) => {
     setEditingAddress(true);
     setFormDisplay(true);
@@ -41,12 +50,6 @@ function Checkout() {
       }
       return true;
     });
-  };
-
-  const removeAddress = (id) => {
-    setSavedAddresses((savedAddresses) =>
-      savedAddresses.filter((address) => address.addressId !== id)
-    );
   };
 
   const showForm = () => setFormDisplay(true);
@@ -87,34 +90,101 @@ function Checkout() {
   };
 
   const updateSavedAddresses = () => {
-    if (editingAddress === false) {
-      setSavedAddresses([
-        {
-          addressId: uuid(),
-          addressContent: `${addressLine1}, ${addressLine2}, ${addressLine3}, ${addressLine4}, ${addressLine5}, ${addressLine6}`,
-        },
-        ...savedAddresses,
-      ]);
+    if (
+      addressLine1.length === 0 ||
+      addressLine2.length === 0 ||
+      addressLine3.length === 0 ||
+      addressLine4.length === 0 ||
+      addressLine5.length === 0 ||
+      addressLine6.length === 0 ||
+      addressLine7.length === 0
+    ) {
+      setToastVisibility("visible");
+      setToastText("All the fields are required!");
+      setToastColor({
+        color: "white",
+        backgroundColor: "red",
+      });
+      setTimeout(() => setToastVisibility("hidden"), 2000);
+    } else if (!emailPattern.test(addressLine3)) {
+      setToastVisibility("visible");
+      setToastText("Invalid Email Address!");
+      setToastColor({
+        color: "white",
+        backgroundColor: "red",
+      });
+      setTimeout(() => setToastVisibility("hidden"), 2000);
+    } else if (addressLine2.length !== 10) {
+      setToastVisibility("visible");
+      setToastText("Invalid 10 Digit Mobile Number!");
+      setToastColor({
+        color: "white",
+        backgroundColor: "red",
+      });
+      setTimeout(() => setToastVisibility("hidden"), 2000);
+    } else if (addressLine4.length !== 6) {
+      setToastVisibility("visible");
+      setToastText("Invalid Pincode!");
+      setToastColor({
+        color: "white",
+        backgroundColor: "red",
+      });
+    } else if (addressLine5.length < 10) {
+      setToastVisibility("visible");
+      setToastText("Insufficient Address Details!");
+      setToastColor({
+        color: "white",
+        backgroundColor: "red",
+      });
     } else {
-      setSavedAddresses(
-        [
+      if (editingAddress === false) {
+        setSavedAddresses([
           {
             addressId: uuid(),
-            addressContent: `${addressLine1}, ${addressLine2}, ${addressLine3}`,
+            addressContent: `${addressLine1}, ${addressLine2}, ${addressLine3}, ${addressLine4}, ${addressLine5}, ${addressLine6}`,
           },
           ...savedAddresses,
-        ].filter((address) => address.addressId !== editedAddressId)
-      );
+        ]);
+      } else {
+        setSavedAddresses(
+          [
+            {
+              addressId: uuid(),
+              addressContent: `${addressLine1}, ${addressLine2}, ${addressLine3}`,
+            },
+            ...savedAddresses,
+          ].filter((address) => address.addressId !== editedAddressId)
+        );
+      }
+      setAddressLine1("");
+      setAddressLine2("");
+      setAddressLine3("");
+      setAddressLine4("");
+      setAddressLine5("");
+      setAddressLine6("");
+      setAddressLine7("");
+      setFormDisplay(false);
+      localStorage.setItem("SAVED_ADDRESSES", JSON.stringify(savedAddresses));
+      setToastVisibility("visible");
+      setToastText("Address Saved ✔");
+      setToastColor({
+        color: "white",
+        backgroundColor: "green",
+      });
     }
-    setAddressLine1("");
-    setAddressLine2("");
-    setAddressLine3("");
-    setAddressLine4("");
-    setAddressLine5("");
-    setAddressLine6("");
-    setAddressLine7("");
-    setFormDisplay(false);
-    localStorage.setItem("SAVED_ADDRESSES", JSON.stringify(savedAddresses));
+  };
+
+  const removeAddress = (id) => {
+    setSavedAddresses((savedAddresses) =>
+      savedAddresses.filter((address) => address.addressId !== id)
+    );
+    setToastVisibility("visible");
+    setToastText("Address Removed ✔");
+    setToastColor({
+      color: "white",
+      backgroundColor: "red",
+    });
+    setTimeout(() => setToastVisibility("hidden"), 2000);
   };
 
   const cancelUpdateSavedAddresses = () => {
@@ -134,6 +204,16 @@ function Checkout() {
 
   return (
     <div className="Checkout">
+      <p
+        style={{
+          visibility: toastVisibility,
+          backgroundColor: toastColor.backgroundColor,
+          color: toastColor.color,
+        }}
+        className="message-toast"
+      >
+        {toastText}
+      </p>
       {formDisplay && (
         <AddressForm
           updateAddressLine1={updateAddressLine1}

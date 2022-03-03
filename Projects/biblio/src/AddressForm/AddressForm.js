@@ -28,7 +28,7 @@ function AddressForm(props) {
             type="text"
             id="input-3"
             value={props.input3Value}
-            placeholder="Pincode"
+            placeholder="Email Address"
           />
 
           <input
@@ -36,7 +36,7 @@ function AddressForm(props) {
             type="text"
             id="input-4"
             value={props.input4Value}
-            placeholder="Locality"
+            placeholder="Pincode"
           />
         </div>
 

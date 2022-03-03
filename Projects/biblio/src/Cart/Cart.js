@@ -19,9 +19,9 @@ function Cart() {
   const removeFromCart = (id) => {
     setCartArray(cartArray.filter((cartItem) => cartItem.id !== id));
     setToastVisibility("visible");
-    setToastText("Removed From Cart ☓");
+    setToastText("Removed From Cart ✔");
     setToastColor({
-      color: "whitesmoke",
+      color: "white",
       backgroundColor: "red",
     });
     setTimeout(() => setToastVisibility("hidden"), 2000);
@@ -104,7 +104,7 @@ function Cart() {
           backgroundColor: toastColor.backgroundColor,
           color: toastColor.color,
         }}
-        className="products-message-toast"
+        className="message-toast"
       >
         {toastText}
       </p>
