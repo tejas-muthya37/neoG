@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useProducts } from "./../products-context";
 import Empty from "../Empty/Empty";
 import emptyCart from "./../Media/empty-cart.png";
+import { Link } from "react-router-dom";
 
 function Cart() {
   const [toastVisibility, setToastVisibility] = useState("hidden");
@@ -165,7 +166,9 @@ function Cart() {
                 </span>
               </p>
             </div>
-            <button className="btn-checkout">Place Order</button>
+            <Link to="/checkout">
+              <button className="btn-checkout">Place Order</button>
+            </Link>
           </div>
         </div>
       )}

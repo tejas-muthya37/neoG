@@ -60,6 +60,7 @@
     background-color: var(--heading-color);
     color: whitesmoke;
     height: 2.5rem;
+    width: 100%;
     border-radius: 2px;
     font-size: 1.1rem;
     cursor: pointer;

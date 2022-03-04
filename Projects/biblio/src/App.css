@@ -8,6 +8,7 @@
   --tertiary-color: #BEBEBE;
   --near-black: #282828;
   --number-font: 'Nunito', sans-serif;
+  --body-font: 'Rubik', sans-serif;
 }
 
 * {
@@ -18,7 +19,7 @@
 
 .App,
 .App button {
-  font-family: 'Rubik', sans-serif;
+  font-family: var(--body-font);
 }
 
 .message-toast {

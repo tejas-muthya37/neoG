@@ -129,6 +129,7 @@ function Checkout() {
         color: "white",
         backgroundColor: "red",
       });
+      setTimeout(() => setToastVisibility("hidden"), 2000);
     } else if (addressLine5.length < 10) {
       setToastVisibility("visible");
       setToastText("Insufficient Address Details!");
@@ -136,12 +137,13 @@ function Checkout() {
         color: "white",
         backgroundColor: "red",
       });
+      setTimeout(() => setToastVisibility("hidden"), 2000);
     } else {
       if (editingAddress === false) {
         setSavedAddresses([
           {
             addressId: uuid(),
-            addressContent: `${addressLine1}, ${addressLine2}, ${addressLine3}, ${addressLine4}, ${addressLine5}, ${addressLine6}`,
+            addressContent: `${addressLine1}, ${addressLine2}, ${addressLine4}, ${addressLine5}, ${addressLine6}, ${addressLine7}`,
           },
           ...savedAddresses,
         ]);
@@ -150,7 +152,7 @@ function Checkout() {
           [
             {
               addressId: uuid(),
-              addressContent: `${addressLine1}, ${addressLine2}, ${addressLine3}`,
+              addressContent: `${addressLine1}, ${addressLine2}, ${addressLine4}, ${addressLine5}, ${addressLine6}, ${addressLine7}`,
             },
             ...savedAddresses,
           ].filter((address) => address.addressId !== editedAddressId)
@@ -171,6 +173,7 @@ function Checkout() {
         color: "white",
         backgroundColor: "green",
       });
+      setTimeout(() => setToastVisibility("hidden"), 2000);
     }
   };
 
@@ -235,22 +238,33 @@ function Checkout() {
         />
       )}
       {formDisplay === false && (
-        <div>
-          <button onClick={showForm}>Add New</button>
-          {savedAddresses?.length > 0 && <h3>Saved Addresses</h3>}
+        <div className="saved-addresses">
+          <button className="btn-add-address" onClick={showForm}>
+            <span>+</span>ADD A NEW ADDRESS
+          </button>
+          {savedAddresses?.length > 0 && (
+            <h3 className="saved-address-title">Saved Addresses</h3>
+          )}
           {savedAddresses?.map((singleAddress) => {
             return (
-              <div key={singleAddress.addressId}>
+              <div className="saved-address" key={singleAddress.addressId}>
                 <p>{singleAddress.addressContent}</p>
-                <button onClick={() => editAddress(singleAddress.addressId)}>
-                  Edit
-                </button>
-                <button onClick={() => removeAddress(singleAddress.addressId)}>
-                  Remove
-                </button>
+                <div className="saved-address-button-group">
+                  <button onClick={() => editAddress(singleAddress.addressId)}>
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => removeAddress(singleAddress.addressId)}
+                  >
+                    Remove
+                  </button>
+                </div>
               </div>
             );
           })}
+          {savedAddresses?.length > 0 && (
+            <button className="btn-confirm-order">Confirm Order</button>
+          )}
         </div>
       )}
     </div>
