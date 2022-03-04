@@ -45,8 +45,8 @@ function Checkout() {
 
   const [selectedAddress, setSelectedAddress] = useState({
     name: savedAddresses.length > 0 ? defaultSelectedAddress[0] : "",
-    email: savedAddresses.length > 0 ? defaultSelectedAddress[1] : "",
-    mobile: savedAddresses.length > 0 ? defaultSelectedAddress[2] : "",
+    mobile: savedAddresses.length > 0 ? defaultSelectedAddress[1] : "",
+    email: savedAddresses.length > 0 ? defaultSelectedAddress[2] : "",
     address:
       savedAddresses.length > 0
         ? `${defaultSelectedAddress[4]} ${defaultSelectedAddress[3]} ${defaultSelectedAddress[5]} ${defaultSelectedAddress[6]}`
@@ -258,7 +258,8 @@ function Checkout() {
 
   useEffect(() => {
     localStorage.setItem("SAVED_ADDRESSES", JSON.stringify(savedAddresses));
-  }, [savedAddresses]);
+    console.log(selectedAddress);
+  });
 
   return (
     <div className="Checkout">
@@ -349,7 +350,12 @@ function Checkout() {
                 name="Mobile"
                 value={selectedAddress.mobile}
               />
-              <input type="hidden" name="Email" value={selectedAddress.email} />
+              <input
+                style={{ display: "none" }}
+                type="email"
+                name="email"
+                value={selectedAddress.email}
+              />
               <input
                 type="hidden"
                 name="Address"
