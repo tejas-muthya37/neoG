@@ -3,6 +3,8 @@ import AddressForm from "./../AddressForm/AddressForm";
 import { useEffect, useState } from "react";
 import uuid from "react-uuid";
 import { useProducts } from "./../products-context.js";
+import Empty from "../Empty/Empty";
+import emptyImage from "./../Media/empty-cart.png";
 
 function Checkout() {
   const cartTotal = JSON.parse(localStorage.getItem("CART_TOTAL"));
@@ -270,7 +272,7 @@ function Checkout() {
       >
         {toastText}
       </p>
-      {formDisplay && (
+      {cartArray.length > 0 && formDisplay && (
         <AddressForm
           updateAddressLine1={updateAddressLine1}
           updateAddressLine2={updateAddressLine2}
@@ -290,7 +292,7 @@ function Checkout() {
           input7Value={addressLine7}
         />
       )}
-      {formDisplay === false && (
+      {cartArray.length > 0 && formDisplay === false && (
         <div className="saved-addresses">
           <button className="btn-add-address" onClick={showForm}>
             <span>+</span>ADD A NEW ADDRESS
@@ -378,6 +380,9 @@ function Checkout() {
             </form>
           )}
         </div>
+      )}
+      {cartArray.length === 0 && (
+        <Empty emptyImage={emptyImage} emptyTitle="cart" />
       )}
     </div>
   );
