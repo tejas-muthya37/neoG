@@ -2,6 +2,7 @@ import "./checkout.css";
 import AddressForm from "./../AddressForm/AddressForm";
 import { useEffect, useState } from "react";
 import uuid from "react-uuid";
+import { Link } from "react-router-dom";
 
 function Checkout() {
   var storedSavedAddresses = JSON.parse(
@@ -263,7 +264,9 @@ function Checkout() {
             );
           })}
           {savedAddresses?.length > 0 && (
-            <button className="btn-confirm-order">Confirm Order</button>
+            <Link to="/success">
+              <button className="btn-confirm-order">CONFIRM ORDER</button>
+            </Link>
           )}
         </div>
       )}

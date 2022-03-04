@@ -6,6 +6,7 @@ import Wishlist from "./Wishlist/Wishlist";
 import Products from "./Products/Products";
 import Categories from "./Categories/Categories";
 import Checkout from "./Checkout/Checkout";
+import Success from "./Success/Success";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -56,6 +57,10 @@ function App() {
           <Route exact path="/checkout">
             <Navbar />
             <Checkout />
+          </Route>
+
+          <Route exact path="/success">
+            <Success />
           </Route>
         </Switch>
       </div>
