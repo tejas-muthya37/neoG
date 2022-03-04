@@ -4,12 +4,12 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Success() {
-  const { cartArray, setCartArray } = useProducts();
+  const { setCartArray } = useProducts();
 
   useEffect(() => {
     setCartArray([]);
-    localStorage.setItem("CART_ARRAY", JSON.stringify(cartArray));
-  }, []);
+    localStorage.setItem("CART_ARRAY", JSON.stringify([]));
+  }, [setCartArray]);
 
   return (
     <div className="Success">

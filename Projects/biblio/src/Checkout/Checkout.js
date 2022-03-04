@@ -2,9 +2,12 @@ import "./checkout.css";
 import AddressForm from "./../AddressForm/AddressForm";
 import { useEffect, useState } from "react";
 import uuid from "react-uuid";
-import { Link } from "react-router-dom";
+import { useProducts } from "./../products-context.js";
 
 function Checkout() {
+  const cartTotal = JSON.parse(localStorage.getItem("CART_TOTAL"));
+  const shippingTotal = JSON.parse(localStorage.getItem("SHIPPING_TOTAL"));
+  const { cartArray } = useProducts();
   var storedSavedAddresses = JSON.parse(
     localStorage.getItem("SAVED_ADDRESSES")
   );
@@ -30,6 +33,35 @@ function Checkout() {
   const [toastColor, setToastColor] = useState({
     color: "",
     backgroundColor: "",
+  });
+
+  var defaultSelectedAddress;
+
+  if (savedAddresses.length > 0) {
+    defaultSelectedAddress = savedAddresses[0].addressContent.split(", ");
+  }
+
+  const [selectedAddress, setSelectedAddress] = useState({
+    name: savedAddresses.length > 0 ? defaultSelectedAddress[0] : "",
+    email: savedAddresses.length > 0 ? defaultSelectedAddress[1] : "",
+    mobile: savedAddresses.length > 0 ? defaultSelectedAddress[2] : "",
+    address:
+      savedAddresses.length > 0
+        ? `${defaultSelectedAddress[4]} ${defaultSelectedAddress[3]} ${defaultSelectedAddress[5]} ${defaultSelectedAddress[6]}`
+        : "",
+  });
+
+  const [isAddressSelected, setIsAddressSelected] = useState(false);
+
+  var cartString = "";
+
+  cartArray.map((cartItem) => {
+    cartString =
+      cartString +
+      `${cartItem.bookTitle} \t\t ${cartItem.bookQuantity} \t\t ${
+        cartItem.bookPrice * cartItem.bookQuantity
+      }\n\n`;
+    return true;
   });
 
   const emailPattern = /\S+@\S+\.\S+/;
@@ -144,7 +176,9 @@ function Checkout() {
         setSavedAddresses([
           {
             addressId: uuid(),
-            addressContent: `${addressLine1}, ${addressLine2}, ${addressLine4}, ${addressLine5}, ${addressLine6}, ${addressLine7}`,
+            addressContent: `${addressLine1}, ${addressLine2}, ${addressLine3}, ${addressLine4}, ${addressLine5
+              .replaceAll(", ", " ")
+              .replaceAll(",", " ")}, ${addressLine6}, ${addressLine7}`,
           },
           ...savedAddresses,
         ]);
@@ -153,7 +187,9 @@ function Checkout() {
           [
             {
               addressId: uuid(),
-              addressContent: `${addressLine1}, ${addressLine2}, ${addressLine4}, ${addressLine5}, ${addressLine6}, ${addressLine7}`,
+              addressContent: `${addressLine1}, ${addressLine2}, ${addressLine3}, ${addressLine4}, ${addressLine5
+                .replaceAll(", ", " ")
+                .replaceAll(",", " ")}, ${addressLine6}, ${addressLine7}`,
             },
             ...savedAddresses,
           ].filter((address) => address.addressId !== editedAddressId)
@@ -202,6 +238,22 @@ function Checkout() {
     setFormDisplay(false);
   };
 
+  const configureSelectedAddress = (id) => {
+    setIsAddressSelected(true);
+    savedAddresses.map((savedAddress) => {
+      if (savedAddress.addressId === id) {
+        const savedAddressArray = savedAddress.addressContent.split(", ");
+        setSelectedAddress({
+          name: savedAddressArray[0],
+          mobile: savedAddressArray[1],
+          email: savedAddressArray[2],
+          address: `${savedAddressArray[4]} ${savedAddressArray[3]} ${savedAddressArray[5]} ${savedAddressArray[6]}`,
+        });
+      }
+      return true;
+    });
+  };
+
   useEffect(() => {
     localStorage.setItem("SAVED_ADDRESSES", JSON.stringify(savedAddresses));
   }, [savedAddresses]);
@@ -246,10 +298,19 @@ function Checkout() {
           {savedAddresses?.length > 0 && (
             <h3 className="saved-address-title">Saved Addresses</h3>
           )}
-          {savedAddresses?.map((singleAddress) => {
+          {savedAddresses?.map((singleAddress, index) => {
             return (
               <div className="saved-address" key={singleAddress.addressId}>
-                <p>{singleAddress.addressContent}</p>
+                <div className="select-address-input">
+                  <p>{singleAddress.addressContent}</p>
+                  <input
+                    onClick={() =>
+                      configureSelectedAddress(singleAddress.addressId)
+                    }
+                    name="address-select"
+                    type="radio"
+                  />
+                </div>
                 <div className="saved-address-button-group">
                   <button onClick={() => editAddress(singleAddress.addressId)}>
                     Edit
@@ -264,9 +325,57 @@ function Checkout() {
             );
           })}
           {savedAddresses?.length > 0 && (
-            <Link to="/success">
-              <button className="btn-confirm-order">CONFIRM ORDER</button>
-            </Link>
+            <form
+              action="https://formsubmit.co/tejas.muthya37@gmail.com"
+              method="POST"
+            >
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_subject" value="New order" />
+              <input
+                type="hidden"
+                name="_next"
+                value="http://localhost:3000/success"
+              />
+              <input
+                type="hidden"
+                name="_autoresponse"
+                value="Your order from Biblio"
+              />
+              <input type="hidden" name="Name" value={selectedAddress.name} />
+              <input
+                type="hidden"
+                name="Mobile"
+                value={selectedAddress.mobile}
+              />
+              <input type="hidden" name="Email" value={selectedAddress.email} />
+              <input
+                type="hidden"
+                name="Address"
+                value={selectedAddress.address}
+              />
+              <input type="hidden" name="Order Summary" value={cartString} />
+              <input type="hidden" name="Cart Total" value={cartTotal} />
+              <input
+                type="hidden"
+                name="Shipping Total"
+                value={shippingTotal}
+              />
+              <input
+                type="hidden"
+                name="Grand Total"
+                value={shippingTotal + cartTotal}
+              />
+              <button
+                disabled={!isAddressSelected}
+                style={{
+                  cursor: isAddressSelected ? "pointer" : "not-allowed",
+                }}
+                type="submit"
+                className="btn-confirm-order"
+              >
+                CONFIRM ORDER
+              </button>
+            </form>
           )}
         </div>
       )}

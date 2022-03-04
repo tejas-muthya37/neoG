@@ -71,33 +71,26 @@ function Wishlist() {
       >
         {toastText}
       </p>
-      {wishlistArray.length === 0 && (
-        <Empty emptyTitle="wishlist" emptyImage={emptyCart} />
-      )}
-      {wishlistArray.length > 0 && (
-        <h1 className="wishlist-title">MY WISHLIST</h1>
-      )}
-      {wishlistArray.length > 0 && (
-        <div className="landing-page-container wishlist">
-          {wishlistArray.map((product, index) => {
-            return (
-              <Card
-                key={index}
-                bookCover={product.bookCover}
-                bookTitle={product.bookTitle}
-                bookAuthor={product.bookAuthor}
-                bookPrice={product.bookPrice}
-                actionOne="Move To Cart"
-                actionTwo="Remove From Wishlist"
-                actionOneFunction={() => moveToCart(product)}
-                actionTwoFunction={() => {
-                  removeFromWishlist(product.id);
-                }}
-              />
-            );
-          })}
-        </div>
-      )}
+      <h1 className="wishlist-title">MY WISHLIST</h1>
+      <div className="landing-page-container wishlist">
+        {wishlistArray.map((product, index) => {
+          return (
+            <Card
+              key={index}
+              bookCover={product.bookCover}
+              bookTitle={product.bookTitle}
+              bookAuthor={product.bookAuthor}
+              bookPrice={product.bookPrice}
+              actionOne="Move To Cart"
+              actionTwo="Remove From Wishlist"
+              actionOneFunction={() => moveToCart(product)}
+              actionTwoFunction={() => {
+                removeFromWishlist(product.id);
+              }}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
