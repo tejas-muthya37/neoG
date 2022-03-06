@@ -1,0 +1,7 @@
+https://codesandbox.io/s/frosty-jepsen-pctgnz?file=/src/App.js (reducer practice)
+
+https://codesandbox.io/s/jovial-joliot-1u9i6z?file=/src/App.js (counter)
+
+https://codesandbox.io/s/loving-bose-mu1qik?file=/src/App.js (cart functionality)
+
+https://codesandbox.io/s/usereducer-infinity-wars-forked-l8x3g5?file=/src/App.js (endgame)

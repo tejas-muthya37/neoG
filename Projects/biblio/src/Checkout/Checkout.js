@@ -5,14 +5,25 @@ import uuid from "react-uuid";
 import { useProducts } from "./../products-context.js";
 import Empty from "../Empty/Empty";
 import emptyImage from "./../Media/empty-cart.png";
+import { useToast } from "./../toast-context";
 
 function Checkout() {
-  const cartTotal = JSON.parse(localStorage.getItem("CART_TOTAL"));
-  const shippingTotal = JSON.parse(localStorage.getItem("SHIPPING_TOTAL"));
   const { cartArray } = useProducts();
   var storedSavedAddresses = JSON.parse(
     localStorage.getItem("SAVED_ADDRESSES")
   );
+
+  const cartTotal = cartArray.reduce((accumulator, currentValue) => {
+    accumulator += currentValue.bookPrice * currentValue.bookQuantity;
+    return accumulator;
+  }, 0);
+
+  const cartQuantity = cartArray.reduce((accumulator, currentValue) => {
+    accumulator += currentValue.bookQuantity;
+    return accumulator;
+  }, 0);
+
+  var shippingTotal = 25 + cartQuantity * 25;
 
   if (storedSavedAddresses === undefined) storedSavedAddresses = [];
 
@@ -30,12 +41,7 @@ function Checkout() {
 
   const [editedAddressId, setEditedAddressId] = useState("");
 
-  const [toastVisibility, setToastVisibility] = useState("hidden");
-  const [toastText, setToastText] = useState("");
-  const [toastColor, setToastColor] = useState({
-    color: "",
-    backgroundColor: "",
-  });
+  const { toggleToast, toastVisibility, toastColor, toastText } = useToast();
 
   var defaultSelectedAddress;
 
@@ -134,45 +140,15 @@ function Checkout() {
       addressLine6.length === 0 ||
       addressLine7.length === 0
     ) {
-      setToastVisibility("visible");
-      setToastText("All the fields are required!");
-      setToastColor({
-        color: "white",
-        backgroundColor: "red",
-      });
-      setTimeout(() => setToastVisibility("hidden"), 2000);
+      toggleToast("All the fields are required!", "red", "whitesmoke");
     } else if (!emailPattern.test(addressLine3)) {
-      setToastVisibility("visible");
-      setToastText("Invalid Email Address!");
-      setToastColor({
-        color: "white",
-        backgroundColor: "red",
-      });
-      setTimeout(() => setToastVisibility("hidden"), 2000);
+      toggleToast("Invalid Email Address!", "red", "whitesmoke");
     } else if (addressLine2.length !== 10) {
-      setToastVisibility("visible");
-      setToastText("Invalid 10 Digit Mobile Number!");
-      setToastColor({
-        color: "white",
-        backgroundColor: "red",
-      });
-      setTimeout(() => setToastVisibility("hidden"), 2000);
+      toggleToast("Invalid 10 Digit Mobile Number!", "red", "whitesmoke");
     } else if (addressLine4.length !== 6) {
-      setToastVisibility("visible");
-      setToastText("Invalid Pincode!");
-      setToastColor({
-        color: "white",
-        backgroundColor: "red",
-      });
-      setTimeout(() => setToastVisibility("hidden"), 2000);
+      toggleToast("Invalid Pincode!", "red", "whitesmoke");
     } else if (addressLine5.length < 10) {
-      setToastVisibility("visible");
-      setToastText("Insufficient Address Details!");
-      setToastColor({
-        color: "white",
-        backgroundColor: "red",
-      });
-      setTimeout(() => setToastVisibility("hidden"), 2000);
+      toggleToast("Insufficient Address Details!", "red", "whitesmoke");
     } else {
       if (editingAddress === false) {
         setSavedAddresses([
@@ -206,13 +182,8 @@ function Checkout() {
       setAddressLine7("");
       setFormDisplay(false);
       localStorage.setItem("SAVED_ADDRESSES", JSON.stringify(savedAddresses));
-      setToastVisibility("visible");
-      setToastText("Address Saved ✔");
-      setToastColor({
-        color: "white",
-        backgroundColor: "green",
-      });
-      setTimeout(() => setToastVisibility("hidden"), 2000);
+
+      toggleToast("Address Saved ✔", "green", "whitesmoke");
     }
   };
 
@@ -220,13 +191,8 @@ function Checkout() {
     setSavedAddresses((savedAddresses) =>
       savedAddresses.filter((address) => address.addressId !== id)
     );
-    setToastVisibility("visible");
-    setToastText("Address Removed ✔");
-    setToastColor({
-      color: "white",
-      backgroundColor: "red",
-    });
-    setTimeout(() => setToastVisibility("hidden"), 2000);
+
+    toggleToast("Address Removed ✔", "red", "whitesmoke");
   };
 
   const cancelUpdateSavedAddresses = () => {

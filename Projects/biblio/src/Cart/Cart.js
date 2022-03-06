@@ -1,31 +1,21 @@
 import "./cart.css";
 import Card from "./../Card/Card";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useProducts } from "./../products-context";
 import { Link } from "react-router-dom";
 import Empty from "../Empty/Empty";
 import emptyImage from "./../Media/empty-cart.png";
+import { useToast } from "./../toast-context";
 
 function Cart() {
-  const [toastVisibility, setToastVisibility] = useState("hidden");
-  const [toastText, setToastText] = useState("");
-  const [toastColor, setToastColor] = useState({
-    color: "",
-    backgroundColor: "",
-  });
+  const { toggleToast, toastVisibility, toastColor, toastText } = useToast();
 
   const { cartArray, setCartArray, wishlistArray, setWishlistArray } =
     useProducts();
 
   const removeFromCart = (id) => {
     setCartArray(cartArray.filter((cartItem) => cartItem.id !== id));
-    setToastVisibility("visible");
-    setToastText("Removed From Cart ✔");
-    setToastColor({
-      color: "white",
-      backgroundColor: "red",
-    });
-    setTimeout(() => setToastVisibility("hidden"), 2000);
+    toggleToast("Removed From Cart ✔", "red", "whitesmoke");
   };
 
   const moveToWishlist = (product) => {
@@ -40,13 +30,7 @@ function Cart() {
     if (wishlistFlag === false) {
       setWishlistArray([...wishlistArray, product]);
     }
-    setToastVisibility("visible");
-    setToastText("Moved To Wishlist ✔");
-    setToastColor({
-      color: "white",
-      backgroundColor: "green",
-    });
-    setTimeout(() => setToastVisibility("hidden"), 2000);
+    toggleToast("Moved To Wishlist ✔", "green", "whitesmoke");
     setCartArray(cartArray.filter((cartItem) => cartItem.id !== product.id));
   };
 
@@ -95,9 +79,7 @@ function Cart() {
   useEffect(() => {
     localStorage.setItem("CART_ARRAY", JSON.stringify(cartArray));
     localStorage.setItem("WISHLIST_ARRAY", JSON.stringify(wishlistArray));
-    localStorage.setItem("CART_TOTAL", JSON.stringify(cartTotal));
-    localStorage.setItem("SHIPPING_TOTAL", JSON.stringify(shippingTotal));
-  }, [cartArray, wishlistArray, cartTotal, shippingTotal]);
+  }, [cartArray, wishlistArray]);
 
   return (
     <div className="Cart">

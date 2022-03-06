@@ -1,17 +1,14 @@
 import "./wishlist.css";
 import Card from "../Card/Card";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useProducts } from "./../products-context";
 import Empty from "../Empty/Empty";
 import emptyImage from "./../Media/empty-cart.png";
+import { useToast } from "./../toast-context";
 
 function Wishlist() {
-  const [toastVisibility, setToastVisibility] = useState("hidden");
-  const [toastText, setToastText] = useState("");
-  const [toastColor, setToastColor] = useState({
-    color: "",
-    backgroundColor: "",
-  });
+  const { toggleToast, toastVisibility, toastColor, toastText } = useToast();
+
   const { cartArray, setCartArray, wishlistArray, setWishlistArray } =
     useProducts();
 
@@ -29,13 +26,7 @@ function Wishlist() {
       return true;
     });
     if (productFlag === false) setCartArray([...cartArray, product]);
-    setToastVisibility("visible");
-    setToastText("Moved To Cart ✔");
-    setToastColor({
-      color: "white",
-      backgroundColor: "green",
-    });
-    setTimeout(() => setToastVisibility("hidden"), 2000);
+    toggleToast("Moved To Cart ✔", "green", "whitesmoke");
     setWishlistArray(
       wishlistArray.filter((wishlistItem) => wishlistItem.id !== product.id)
     );
@@ -45,13 +36,7 @@ function Wishlist() {
     setWishlistArray(
       wishlistArray.filter((wishlistItem) => wishlistItem.id !== id)
     );
-    setToastVisibility("visible");
-    setToastText("Removed From Wishlist ✔");
-    setToastColor({
-      color: "white",
-      backgroundColor: "red",
-    });
-    setTimeout(() => setToastVisibility("hidden"), 2000);
+    toggleToast("Removed From Wishlist ✔", "red", "whitesmoke");
   };
 
   useEffect(() => {

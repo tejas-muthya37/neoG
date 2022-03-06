@@ -3,6 +3,7 @@ import Card from "../Card/Card";
 import { useEffect, useState } from "react";
 import { useProducts } from "./../products-context";
 import productsArray from "../productsArray";
+import { useToast } from "./../toast-context";
 
 function Products(props) {
   const [ratingFilters, setRatingFilters] = useState(false);
@@ -22,12 +23,8 @@ function Products(props) {
   const [sortFilters, setSortFilters] = useState(false);
   const [lowToHigh, setLowToHigh] = useState(false);
   const [highToLow, setHighToLow] = useState(false);
-  const [toastVisibility, setToastVisibility] = useState("hidden");
-  const [toastText, setToastText] = useState("");
-  const [toastColor, setToastColor] = useState({
-    color: "",
-    backgroundColor: "",
-  });
+
+  const { toggleToast, toastVisibility, toastColor, toastText } = useToast();
 
   productsArray.map((product) => {
     if (product.bookCategory === "Thriller") {
@@ -77,13 +74,7 @@ function Products(props) {
       return true;
     });
     if (productFlag === false) setCartArray([...cartArray, product]);
-    setToastVisibility("visible");
-    setToastText("Added To Cart ✔");
-    setToastColor({
-      color: "whitesmoke",
-      backgroundColor: "green",
-    });
-    setTimeout(() => setToastVisibility("hidden"), 2000);
+    toggleToast("Added To Cart ✔", "green", "whitesmoke");
   };
 
   const addToWishlist = (product) => {
@@ -98,13 +89,7 @@ function Products(props) {
     if (wishlistFlag === false) {
       setWishlistArray([...wishlistArray, product]);
     }
-    setToastVisibility("visible");
-    setToastText("Added To Wishlist ✔");
-    setToastColor({
-      color: "white",
-      backgroundColor: "green",
-    });
-    setTimeout(() => setToastVisibility("hidden"), 2000);
+    toggleToast("Added To Wishlist ✔", "green", "whitesmoke");
   };
 
   useEffect(() => {
