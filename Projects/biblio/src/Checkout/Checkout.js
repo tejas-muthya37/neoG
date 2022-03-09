@@ -1,6 +1,6 @@
 import "./checkout.css";
 import AddressForm from "./../AddressForm/AddressForm";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useReducer } from "react";
 import uuid from "react-uuid";
 import { useProducts } from "./../products-context.js";
 import Empty from "../Empty/Empty";
@@ -27,13 +27,85 @@ function Checkout() {
 
   if (storedSavedAddresses === undefined) storedSavedAddresses = [];
 
-  var [addressLine1, setAddressLine1] = useState("");
-  var [addressLine2, setAddressLine2] = useState("");
-  var [addressLine3, setAddressLine3] = useState("");
-  var [addressLine4, setAddressLine4] = useState("");
-  var [addressLine5, setAddressLine5] = useState("");
-  var [addressLine6, setAddressLine6] = useState("");
-  var [addressLine7, setAddressLine7] = useState("");
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "address-line-1":
+        return {
+          ...state,
+          address: { ...state.address, addressLine1: action.payload },
+        };
+      case "address-line-2":
+        return {
+          ...state,
+          address: { ...state.address, addressLine2: action.payload },
+        };
+      case "address-line-3":
+        return {
+          ...state,
+          address: { ...state.address, addressLine3: action.payload },
+        };
+      case "address-line-4":
+        return {
+          ...state,
+          address: { ...state.address, addressLine4: action.payload },
+        };
+      case "address-line-5":
+        return {
+          ...state,
+          address: { ...state.address, addressLine5: action.payload },
+        };
+      case "address-line-6":
+        return {
+          ...state,
+          address: { ...state.address, addressLine6: action.payload },
+        };
+      case "address-line-7":
+        return {
+          ...state,
+          address: { ...state.address, addressLine7: action.payload },
+        };
+      case "edit-address":
+        return {
+          ...state,
+          address: {
+            addressLine1: action.payload[0],
+            addressLine2: action.payload[1],
+            addressLine3: action.payload[2],
+            addressLine4: action.payload[3],
+            addressLine5: action.payload[4],
+            addressLine6: action.payload[5],
+            addressLine7: action.payload[6],
+          },
+        };
+      case "reset-to-default":
+        return {
+          ...state,
+          address: {
+            addressLine1: "",
+            addressLine2: "",
+            addressLine3: "",
+            addressLine4: "",
+            addressLine5: "",
+            addressLine6: "",
+            addressLine7: "",
+          },
+        };
+      default:
+        return state;
+    }
+  };
+
+  var [state, dispatch] = useReducer(reducer, {
+    address: {
+      addressLine1: "",
+      addressLine2: "",
+      addressLine3: "",
+      addressLine4: "",
+      addressLine5: "",
+      addressLine6: "",
+      addressLine7: "",
+    },
+  });
 
   const [savedAddresses, setSavedAddresses] = useState(storedSavedAddresses);
   const [formDisplay, setFormDisplay] = useState(false);
@@ -81,13 +153,7 @@ function Checkout() {
     savedAddresses.map((address) => {
       if (address.addressId === id) {
         const tempAddressArray = address.addressContent.split(", ");
-        setAddressLine1(tempAddressArray[0]);
-        setAddressLine2(tempAddressArray[1]);
-        setAddressLine3(tempAddressArray[2]);
-        setAddressLine4(tempAddressArray[3]);
-        setAddressLine5(tempAddressArray[4]);
-        setAddressLine6(tempAddressArray[5]);
-        setAddressLine7(tempAddressArray[6]);
+        dispatch({ type: "edit-address", payload: tempAddressArray });
       }
       return true;
     });
@@ -96,67 +162,66 @@ function Checkout() {
   const showForm = () => setFormDisplay(true);
 
   const updateAddressLine1 = (event) => {
-    const tobeUpdated1 = event.target.value;
-    setAddressLine1(tobeUpdated1);
+    dispatch({ type: "address-line-1", payload: event.target.value });
   };
 
   const updateAddressLine2 = (event) => {
-    const tobeUpdated2 = event.target.value;
-    setAddressLine2(tobeUpdated2);
+    dispatch({ type: "address-line-2", payload: event.target.value });
   };
 
   const updateAddressLine3 = (event) => {
-    const tobeUpdated3 = event.target.value;
-    setAddressLine3(tobeUpdated3);
+    dispatch({ type: "address-line-3", payload: event.target.value });
   };
 
   const updateAddressLine4 = (event) => {
-    const tobeUpdated4 = event.target.value;
-    setAddressLine4(tobeUpdated4);
+    dispatch({ type: "address-line-4", payload: event.target.value });
   };
 
   const updateAddressLine5 = (event) => {
-    const tobeUpdated5 = event.target.value;
-    setAddressLine5(tobeUpdated5);
+    dispatch({ type: "address-line-5", payload: event.target.value });
   };
 
   const updateAddressLine6 = (event) => {
-    const tobeUpdated6 = event.target.value;
-    setAddressLine6(tobeUpdated6);
+    dispatch({ type: "address-line-6", payload: event.target.value });
   };
 
   const updateAddressLine7 = (event) => {
-    const tobeUpdated7 = event.target.value;
-    setAddressLine7(tobeUpdated7);
+    dispatch({ type: "address-line-7", payload: event.target.value });
   };
 
   const updateSavedAddresses = () => {
     if (
-      addressLine1.length === 0 ||
-      addressLine2.length === 0 ||
-      addressLine3.length === 0 ||
-      addressLine4.length === 0 ||
-      addressLine5.length === 0 ||
-      addressLine6.length === 0 ||
-      addressLine7.length === 0
+      state.address.addressLine1.length === 0 ||
+      state.address.addressLine2.length === 0 ||
+      state.address.addressLine3.length === 0 ||
+      state.address.addressLine4.length === 0 ||
+      state.address.addressLine5.length === 0 ||
+      state.address.addressLine6.length === 0 ||
+      state.address.addressLine7.length === 0
     ) {
       toggleToast("All the fields are required!", "red", "whitesmoke");
-    } else if (!emailPattern.test(addressLine3)) {
+    } else if (!emailPattern.test(state.address.addressLine3)) {
       toggleToast("Invalid Email Address!", "red", "whitesmoke");
-    } else if (addressLine2.length !== 10) {
+    } else if (state.address.addressLine2.length !== 10) {
       toggleToast("Invalid 10 Digit Mobile Number!", "red", "whitesmoke");
-    } else if (addressLine4.length !== 6) {
+    } else if (state.address.addressLine4.length !== 6) {
       toggleToast("Invalid Pincode!", "red", "whitesmoke");
-    } else if (addressLine5.length < 10) {
+    } else if (state.address.addressLine5.length < 10) {
       toggleToast("Insufficient Address Details!", "red", "whitesmoke");
     } else {
       if (editingAddress === false) {
         setSavedAddresses([
           {
             addressId: uuid(),
-            addressContent: `${addressLine1}, ${addressLine2}, ${addressLine3}, ${addressLine4}, ${addressLine5
+            addressContent: `${state.address.addressLine1}, ${
+              state.address.addressLine2
+            }, ${state.address.addressLine3}, ${
+              state.address.addressLine4
+            }, ${state.address.addressLine5
               .replaceAll(", ", " ")
-              .replaceAll(",", " ")}, ${addressLine6}, ${addressLine7}`,
+              .replaceAll(",", " ")}, ${state.address.addressLine6}, ${
+              state.address.addressLine7
+            }`,
           },
           ...savedAddresses,
         ]);
@@ -165,21 +230,21 @@ function Checkout() {
           [
             {
               addressId: uuid(),
-              addressContent: `${addressLine1}, ${addressLine2}, ${addressLine3}, ${addressLine4}, ${addressLine5
+              addressContent: `${state.address.addressLine1}, ${
+                state.address.addressLine2
+              }, ${state.address.addressLine3}, ${
+                state.address.addressLine4
+              }, ${state.address.addressLine5
                 .replaceAll(", ", " ")
-                .replaceAll(",", " ")}, ${addressLine6}, ${addressLine7}`,
+                .replaceAll(",", " ")}, ${state.address.addressLine6}, ${
+                state.address.addressLine7
+              }`,
             },
             ...savedAddresses,
           ].filter((address) => address.addressId !== editedAddressId)
         );
       }
-      setAddressLine1("");
-      setAddressLine2("");
-      setAddressLine3("");
-      setAddressLine4("");
-      setAddressLine5("");
-      setAddressLine6("");
-      setAddressLine7("");
+      dispatch({ type: "reset-to-default" });
       setFormDisplay(false);
       localStorage.setItem("SAVED_ADDRESSES", JSON.stringify(savedAddresses));
 
@@ -196,13 +261,7 @@ function Checkout() {
   };
 
   const cancelUpdateSavedAddresses = () => {
-    setAddressLine1("");
-    setAddressLine2("");
-    setAddressLine3("");
-    setAddressLine4("");
-    setAddressLine5("");
-    setAddressLine6("");
-    setAddressLine7("");
+    dispatch({ type: "reset-to-default" });
     setFormDisplay(false);
   };
 
@@ -250,13 +309,13 @@ function Checkout() {
           updateAddressLine7={updateAddressLine7}
           updateSavedAddresses={updateSavedAddresses}
           cancelUpdateSavedAddresses={cancelUpdateSavedAddresses}
-          input1Value={addressLine1}
-          input2Value={addressLine2}
-          input3Value={addressLine3}
-          input4Value={addressLine4}
-          input5Value={addressLine5}
-          input6Value={addressLine6}
-          input7Value={addressLine7}
+          input1Value={state.address.addressLine1}
+          input2Value={state.address.addressLine2}
+          input3Value={state.address.addressLine3}
+          input4Value={state.address.addressLine4}
+          input5Value={state.address.addressLine5}
+          input6Value={state.address.addressLine6}
+          input7Value={state.address.addressLine7}
         />
       )}
       {cartArray.length > 0 && formDisplay === false && (
