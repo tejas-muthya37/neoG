@@ -1,9 +1,9 @@
 import "./products.css";
 import Card from "../Card/Card";
-import { useEffect, useReducer, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useProducts } from "./../products-context";
-import productsArray from "../productsArray";
 import { useToast } from "./../toast-context";
+import { useFilter } from "./../filter-context";
 
 function Products(props) {
   const inputRef = useRef(null);
@@ -12,85 +12,7 @@ function Products(props) {
     window.location.reload();
   };
 
-  const reducer = (state, action) => {
-    switch (action.type) {
-      case "Low to High":
-        return {
-          ...state,
-          items: state.items.sort((a, b) => a.bookPrice - b.bookPrice),
-        };
-      case "High to Low":
-        return {
-          ...state,
-          items: state.items.sort((a, b) => b.bookPrice - a.bookPrice),
-        };
-      case "Price filter":
-        state.items.map((item) => {
-          item.bookPrice > action.payload
-            ? (item.show = false)
-            : (item.show = true);
-
-          return true;
-        });
-        return {
-          ...state,
-          items: state.items,
-        };
-      case "Rating filter":
-        state.items.map((item) => {
-          item.bookRating < action.payload
-            ? (item.show = false)
-            : (item.show = true);
-          return true;
-        });
-        return {
-          ...state,
-          items: state.items,
-        };
-      case "Category filter":
-        if (state.categoryFiltersFlag === false) {
-          state.items.map((item) => {
-            item.bookCategory === action.payload.id
-              ? (item.show = true)
-              : (item.show = false);
-            return true;
-          });
-          return { ...state, categoryFiltersFlag: true };
-        } else {
-          var tempProductsArray = state.items.filter(
-            (item) => item.show === true
-          );
-          if (tempProductsArray.length === 0) {
-            state.items.map((item) => (item.show = true));
-            return { ...state, categoryFiltersFlag: false };
-          } else {
-            state.items.map((item) => {
-              if (action.payload.checked) {
-                if (item.bookCategory === action.payload.id) {
-                  item.show = true;
-                }
-              } else {
-                if (item.bookCategory === action.payload.id) {
-                  item.show = false;
-                }
-              }
-              return true;
-            });
-          }
-        }
-        return {
-          ...state,
-          items: state.items,
-        };
-      default:
-        return state;
-    }
-  };
-
-  const [state, dispatch] = useReducer(reducer, {
-    items: productsArray,
-    categoryFiltersFlag: false,
-  });
+  const { state, dispatch } = useFilter();
 
   const { toggleToast, toastVisibility, toastColor, toastText } = useToast();
 
@@ -297,24 +219,113 @@ function Products(props) {
           </div>{" "}
         </div>{" "}
         <div className="landing-page-content">
-          {state.items.map((product, index) => {
-            return (
-              product.show && (
-                <Card
-                  key={index}
-                  bookCover={product.bookCover}
-                  bookTitle={product.bookTitle}
-                  bookAuthor={product.bookAuthor}
-                  bookPrice={product.bookPrice}
-                  actionOne={product.actionOne}
-                  actionTwo={product.actionTwo}
-                  actionOneFunction={() => addToCart(product)}
-                  actionTwoFunction={() => addToWishlist(product)}
-                  bookQuantity={1}
-                />
-              )
-            );
-          })}
+          {props.productPage &&
+            state.items.map((product, index) => {
+              return (
+                product.show && (
+                  <Card
+                    key={index}
+                    bookCover={product.bookCover}
+                    bookTitle={product.bookTitle}
+                    bookAuthor={product.bookAuthor}
+                    bookPrice={product.bookPrice}
+                    actionOne={product.actionOne}
+                    actionTwo={product.actionTwo}
+                    actionOneFunction={() => addToCart(product)}
+                    actionTwoFunction={() => addToWishlist(product)}
+                    bookQuantity={1}
+                  />
+                )
+              );
+            })}
+
+          {props.thrillerPage &&
+            state.items
+              .filter((item) => item.bookCategory === "Thriller")
+              .map((product, index) => {
+                return (
+                  product.show && (
+                    <Card
+                      key={index}
+                      bookCover={product.bookCover}
+                      bookTitle={product.bookTitle}
+                      bookAuthor={product.bookAuthor}
+                      bookPrice={product.bookPrice}
+                      actionOne={product.actionOne}
+                      actionTwo={product.actionTwo}
+                      actionOneFunction={() => addToCart(product)}
+                      actionTwoFunction={() => addToWishlist(product)}
+                      bookQuantity={1}
+                    />
+                  )
+                );
+              })}
+
+          {props.dramaPage &&
+            state.items
+              .filter((item) => item.bookCategory === "Drama")
+              .map((product, index) => {
+                return (
+                  product.show && (
+                    <Card
+                      key={index}
+                      bookCover={product.bookCover}
+                      bookTitle={product.bookTitle}
+                      bookAuthor={product.bookAuthor}
+                      bookPrice={product.bookPrice}
+                      actionOne={product.actionOne}
+                      actionTwo={product.actionTwo}
+                      actionOneFunction={() => addToCart(product)}
+                      actionTwoFunction={() => addToWishlist(product)}
+                      bookQuantity={1}
+                    />
+                  )
+                );
+              })}
+
+          {props.scifiPage &&
+            state.items
+              .filter((item) => item.bookCategory === "Scifi")
+              .map((product, index) => {
+                return (
+                  product.show && (
+                    <Card
+                      key={index}
+                      bookCover={product.bookCover}
+                      bookTitle={product.bookTitle}
+                      bookAuthor={product.bookAuthor}
+                      bookPrice={product.bookPrice}
+                      actionOne={product.actionOne}
+                      actionTwo={product.actionTwo}
+                      actionOneFunction={() => addToCart(product)}
+                      actionTwoFunction={() => addToWishlist(product)}
+                      bookQuantity={1}
+                    />
+                  )
+                );
+              })}
+
+          {props.romancePage &&
+            state.items
+              .filter((item) => item.bookCategory === "Romance")
+              .map((product, index) => {
+                return (
+                  product.show && (
+                    <Card
+                      key={index}
+                      bookCover={product.bookCover}
+                      bookTitle={product.bookTitle}
+                      bookAuthor={product.bookAuthor}
+                      bookPrice={product.bookPrice}
+                      actionOne={product.actionOne}
+                      actionTwo={product.actionTwo}
+                      actionOneFunction={() => addToCart(product)}
+                      actionTwoFunction={() => addToWishlist(product)}
+                      bookQuantity={1}
+                    />
+                  )
+                );
+              })}
         </div>{" "}
       </div>{" "}
     </div>
