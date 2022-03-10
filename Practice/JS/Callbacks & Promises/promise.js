@@ -195,3 +195,37 @@
 //   .finally(() => console.log("promise settled"));
 
 /////// PROMISIFICATION ///////
+
+// const numsArray = [1, 2, 3];
+
+// function getNums(callback) {
+//   setTimeout(() => callback(numsArray), 1000);
+// }
+
+// function promisify(functionToPromisify) {
+//   return function () {
+//     return new Promise((resolve, reject) => {
+//       try {
+//         functionToPromisify(resolve);
+//       } catch (e) {
+//         reject(e);
+//       }
+//     });
+//   };
+// }
+
+// const promisified = promisify(getNums);
+
+// promisified().then((data) => console.log(data));
+
+/////// race, any ///////
+
+// let promise1 = Promise.resolve("Hello World!");
+// var promise2;
+// let promise3 = new Promise((resolve, reject) => {
+//   reject("Error!");
+// });
+
+// Promise.race([promise1, promise2, promise3]).then((values) =>
+//   console.log(values)
+// );
