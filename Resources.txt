@@ -112,7 +112,11 @@ ________________________________________________________________________________
 	- React useState - https://beta.reactjs.org/apis/usestate
 			    https://betterprogramming.pub/you-dont-know-usestate-until-you-ve-used-functional-updates-5da52117620f
 			    https://medium.com/ableneo/react-setstate-does-not-immediately-update-the-state-84dbd26f67d5
+	
+	- useEffect - https://reactjs.org/docs/hooks-effect.html
+		      - https://overreacted.io/a-complete-guide-to-useeffect/
 
+	- useEffect & Stale Closures - https://medium.com/edonec/useeffect-and-stale-closures-ea74df7ac452
 __________________________________________________________________________________________________________________________________________________________________________________________
 
 	Pointers :-

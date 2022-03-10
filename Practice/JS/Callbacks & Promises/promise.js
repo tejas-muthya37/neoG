@@ -1,19 +1,19 @@
-let posts = [
-  { title: "Post One", body: "This is post one" },
-  { title: "Post Two", body: "This is post two" },
-];
+// let posts = [
+//   { title: "Post One", body: "This is post one" },
+//   { title: "Post Two", body: "This is post two" },
+// ];
 
-let output = "";
+// let output = "";
 
-function getPosts() {
-  setTimeout(() => {
-    posts.forEach((post, index) => {
-      output += `<li>${post.title}</li>`;
-    });
+// function getPosts() {
+//   setTimeout(() => {
+//     posts.forEach((post, index) => {
+//       output += `<li>${post.title}</li>`;
+//     });
 
-    document.body.innerHTML = output;
-  }, 1000);
-}
+//     document.body.innerHTML = output;
+//   }, 1000);
+// }
 
 /////// DEMO TO SHOW CATCH DOES NOT HANDLE ASYNC 'ERRORS' ///////
 
@@ -31,19 +31,19 @@ function getPosts() {
 //   });
 // }
 
-function createPost(post) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      posts.push(post);
-      let error = true;
-      if (!error) {
-        resolve();
-      } else {
-        reject("Error");
-      }
-    }, 2000);
-  });
-}
+// function createPost(post) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       posts.push(post);
+//       let error = true;
+//       if (!error) {
+//         resolve();
+//       } else {
+//         reject("Error");
+//       }
+//     }, 2000);
+//   });
+// }
 
 // Instead of adding a catch block, we can pass a second parameter function to .then to handle errors like the one shown below.
 
@@ -181,15 +181,17 @@ function createPost(post) {
 
 // console.log(arr.reduce(reducer, 0));
 
-const promise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    var error = false;
-    if (!error) resolve("Yayy!");
-    else reject("Oops!");
-  }, 2000);
-});
+// const promise = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     var error = false;
+//     if (!error) resolve("Yayy!");
+//     else reject("Oops!");
+//   }, 2000);
+// });
 
-promise
-  .then((response) => console.log("promise fulfilled", response))
-  .catch((err) => console.log("promise rejected", err))
-  .finally(() => console.log("promise settled"));
+// promise
+//   .then((response) => console.log("promise fulfilled", response))
+//   .catch((err) => console.log("promise rejected", err))
+//   .finally(() => console.log("promise settled"));
+
+/////// PROMISIFICATION ///////
