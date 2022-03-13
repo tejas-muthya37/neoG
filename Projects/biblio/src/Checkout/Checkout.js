@@ -13,6 +13,8 @@ function Checkout() {
     localStorage.getItem("SAVED_ADDRESSES")
   );
 
+  if (storedSavedAddresses === null) storedSavedAddresses = [];
+
   const cartTotal = cartArray.reduce((accumulator, currentValue) => {
     accumulator += currentValue.bookPrice * currentValue.bookQuantity;
     return accumulator;
