@@ -14,14 +14,14 @@ ________________________________________________________________________________
 
 __________________________________________________________________________________________________________________________________________________________________________________________
 
-	Staying committed to the #151daysofcode challenge! 💪🏼
+	mockBee Pointers :-
 
-	Day 20 :  Promises and Async-Await
-
-	- Built a mock server to work with Promises and Async-Await.
-	- Practiced the concept of Promise chaining.
-	- Practiced error handling in Async-Await calls.
-__________________________________________________________________________________________________________________________________________________________________________________________
+	1) Run makeServer in index.js
+	2) Change version of react-scripts to 4.0.3
+	3) Add react-overlay to dependencies and resolutions.
+	4) Run yarn install
+	5) Add .env file
+_________________________________________________________________________________________________________________________________________________________________________________________
 
 	Blog topics
 

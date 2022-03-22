@@ -62,7 +62,8 @@ body {
     margin: 0;
 }
 
-.prominent .header-left, .prominent .header-right {
+.prominent .header-left,
+.prominent .header-right {
     height: 120px;
     align-items: flex-start;
     padding-top: 20px;
@@ -73,7 +74,8 @@ body {
     padding-bottom: 10px;
 }
 
-.prominent-dense .header-left, .prominent-dense .header-right {
+.prominent-dense .header-left,
+.prominent-dense .header-right {
     height: 100px;
     align-items: flex-start;
     padding-top: 20px;
