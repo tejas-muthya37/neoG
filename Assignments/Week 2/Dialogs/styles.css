@@ -8,54 +8,54 @@
 body {
     background-color: whitesmoke;
     display: flex;
+    justify-content: space-evenly;
 }
 
-.dialog-container {
+.modal-container {
     background-color: white;
-    width: 250px;
+    width: 15rem;
+    max-height: 15rem;
     display: flex;
     flex-direction: column;
-    padding: 25px;
-    margin: 200px auto;
-    border-radius: 5px;
+    padding: 1.5rem;
+    border-radius: 2px;
     height: max-content;
 }
 
-.dialog-container ul {
+/* .modal-container ul {
     list-style-type: none;
-}
+} */
 
-.dialog-container i {
+/* .modal-container i {
     color: silver;
     margin-right: 15px;
     margin-left: 10px;
 }
 
-.dialog-container li {
+.modal-container li {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-}
+} */
 
-.dialog-container > .dialog-header {
-    margin-bottom: 20px;
+.modal-container>.modal-header {
+    margin-bottom: 1.25rem;
     font-size: 1.2rem;
     font-weight: 500;
 }
 
-.dialog-container > .dialog-text {
-    margin-bottom: 50px;
+.modal-container>.modal-text {
+    margin-bottom: 3rem;
     font-size: 1rem;
     color: grey;
 }
 
-
-.dialog-container .dialog-footer {
+.modal-container .modal-footer {
     display: flex;
     justify-content: flex-end;
 }
 
-.dialog-footer button {
+.modal-footer button {
     background-color: white;
     color: rebeccapurple;
     border: none;
@@ -66,19 +66,30 @@ body {
     cursor: pointer;
 }
 
-.dialog-footer button:nth-child(2) {
-    margin-left: 30px;
+.modal-footer button:nth-child(2) {
+    margin-left: 2rem;
 }
 
-.confirmation-container {
+.modal-container.confirmation-container {
+    width: 30rem;
+}
+
+.confirmation-container p {
+    overflow-y: scroll;
+    padding-right: 2rem;
+    line-height: 1.75rem;
+}
+
+/* .confirmation-container {
     padding: 0;
-}
+} */
 
-.confirmation-container .dialog-header, .confirmation-container .dialog-footer {
+/* .confirmation-container .modal-header,
+.confirmation-container .modal-footer {
     padding: 20px;
-}
+} */
 
-.confirmation-container ul li {
+/* .confirmation-container ul li {
     margin-left: 30px;
 }
 
@@ -95,8 +106,4 @@ body {
     padding-top: 15px;
     height: 150px;
     overflow-y: scroll;
-}
-
-.confirmation-container .dialog-header {
-    margin-bottom: 0;
-}
+} */
