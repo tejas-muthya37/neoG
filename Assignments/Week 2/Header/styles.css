@@ -9,7 +9,7 @@ body {
     background-color: yellow;
 }
 
-.header-component {
+.header {
     background-color: black;
     display: flex;
     justify-content: space-between;
@@ -20,7 +20,7 @@ body {
     width: 100%;
 }
 
-.header-component i {
+.header i {
     cursor: pointer;
 }
 
