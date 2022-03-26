@@ -70,37 +70,37 @@ body {
     margin-left: 2rem;
 }
 
-.modal-container.confirmation-container {
+.modal-container.scrolling-container {
     width: 30rem;
 }
 
-.confirmation-container p {
+.scrolling-container p {
     overflow-y: scroll;
     padding-right: 2rem;
     line-height: 1.75rem;
 }
 
-/* .confirmation-container {
+/* .scrolling-container {
     padding: 0;
 } */
 
-/* .confirmation-container .modal-header,
-.confirmation-container .modal-footer {
+/* .scrolling-container .modal-header,
+.scrolling-container .modal-footer {
     padding: 20px;
 } */
 
-/* .confirmation-container ul li {
+/* .scrolling-container ul li {
     margin-left: 30px;
 }
 
-.confirmation-container input {
+.scrolling-container input {
     height: 18px;
     width: 18px;
     margin-right: 20px;
     background-color: rebeccapurple;
 }
 
-.confirmation-container ul {
+.scrolling-container ul {
     border-top: 1px solid silver;
     border-bottom: 1px solid silver;
     padding-top: 15px;
