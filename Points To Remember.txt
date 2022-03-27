@@ -1,0 +1,3 @@
+1) When sorting an array, do not directly call sort on the array, instead [...array].sort()
+
+2) When attempting to update an array element that is in state, map first and then setElement using the splice method
