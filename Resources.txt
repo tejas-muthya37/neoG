@@ -23,6 +23,42 @@ ________________________________________________________________________________
 	5) Add .env file
 _________________________________________________________________________________________________________________________________________________________________________________________
 
+	Submission 2 - 
+
+	1) Component Library
+	
+	Live Link - https://magic-library-v2.netlify.app/
+
+	Github Repo - https://github.com/tejas-muthya37/Magic/tree/temp-dev
+
+	PRs -
+	https://github.com/surajmore98/charcoal-ui/pull/12
+	https://github.com/Devansu-Yadav/Sapphire/pull/20
+
+	2) E Commerce - 
+
+	Live link - https://biblio-books-v1.netlify.app/
+
+	Github Repo - https://github.com/tejas-muthya37/biblio-1.0-review/tree/dev
+
+	PRs -
+	https://github.com/ddivyansh18/nycekart-react/pull/1
+	https://github.com/ravikumar1002/e-commerce-react/pull/2
+
+	3) Video Library - 
+
+	Live link - https://binge-video.netlify.app/
+
+	Github Repo - https://github.com/tejas-muthya37/binge-review/tree/dev
+
+	PRs -
+	https://github.com/manish591/Foodio/pull/6
+	https://github.com/ramalingaa/mozi-videolibrary/pull/3
+
+	https://github.com/manish591/Foodio/pull/9
+
+__________________________________________________________________________________________________________________________________________________________________________________________
+	
 	Blog topics
 
 	- CSS Box Model 

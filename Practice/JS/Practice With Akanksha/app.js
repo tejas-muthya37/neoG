@@ -254,22 +254,22 @@
 
 // console.log(op);
 
-const input = [
-  ["a", "b", "c"],
-  ["c", "d", "e"],
-  ["e", "d", "f"],
-];
+// const input = [
+//   ["a", "b", "c"],
+//   ["c", "d", "e"],
+//   ["e", "d", "f"],
+// ];
 
-const op = [];
+// const op = [];
 
-for (var ip of input) {
-  op.push(...ip);
-}
+// for (var ip of input) {
+//   op.push(...ip);
+// }
 
-const reducedOp = op.reduce((accumulator, currentElement) => {
-  if (accumulator[currentElement]) accumulator[currentElement] += 1;
-  else accumulator[currentElement] = 1;
-  return accumulator;
-}, {});
+// const reducedOp = op.reduce((accumulator, currentElement) => {
+//   if (accumulator[currentElement]) accumulator[currentElement] += 1;
+//   else accumulator[currentElement] = 1;
+//   return accumulator;
+// }, {});
 
-console.log(reducedOp);
+// console.log(reducedOp);

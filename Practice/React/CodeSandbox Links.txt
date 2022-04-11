@@ -12,3 +12,4 @@ https://codesandbox.io/s/epic-maxwell-67qntj?file=/src/App.js (Custom Hooks)
 
 https://codesandbox.io/s/funny-wright-2gf680?file=/src/App.js (Twitter Character Count)
 
+https://codesandbox.io/s/quizzical-lake-16kr7c?file=/src/App.js (Frontend Authentication)
