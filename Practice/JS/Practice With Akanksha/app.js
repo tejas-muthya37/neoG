@@ -273,3 +273,49 @@
 // }, {});
 
 // console.log(reducedOp);
+
+// const words = ["react", "javascript", "script", "interview", "style"];
+
+// const wordsMoreThanSixCharacters = words.reduce((accumulator, currentValue) => {
+//   if (currentValue.length > 6) {
+//     accumulator.push(currentValue);
+//   }
+//   return accumulator;
+// }, []);
+
+// console.log(wordsMoreThanSixCharacters);
+
+// const nums = [1, 2, 3, 4, 5, 6];
+
+// const numsArray = nums.reduce((accumulator, currentValue) => {
+//   accumulator += currentValue;
+//   return accumulator;
+// });
+
+// console.log(numsArray);
+
+let sandwich = {
+  layer1: "cheese",
+  layer2: "lettuce",
+  layer3: "tomatoes",
+  sandwichIngredients: function (sides1, sides2) {
+    console.log(
+      sides1 + " " + sides2 + " " + this.layer1,
+      this.layer2,
+      this.layer3
+    );
+  },
+};
+
+let mySandwich = {
+  layer1: "onions",
+  layer2: "capsicum",
+  layer3: "paneer",
+};
+
+let mySandwichIngredient = sandwich.sandwichIngredients.bind(
+  mySandwich,
+  "chips"
+);
+
+mySandwichIngredient();
