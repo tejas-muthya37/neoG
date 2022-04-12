@@ -20,7 +20,7 @@ console.log(minOfNumbers(6, -2, 3, 4));
 
 /////////////////////////////
 
-const minOfNumbers = (...rest) => {
+const maxOfNumbers = (...rest) => {
   let max = rest[0];
   for (const i of rest) {
     if (i > max) max = i;
