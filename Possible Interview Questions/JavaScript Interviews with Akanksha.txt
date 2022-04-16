@@ -6,29 +6,5 @@ Don't speak ill of your current job.
 
 Ask the HR about the rounds.
 
-Differences b/n map and forEach - map returns a new array and method chaining is possible.
-
-let and const cannot be re-declared within it's scope.
-
-== converts the operands to the same type and checks. === strict check. type and value should be same.
-
 why is the type of null an 'Object'?
-
-implicit and explicit binding (this)
-
-function.call(object)
-
-function.apply(object, [param1, param2])
-
-call is when you have 0 or 1 parameters, apply is when you have array of parameters (multiple parameters)
-
-call invokes then and there. bind is when you want to store and invoke later.
-
-async and defer - script inside head and no async/defer -> HTML parsing paused and script is fetched.
-
-script inside body and no async/defer -> HTML parsing finished -> script fetching
-
-script async src="" inside head -> parsing is paused and continues after script execution
-
-script defer src="" inside head -> HTML parsing finished and script is executed later. fetching happens in parallel
 
